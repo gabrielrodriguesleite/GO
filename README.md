@@ -35,10 +35,10 @@ A versão instalada deve aparecer ex:
 
 O comando `go env` mostra as variaveis de ambiente definidas.
 
----
 ###### Referências
 https://go.dev/doc/install
 
+---
 ## Hello World em Go
 
 ~/helloworld.go
@@ -48,6 +48,9 @@ import "fmt" // a biblioteca padrão que trás diversas facilidades
 
 func main() { // define uma nova função 
 	fmt.Println("Hello World") // utiliza um método da biblioteca padrão para imprimir a mensagem na tela
+
+  // Mais sobre a biblioteca padrão em:
+  // https://pkg.go.dev/fmt
 }
 ```
 
@@ -55,6 +58,7 @@ O comando `go run helloworld.go` irá executar o arquivo.
 
 Deve exibir `Hello World` na saída padrão.
 
+---
 ## Compilando com build
 
 Para compilarmos o pacote utilizamos `go build helloworld.go`
@@ -77,6 +81,7 @@ Para exibir uma lista completa use `go tool dist list`
 
 Para exibir uma ajuda sobre o comando build use `go help build`
 
+---
 ## Variaveis
 
 ```go
