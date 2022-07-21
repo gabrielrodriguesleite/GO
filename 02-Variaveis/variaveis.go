@@ -22,6 +22,6 @@ valor.
 	fmt.Printf("O tipo de 'b' é %T e tem o valor de: %v\n",b,b)
 	fmt.Printf("O tipo de 'c' é %T e tem o valor de: %v\n",c,c)
 	fmt.Printf("O tipo de 'd' é %T e tem o valor de: %v\n",d,d)
-	fmt.Printf("O tipo de 'f' é %T e tem o valor de: %v\n",e,e)
-	fmt.Printf("O tipo de 'g' é %T e tem o valor de: %v\n",f,f)
+	fmt.Printf("O tipo de 'e' é %T e tem o valor de: %v\n",e,e)
+	fmt.Printf("O tipo de 'f' é %T e tem o valor de: %v\n",f,f)
 }
