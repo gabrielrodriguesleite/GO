@@ -123,3 +123,90 @@ fmt.Printf("O tipo de 'e' é %T e tem o valor de: %v\n",e,e)
 fmt.Printf("O tipo de 'f' é %T e tem o valor de: %v\n",f,f)
 //...
 ```
+
+---
+## Go mod e Go work
+Por padrão nossos projetos precisam ficar dentro da pasta `$HOME/go/src` para que possamos acessar um pacote dentro de outro arquivo.
+
+Porém para podermos criar e manter projetos complexos precisamos ter uma maior flexibilidade com respeito a árvore de arquivos do nosso projeto.
+
+Para isso existe o Go mod.
+
+Dentro da pasta que desejamos trabalhar nosso módulo executamos `go mod init nome_do_modulo`
+
+Um arquivo `go.mod` será criado, esse arquivo define nosso modulo e indica a versão do go utilizada no momento da criação, também registra as dependências do módulo.
+
+Depois de instalarmos alguma dependência com o `go get nome_do_pacote` além do registro no `go.mod` ser atualizado também é criado um arquivo `go.sum` que serve pra travar a versão da dependência.
+
+**Dicas**
+O comando `go mod tidy` faz uma verificação e remove dependências não utilizadas também como instala dependências que estão faltando.
+
+O comando `go mod graph` mostra todas as dependências do projeto. 
+
+O comando `go mod vendor` cria uma pasta e inclui as dependências junto ao projeto.
+
+O comando `go install` é o comando correto para instalar binários.
+
+Considere o seguinte exemplo:
+
+./main.go
+
+./exemplo/exemplo.go
+
+```sh
+# Definir um go.mod partir da pasta do módulo
+cd exemplo
+go mod init exemplo
+
+# Definir um go.work (workspace) ou seja um arquivo com as dependencias locais
+cd ../
+go work init
+go work use exemplo
+go run main.go
+```
+
+./main.go
+
+./go.work
+
+./exemplo/exemplo.go
+
+./exemplo/go.mod
+
+O arquivo `go.work` criado na raiz do projeto indica o caminho dos módulos usados pelo nosso pacote `main`.
+
+###### Referências
+https://github.com/golang/tools/blob/master/gopls/doc/workspace.md
+
+---
+
+## Escopo e visibilidade
+
+O escopo em Go é bem definido.
+
+Declarações globais, feitas fora de uma função, podem ser acessadas dentro do pacote.
+
+Funções declaradas dentro de um pacote estarão visiveis a outros pacotes se forem declaradas começando com a letra maiúscula. 
+
+Nomes de funções começados com letras minusculas são visiveis apenas dentro do mesmo pacote. 
+
+O mesmo se aplica para os atributos de uma _struct_.
+
+./03-Escopo/pacote.go
+```go
+package pacote
+
+func Imprimir() {
+
+}
+```
+
+./03-Escopo/main.go
+```go
+package main
+
+import "pacote"
+func main() {
+  pacote.Imprimir()
+}
+```
