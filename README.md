@@ -124,8 +124,19 @@ fmt.Printf("O tipo de 'f' é %T e tem o valor de: %v\n",f,f)
 //...
 ```
 
+Constantes são definidas no escopo da função usando apenas "=" ao invés de ":=" ou utilizando `const`
+
+```go
+const b int = 8
+const s strint = "let's go"
+const (
+  pi = 3.14
+  c int = 25
+)
+```
+
 ---
-## Go mod e Go work
+## Go mod e Go work - Módulos e Espaço de trabalho
 Por padrão nossos projetos precisam ficar dentro da pasta `$HOME/go/src` para que possamos acessar um pacote dentro de outro arquivo.
 
 Porém para podermos criar e manter projetos complexos precisamos ter uma maior flexibilidade com respeito a árvore de arquivos do nosso projeto.
@@ -176,6 +187,7 @@ go run main.go
 O arquivo `go.work` criado na raiz do projeto indica o caminho dos módulos usados pelo nosso pacote `main`.
 
 ###### Referências
+https://go.dev/doc/tutorial/workspaces
 https://github.com/golang/tools/blob/master/gopls/doc/workspace.md
 
 ---
@@ -210,3 +222,5 @@ func main() {
   pacote.Imprimir()
 }
 ```
+
+A função Imprimir só estará disponível pois inicia com 'I' maiúsculo.

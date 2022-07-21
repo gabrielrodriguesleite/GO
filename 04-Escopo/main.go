@@ -1,6 +1,7 @@
 package main
 
+import "pacote"
 
 func main() {
-  // Pacote.Imprimir()
+	pacote.Imprimir()
 }

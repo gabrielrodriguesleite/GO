@@ -1,5 +1,0 @@
-package Pacote
-
-func Imprimir() {
-
-}
