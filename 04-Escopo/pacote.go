@@ -1,0 +1,5 @@
+package Pacote
+
+func Imprimir() {
+
+}
