@@ -28,4 +28,14 @@ func main() {
 		fmt.Println("It's a weekday")
 	}
 
+	// switch sem expressão de uma forma que expressa um if/else
+	// expressões case não precisam ser constantes:
+	t := time.Now()
+	switch {
+	case t.Hour() < 12:
+		fmt.Println("It's before noon")
+	default:
+		fmt.Println("It's after noon")
+	}
+
 }
