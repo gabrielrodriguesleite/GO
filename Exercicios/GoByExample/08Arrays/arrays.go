@@ -16,6 +16,7 @@ func main() {
 
 	fmt.Println("len:", len(a))
 
+	// declaração e inicialização de array em uma linha
 	b := [5]int{1, 2, 3, 4, 5}
 	fmt.Println("dcl:", b)
 
