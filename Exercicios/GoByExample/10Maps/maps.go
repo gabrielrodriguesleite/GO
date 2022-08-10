@@ -25,4 +25,7 @@ func main() {
 	// o metodo delete remove um par key/value quando invocado com o map e a chave
 	delete(m, "k2")
 	fmt.Println("map:", m)
+
+	_, prs := m["k2"]
+	fmt.Println("prs:", prs)
 }
