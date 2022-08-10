@@ -26,6 +26,8 @@ func main() {
 	delete(m, "k2")
 	fmt.Println("map:", m)
 
+	// o segundo parametro retornado indica se o valor está presente e serve pra distinguir um 0 ou '' de um inexistente
 	_, prs := m["k2"]
 	fmt.Println("prs:", prs)
+
 }
