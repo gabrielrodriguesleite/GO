@@ -27,6 +27,7 @@ func main() {
 		fmt.Printf("%s -> %s\n", k, v)
 	}
 
+	// range retornando as chaves de um map
 	for k := range kvs {
 		fmt.Println("key:", k)
 	}
