@@ -44,6 +44,8 @@ func main() {
 	t := []string{"g", "h", "i"}
 	fmt.Println("dcl:", t)
 
+	// slice pode ser composta por estruturas multi-dimensionais.
+	// o comprimento de cada slice interna pode variar, diferente de arrays multi-dimensionais
 	twoD := make([][]int, 3)
 	for i := 0; i < 3; i++ {
 		innerLen := i + 1
