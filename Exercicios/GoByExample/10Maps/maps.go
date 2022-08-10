@@ -22,6 +22,7 @@ func main() {
 	// o metodo len retorna o numero de pares key/value quando chamado com um map
 	fmt.Println("len:", len(m))
 
+	// o metodo delete remove um par key/value quando invocado com o map e a chave
 	delete(m, "k2")
 	fmt.Println("map:", m)
 }
