@@ -4,6 +4,10 @@ import "fmt"
 
 func main() {
 
+	// maps também chamadas de hashes ou dicts em outras linguagens
+
+	// para criar um map vazio com make:
+	// make(map[key-type]val-type)
 	m := make(map[string]int)
 
 	m["k1"] = 7
