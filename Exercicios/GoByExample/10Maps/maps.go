@@ -18,4 +18,6 @@ func main() {
 	// atribuir uma valor de uma chave do map:
 	v1 := m["k1"]
 	fmt.Println("v1: ", v1)
+
+	fmt.Println("len:", len(m))
 }
