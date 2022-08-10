@@ -19,5 +19,6 @@ func main() {
 	v1 := m["k1"]
 	fmt.Println("v1: ", v1)
 
+	// o metodo len retorna o numero de pares key/value quando chamado com um map
 	fmt.Println("len:", len(m))
 }
