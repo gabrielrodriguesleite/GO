@@ -33,4 +33,6 @@ func main() {
 	// map também pode ser declarado e iniciado na mesma linha
 	n := map[string]int{"foo": 1, "bar": 2}
 	fmt.Println("map:", n)
+
+	// maps são impressos no formato map[k:v k:v]
 }
