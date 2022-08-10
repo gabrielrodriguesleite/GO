@@ -40,6 +40,8 @@ func main() {
 	l = s[2:]
 	fmt.Println("sl3:", l)
 
+	// declaração e atribuição na mesma linha
 	t := []string{"g", "h", "i"}
 	fmt.Println("dcl:", t)
+
 }
