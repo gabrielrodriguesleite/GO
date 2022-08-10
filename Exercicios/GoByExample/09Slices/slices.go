@@ -33,6 +33,7 @@ func main() {
 	l := s[2:5]
 	fmt.Println("sl1:", l)
 
+	// slices parciais:
 	l = s[:5]
 	fmt.Println("sl2:", l)
 
