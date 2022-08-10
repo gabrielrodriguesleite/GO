@@ -32,4 +32,11 @@ func main() {
 	// Slice suporta o operador "fatia" com a sintaxe slice[low:high] onde apenas low é incluido
 	l := s[2:5]
 	fmt.Println("sl1:", l)
+
+	l = s[:5]
+	fmt.Println("sl2:", l)
+
+	l = s[2:]
+	fmt.Println("sl3:", l)
+
 }
