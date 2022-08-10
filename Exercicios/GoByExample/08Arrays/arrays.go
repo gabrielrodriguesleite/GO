@@ -20,6 +20,7 @@ func main() {
 	b := [5]int{1, 2, 3, 4, 5}
 	fmt.Println("dcl:", b)
 
+	// arrays são unidimensionais mas podem construir um tipo de estrutura de dado composto
 	var twoD [2][3]int
 	for i := 0; i < 2; i++ {
 		for j := 0; j < 3; j++ {
