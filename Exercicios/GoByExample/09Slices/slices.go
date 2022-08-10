@@ -23,6 +23,8 @@ func main() {
 	s = append(s, "e", "f")
 	fmt.Println("apd:", s)
 
+	// Slice pode ser copiado. Criando um slice vazio de mesmo tamanho e chamando a função copy
+	// passando o slice alvo e em seguida o slice fonte
 	c := make([]string, len(s))
 	copy(c, s)
 	fmt.Println("cpy:", c)
