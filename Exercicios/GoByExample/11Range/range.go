@@ -13,4 +13,11 @@ func main() {
 		sum += num
 	}
 	fmt.Println("sum", sum)
+
+	// range retorna o indice e o valor do slice ou array
+	for i, num := range nums {
+		if num == 3 {
+			fmt.Println("index:", i)
+		}
+	}
 }
