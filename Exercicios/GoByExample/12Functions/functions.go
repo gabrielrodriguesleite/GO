@@ -2,8 +2,10 @@ package main
 
 import "fmt"
 
+// função basica que pega 2 inteiros e retorna um inteiro com a soma dos dois
 func plus(a int, b int) int {
 
+	// go não retorna automaticamente o valor da expressão
 	return a + b
 
 }
