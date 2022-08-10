@@ -31,4 +31,8 @@ func main() {
 	for k := range kvs {
 		fmt.Println("key:", k)
 	}
+
+	for i, c := range "go" {
+		fmt.Println(i, c)
+	}
 }
