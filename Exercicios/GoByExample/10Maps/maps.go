@@ -30,6 +30,7 @@ func main() {
 	_, prs := m["k2"]
 	fmt.Println("prs:", prs)
 
+	// map também pode ser declarado e iniciado na mesma linha
 	n := map[string]int{"foo": 1, "bar": 2}
 	fmt.Println("map:", n)
 }
