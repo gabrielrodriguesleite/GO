@@ -15,6 +15,7 @@ func main() {
 
 	fmt.Println("map:", m)
 
+	// atribuir uma valor de uma chave do map:
 	v1 := m["k1"]
 	fmt.Println("v1: ", v1)
 }
