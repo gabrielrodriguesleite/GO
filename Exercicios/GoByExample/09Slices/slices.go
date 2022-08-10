@@ -29,6 +29,7 @@ func main() {
 	copy(c, s)
 	fmt.Println("cpy:", c)
 
+	// Slice suporta o operador "fatia" com a sintaxe slice[low:high] onde apenas low é incluido
 	l := s[2:5]
 	fmt.Println("sl1:", l)
 }
