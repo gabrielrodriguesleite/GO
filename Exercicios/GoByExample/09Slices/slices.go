@@ -18,6 +18,7 @@ func main() {
 	fmt.Println("get:", s[2])
 	fmt.Println("len", len(s))
 
+	// append retorna um **novo** slice contendo um ou mais valores passados por parametro.
 	s = append(s, "d")
 	s = append(s, "e", "f")
 	fmt.Println("apd:", s)
