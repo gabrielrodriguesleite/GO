@@ -32,6 +32,9 @@ func main() {
 		fmt.Println("key:", k)
 	}
 
+	// range interando string (rune) e retornando o indice e o valor para unicode
+	// veja: https://gobyexample.com/strings-and-runes
+	// rune é um inteiro que representa um código Unicode: veja: https://go.dev/blog/strings
 	for i, c := range "go" {
 		fmt.Println(i, c)
 	}
