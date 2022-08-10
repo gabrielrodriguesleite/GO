@@ -10,6 +10,7 @@ func main() {
 	s := make([]string, 3)
 	fmt.Println("emp:", s)
 
+	// É possível atribuir e ler o valor e saber o tamanho assim como arrays
 	s[0] = "a"
 	s[1] = "b"
 	s[2] = "c"
