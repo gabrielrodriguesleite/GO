@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// multiplos valores de retorno são permitidos mas não estão neste exemplo
+
 // função basica que pega 2 inteiros e retorna um inteiro com a soma dos dois
 func plus(a int, b int) int {
 
@@ -10,6 +12,7 @@ func plus(a int, b int) int {
 
 }
 
+// multiplos parametros consecutivos podem ter o tipo definido em seguida
 func plusPlus(a, b, c int) int {
 
 	return a + b + c
