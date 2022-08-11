@@ -65,7 +65,8 @@ func main() {
 
 	// a marcação de warning é por que os tipos podem ser omitidos pois serão
 	// definidos por inferência
-	_ = MapKeys[int, string](m)
+	// _ = MapKeys[int, string](m)
+	_ = MapKeys(m) // o linter não deixa especificar quando pode ser omitido
 
 	lst := List[int]{}
 	lst.Push(10)
