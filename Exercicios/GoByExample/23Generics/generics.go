@@ -63,6 +63,8 @@ func main() {
 	// já que o compilador será capaz de inferir automaticamente
 	// mas é possível sim especificar explicitamente
 
+	// a marcação de warning é por que os tipos podem ser omitidos pois serão
+	// definidos por inferência
 	_ = MapKeys[int, string](m)
 
 	lst := List[int]{}
