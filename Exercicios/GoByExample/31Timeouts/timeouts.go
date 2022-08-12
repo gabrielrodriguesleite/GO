@@ -20,6 +20,11 @@ func main() {
 		time.Sleep(2 * time.Second)
 	}()
 
+	// Aqui o select implementa um timeout.
+	// res := <-c1 aguarda o resultado e <-time.Afet aguarda um valor
+	// ser enviado apos o timeout de 1s.
+	// Já que o select continua com o primeiro recebimento que está pronto,
+	// nos vamos receber o caso timeout se a operação levar mais que o 1s permitido
 	select {
 	case res := <-c1:
 		fmt.Println(res)
