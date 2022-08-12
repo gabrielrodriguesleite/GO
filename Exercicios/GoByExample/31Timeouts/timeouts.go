@@ -7,6 +7,7 @@ import (
 
 // Timeouts são importantes que se conectam com recursos externos
 // ou que estejam vinculados de outra forma ao tempo de execução
+// Implementar timeouts em  go é facil e elegante graças a channels e select
 func main() {
 
 	c1 := make(chan string, 1)
