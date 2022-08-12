@@ -46,3 +46,6 @@ func main() {
 		fmt.Println("timeout 2")
 	}
 }
+
+// Rodando esta aplicação mostra o primeiro timeout
+// e o segundo resultado com sucesso
