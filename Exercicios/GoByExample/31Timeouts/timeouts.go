@@ -33,6 +33,8 @@ func main() {
 		fmt.Println("timeout 1")
 	}
 
+	// Se permitirmos um timeout mais longo de 3s, então o receptor
+	// do c2 vai receber com sucesso o resultado em mostrar na tela
 	c2 := make(chan string, 1)
 	go func() {
 		time.Sleep(2 * time.Second)
