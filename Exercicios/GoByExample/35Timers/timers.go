@@ -29,3 +29,6 @@ func main() {
 
 	time.Sleep(2 * time.Second)
 }
+
+// O primeiro timer vai iniciar ~2s após o início do programa, mas o segundo
+// deve ser parado antes de ter a chance de iniciar.
