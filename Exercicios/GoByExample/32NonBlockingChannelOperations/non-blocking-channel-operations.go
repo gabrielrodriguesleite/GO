@@ -22,9 +22,12 @@ func main() {
 		fmt.Println("no message received")
 	}
 
+	// Um envio não bloqueante funciona de modo similar.
+	// Aqui msg não pode ser enviado para o channel messages,
+	// pois é um channel não buffered e não existem receptores.
+	// Portanto o caso default é selecionado
 	msg := "hi"
 	select {
-
 	case messages <- msg:
 		fmt.Println("sent message", msg)
 	default:
