@@ -36,6 +36,8 @@ func main() {
 		fmt.Println("no message sent")
 	}
 
+	// É possível implementar um select multi direcional não bloqueante
+	// Aqui temos receptores não bloqueantes para ambos os canais messages e signals
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)
