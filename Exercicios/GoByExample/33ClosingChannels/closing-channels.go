@@ -9,6 +9,10 @@ import "fmt"
 
 func main() {
 
+	// Neste exemplo é usado 2 channels, job comunica o serviço
+	// feito a partir da main() goroutine para a worker goroutine.
+	// Quando não temos mais jobs para o worker nos fechamos o
+	// channel jobs com close(jobs)
 	jobs := make(chan int, 5)
 	done := make(chan bool)
 
