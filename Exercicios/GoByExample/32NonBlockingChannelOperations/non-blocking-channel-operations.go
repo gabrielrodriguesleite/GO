@@ -12,6 +12,9 @@ func main() {
 	messages := make(chan string)
 	// signals := make(chan bool)
 
+	// Aqui a implementação de um receptor não bloqueante.
+	// Se um valor estiver disponível em messags então select
+	// capturará o valor no caso <-messages
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)
