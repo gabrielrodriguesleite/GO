@@ -27,6 +27,8 @@ func main() {
 		fmt.Println("Timer 2 stopped")
 	}
 
+	// Dar tempo suficiente para o timer2 iniciar, se é que vai disparar, para
+	// mostrar que está de fato parado.
 	time.Sleep(2 * time.Second)
 }
 
