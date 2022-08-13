@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+// Fechar (close(channel)) um channel indica que
+// não serão enviados novos valores por ele
+// Isso pode ser util para comunicar para o receptor
+// que a transmissão está completa.
+
 func main() {
 
 	jobs := make(chan int, 5)
