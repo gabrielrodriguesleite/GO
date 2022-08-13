@@ -16,6 +16,12 @@ func main() {
 	jobs := make(chan int, 5)
 	done := make(chan bool)
 
+	// Este goroutine worker recebe repetidas vezes de jobs com
+	// j, more := <-jobs
+	// Nesta configuração o valor de more vai ser false se jobs
+	// tiver sido fechado e todos os valores no channel tiverem
+	// sido recebidos. Usamos more para notificar quando o
+	// worker (goroutine) recebeu todos os nossos jobs
 	go func() {
 		for {
 			j, more := <-jobs
@@ -29,6 +35,7 @@ func main() {
 		}
 	}()
 
+	// Este for envia 3 jobs para o worker pelo channel jobs então o fecha
 	for j := 1; j <= 3; j++ {
 		jobs <- j
 		fmt.Println("sent job", j)
@@ -37,6 +44,8 @@ func main() {
 	close(jobs)
 	fmt.Println("sent all jobs")
 
+	// Usando o padrão visto anteriormente de sincronização
+	// para aguardarmos o worker completar
 	<-done
 
 }
