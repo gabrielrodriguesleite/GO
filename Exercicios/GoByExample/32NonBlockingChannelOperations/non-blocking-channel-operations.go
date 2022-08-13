@@ -22,4 +22,13 @@ func main() {
 		fmt.Println("no message received")
 	}
 
+	msg := "hi"
+	select {
+
+	case messages <- msg:
+		fmt.Println("sent message", msg)
+	default:
+		fmt.Println("no message sent")
+	}
+
 }
