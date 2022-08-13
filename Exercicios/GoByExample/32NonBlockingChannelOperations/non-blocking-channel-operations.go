@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // Por padrão enviar e receber por channels são operações bloqueantes.
 // Contudo, por usar um select com caso default implementamos
@@ -10,7 +12,7 @@ import "fmt"
 func main() {
 
 	messages := make(chan string)
-	// signals := make(chan bool)
+	signals := make(chan bool)
 
 	// Aqui a implementação de um receptor não bloqueante.
 	// Se um valor estiver disponível em messags então select
@@ -32,6 +34,15 @@ func main() {
 		fmt.Println("sent message", msg)
 	default:
 		fmt.Println("no message sent")
+	}
+
+	select {
+	case msg := <-messages:
+		fmt.Println("received message", msg)
+	case sig := <-signals:
+		fmt.Println("received signal", sig)
+	default:
+		fmt.Println("no activity")
 	}
 
 }
