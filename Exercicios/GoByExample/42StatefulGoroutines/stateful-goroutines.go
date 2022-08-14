@@ -7,6 +7,14 @@ import (
 	"time"
 )
 
+// No exemplo anterior foi usado mutex para bloquear o acesso explicitamente
+// e assim sincronizar o acesso ao estado compartilhado entre muitas
+// goroutines. Ainda outra opção é usar o recurso de sincronização de
+// goroutines e channels para conseguir o mesmo resultado.
+// Esta abordagem baseada em canais se alinha com a idéia de Go de compartilhar
+// memoria por comunicar e ter uma parte dos dados pertencente a apenas uma
+// goroutine.
+
 type readOp struct {
 	key  int
 	resp chan int
