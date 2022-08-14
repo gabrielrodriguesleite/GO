@@ -11,6 +11,10 @@ import (
 // channels e tickers.
 func main() {
 
+	// Primeiro vemos um rate limiting básico.
+	// Supondo que queremos limitar nosso manipulador de requisições
+	// de entrada. Nós vamos servir estas requisições por canais de
+	// mesmo nome.
 	requests := make(chan int, 5)
 	for i := 1; i <= 5; i++ {
 		requests <- i
