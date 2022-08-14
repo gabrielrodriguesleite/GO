@@ -5,6 +5,8 @@ import (
 	"sync"
 )
 
+// Outra forma de acessar e alterar estado de dentro de goroutines
+// de forma segura é pelo uso de mutex.
 type Container struct {
 	mu       sync.Mutex
 	counters map[string]int
