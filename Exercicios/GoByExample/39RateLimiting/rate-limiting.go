@@ -26,4 +26,9 @@ func main() {
 		burstyLimiter <- time.Now()
 	}
 
+	go func() {
+		for t := range time.Tick(200 * time.Millisecond) {
+			burstyLimiter <- t
+		}
+	}()
 }
