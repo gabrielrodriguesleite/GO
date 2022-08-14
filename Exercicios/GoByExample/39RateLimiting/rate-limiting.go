@@ -21,8 +21,13 @@ func main() {
 	}
 	close(requests)
 
+	// Este channel limiter vai receber um valor a cada 200ms.
+	// Este é o regulador do nosso esquema limitante.
 	limiter := time.Tick(200 * time.Millisecond)
 
+	// Por bloquear na recepção do canal limiter antes de servir
+	// cada requisição, limitamos os sistema a 1 requisição a
+	// cada 200ms
 	for req := range requests {
 		<-limiter
 		fmt.Println("request", req, time.Now())
