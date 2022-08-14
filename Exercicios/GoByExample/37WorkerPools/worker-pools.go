@@ -8,6 +8,10 @@ import (
 // Aqui temos um exemplo de como implementar um worker pool usando
 // goroutines e channels
 
+// Aqui um worker do qual iremos rodar varias instancias concorrentes.
+// Estes workers vão receber trabalhos pelo canal jobs e enviar
+// o resultado pelo canal results.
+// Vamos usar sleep por 1s por trabalho para simular uma tarefa pesada
 func worker(id int, jobs <-chan int, results chan<- int) {
 	for j := range jobs {
 		fmt.Println("worker", id, "started job", j)
