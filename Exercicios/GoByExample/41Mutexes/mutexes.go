@@ -7,6 +7,12 @@ import (
 
 // Outra forma de acessar e alterar estado de dentro de goroutines
 // de forma segura é pelo uso de mutex.
+
+// Container possui um map de couters, neste exemplo o intuito é
+// atualizar isto de forma concorrente por meio de goroutines.
+// Incluimos um Mutex para sincronizar o acesso.
+// Mutexes não devem ser copiados então usamos essa estrutura no
+// código por meio de um ponteiro
 type Container struct {
 	mu       sync.Mutex
 	counters map[string]int
