@@ -6,8 +6,13 @@ import (
 	"time"
 )
 
+// Podemos usar Wait Group para aguradar multiplas
+// goroutines finalizarem.
+
+// Esta função será executada a cada goroutine
 func worker(id int) {
 	fmt.Printf("Worker %d starting\n", id)
+	// Sleep por 1s para simular uma tarefa pesada
 	time.Sleep(time.Second)
 	fmt.Printf("Worker %d done\n", id)
 }
