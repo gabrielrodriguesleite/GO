@@ -38,5 +38,16 @@ func main() {
 	// Aguardamos até que todas as goroutines tenham feito seu trabalho
 	wg.Wait()
 
+	// Nesse momento é seguro acessar ops pois sabemos que nenhuma goroutine
+	// está escrevendo ele.
+	// Ler atomics de maneira segura é possível usando funções como
+	// atomic.LoadUint64
 	fmt.Println("ops:", ops)
+
 }
+
+// Experamos ter 50000 operações.
+// Se tivesse sido usada a forma não atomica para incrementar ex: ops++
+// A cada execução teríamos um valor diferente por que cada goroutine
+// estaria interferindo na execução da outra.
+// Além disso temos falhas de data race quando rodamos com a flag -race
