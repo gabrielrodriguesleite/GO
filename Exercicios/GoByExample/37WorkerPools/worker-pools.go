@@ -5,6 +5,9 @@ import (
 	"time"
 )
 
+// Aqui temos um exemplo de como implementar um worker pool usando
+// goroutines e channels
+
 func worker(id int, jobs <-chan int, results chan<- int) {
 	for j := range jobs {
 		fmt.Println("worker", id, "started job", j)
