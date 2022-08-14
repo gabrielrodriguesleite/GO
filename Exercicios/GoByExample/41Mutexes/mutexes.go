@@ -58,3 +58,5 @@ func main() {
 
 	fmt.Println(c.counters)
 }
+
+// Ao rodar essa aplicação é mostrado os contadores atualizado como experado
