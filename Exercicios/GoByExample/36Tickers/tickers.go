@@ -11,6 +11,9 @@ import (
 
 func main() {
 
+	// Ticker usam um mecanismo similare aos timers. Um channel que envia valores.
+	// Nesse código usamos um select no channel do ticker para aguardar os
+	// valores que chegam a cada ~500ms
 	ticker := time.NewTicker(500 * time.Millisecond)
 	done := make(chan bool)
 
@@ -25,8 +28,13 @@ func main() {
 		}
 	}()
 
+	// Tickers podem ser parados assim como timers. Uma vez que um ticker é parado
+	// ele não consegue mais receber nenhum valor no seu channel.
+	// Aqui paramos após 1600ms
 	time.Sleep(1600 * time.Millisecond)
 	ticker.Stop()
 	done <- true
 	fmt.Println("Ticker stopped")
 }
+
+// Quando rodamos este programa o ticker deve executar 3 vezes antes de ser parado.
