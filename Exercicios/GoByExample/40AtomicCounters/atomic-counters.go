@@ -6,6 +6,11 @@ import (
 	"sync/atomic"
 )
 
+// O mecanismo primario para manegar estado em Go é a
+// comunicação por meio dos canais. Vimos um exemplo disso
+// em worker pools. Existem outras opções para manejar o estado.
+// Aqui vemos o uso do pacote sync/atomic para atomic counters
+// acessados por multimplas goroutines
 func main() {
 
 	var ops uint64
