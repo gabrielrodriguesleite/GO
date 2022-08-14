@@ -18,6 +18,9 @@ type Container struct {
 	counters map[string]int
 }
 
+// O procedimento deve ser bloquear o acesso com mutex.Lock()
+// Então usar um defer para desbloquear no final da função com
+// mutex.Unlock()
 func (c *Container) inc(name string) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
