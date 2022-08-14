@@ -57,3 +57,5 @@ func main() {
 // Esta abordagem não implementou um via direta para propagar erros dos workers.
 // Para saber sobre casos avançados de uso considere usar o pacote errgroup
 // Mais aqui: https://pkg.go.dev/golang.org/x/sync/errgroup
+
+// A ordem que os workers iniciam e terminam pode ser diferente a cada invocação.
