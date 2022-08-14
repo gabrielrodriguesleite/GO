@@ -33,6 +33,10 @@ func main() {
 		fmt.Println("request", req, time.Now())
 	}
 
+	// Também podemos querer permitir surtos de requisições no
+	// esquema limitante preservando os limites totais.
+	// É possível conseguir isso bufferizando nosso canal limitante.
+	// Este canal burtyLimiter vai permitir surtos de até 3 eventos
 	burstyLimiter := make(chan time.Time, 3)
 
 	for i := 0; i < 3; i++ {
