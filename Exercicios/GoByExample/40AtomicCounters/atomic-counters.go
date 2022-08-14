@@ -13,13 +13,20 @@ import (
 // acessados por multimplas goroutines
 func main() {
 
+	// Usaremos um inteiro sem sinal para representar nosso contador.
 	var ops uint64
 
+	// Um WaitGroup auxiliara a aguardar todas as goroutines finalizarem
+	// seu trabalho
 	var wg sync.WaitGroup
 
+	// Iniciamos 50 goroutines onde cada uma incrementar o contador
+	// exatamente 1000 vezes.
 	for i := 0; i < 50; i++ {
 		wg.Add(1)
 
+		// Para atomicamente incrementar o contador usamos AddUint64,
+		// passando o endereço do nosso contador ops com a sintaxe &
 		go func() {
 			for c := 0; c < 1000; c++ {
 				atomic.AddUint64(&ops, 1)
@@ -28,6 +35,7 @@ func main() {
 		}()
 	}
 
+	// Aguardamos até que todas as goroutines tenham feito seu trabalho
 	wg.Wait()
 
 	fmt.Println("ops:", ops)
