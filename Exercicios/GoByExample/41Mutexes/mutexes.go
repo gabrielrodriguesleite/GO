@@ -29,12 +29,15 @@ func (c *Container) inc(name string) {
 
 func main() {
 
+	// Não é necessário inicializar um mutex como seu valor zerado
+	// já está pronto para o uso.
 	c := Container{
 		counters: map[string]int{"a": 0, "b": 0},
 	}
 
 	var wg sync.WaitGroup
 
+	// Esta função incrementa em um loop um contador nomeado
 	doIncrement := func(name string, n int) {
 		for i := 0; i < n; i++ {
 			c.inc(name)
@@ -42,12 +45,16 @@ func main() {
 		wg.Done()
 	}
 
+	// Rodando várias goroutines concorrentes.
+	// Todas acessam o mesmo Container, e duas delas acesam o
+	// mesmo contador.
 	wg.Add(3)
-
 	go doIncrement("a", 10000)
 	go doIncrement("a", 10000)
 	go doIncrement("b", 10000)
 
+	// Aguardar todas goroutines finalizarem
 	wg.Wait()
+
 	fmt.Println(c.counters)
 }
