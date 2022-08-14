@@ -19,4 +19,11 @@ func main() {
 		<-limiter
 		fmt.Println("request", req, time.Now())
 	}
+
+	burstyLimiter := make(chan time.Time, 3)
+
+	for i := 0; i < 3; i++ {
+		burstyLimiter <- time.Now()
+	}
+
 }
