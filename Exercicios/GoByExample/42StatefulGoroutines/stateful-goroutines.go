@@ -15,6 +15,12 @@ import (
 // memoria por comunicar e ter uma parte dos dados pertencente a apenas uma
 // goroutine.
 
+// Neste exemplo o estrado vai pertencer a apenas uma goroutine.
+// Isto vai garantir que o dado nunca seja corrompido por um acesso concorrente.
+// Para ter acesso de leitura e escrita, as goroutines enviarão mensagens para
+// a goroutine que possui o dado e esta enviará as correspondentes respostas.
+// As estruturas readOp e writeOp encapsulam estas vias de requisições por onde
+// a goroutine proprietária possa responder.
 type readOp struct {
 	key  int
 	resp chan int
