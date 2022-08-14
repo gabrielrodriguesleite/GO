@@ -11,6 +11,7 @@ import (
 // channels e tickers.
 func main() {
 
+	fmt.Println("Sistema de limite de taxa (1/200ms)")
 	// Primeiro vemos um rate limiting básico.
 	// Supondo que queremos limitar nosso manipulador de requisições
 	// de entrada. Nós vamos servir estas requisições por canais de
@@ -32,6 +33,9 @@ func main() {
 		<-limiter
 		fmt.Println("request", req, time.Now())
 	}
+
+	// ----------------------------------------------------------
+	fmt.Println("Com sistema que lida com surto de até 3 (2+1/200ms)")
 
 	// Também podemos querer permitir surtos de requisições no
 	// esquema limitante preservando os limites totais.
@@ -64,3 +68,10 @@ func main() {
 		fmt.Println("request", req, time.Now())
 	}
 }
+
+// Rodando a aplicação vemos como a mesma lida com a primeira leva de
+// requisições, uma a cada 200ms em média como desejado.
+
+// Para a segunda leva de requisições servimos as 3 primeiras
+// imediatamente por conta do sistema que lida com surto em seguida
+// são servidas as últimas 2 com ~200ms de atrazo cada.
