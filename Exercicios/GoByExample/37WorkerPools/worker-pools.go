@@ -23,6 +23,8 @@ func worker(id int, jobs <-chan int, results chan<- int) {
 
 func main() {
 
+	fmt.Println("Inicio a:", time.Now())
+
 	// Para usar a pool de workers precisamos enviar trabalhos e coletar
 	// resultados. Para isso usamos 2 canais, jobs e results.
 	const numJobs = 5
@@ -48,6 +50,8 @@ func main() {
 	for a := 1; a <= numJobs; a++ {
 		<-results
 	}
+
+	fmt.Println("Fim a:", time.Now())
 
 }
 
