@@ -39,16 +39,21 @@ func main() {
 	// Este canal burtyLimiter vai permitir surtos de até 3 eventos
 	burstyLimiter := make(chan time.Time, 3)
 
+	// Lotando o canal para simular um surto controlado.
 	for i := 0; i < 3; i++ {
 		burstyLimiter <- time.Now()
 	}
 
+	// A cada 200ms vamos tentar incluir um novo valor ao burstyLimiter
+	// até o limite máximo de 3.
 	go func() {
 		for t := range time.Tick(200 * time.Millisecond) {
 			burstyLimiter <- t
 		}
 	}()
 
+	// Agora simulando 5 requisições de entrada. As 3 primeiras delas
+	// vão se beneficiar da capacidade de absorver surto de burstyLimiter
 	burstyRequests := make(chan int, 5)
 	for i := 1; i <= 5; i++ {
 		burstyRequests <- i
