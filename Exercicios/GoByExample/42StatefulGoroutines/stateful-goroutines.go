@@ -99,10 +99,16 @@ func main() {
 		}()
 	}
 
+	// Permitir que as goroutines trabalhem por 1 segundo.
 	time.Sleep(time.Second)
 
+	// Capturar as contagens e reportas os resultados.
 	readOpsFinal := atomic.LoadUint64(&readOps)
 	fmt.Println("readOps:", readOpsFinal)
 	writeOpsFinal := atomic.LoadUint64(&writeOps)
 	fmt.Println("writeOps:", writeOpsFinal)
 }
+
+// Rodando a aplicação mostra que esta abordagem de manejamento de estado
+// por meio de uma goroutine dona do estado completou mais de 80.000 operações
+// no total em 1 segundo.
