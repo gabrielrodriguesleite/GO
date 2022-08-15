@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+// É possível recuperar de um panic com a função recover.
+// recover pode ser usado para evitar que a aplicação seja abortada
+// por um panic e permitir que a aplicação continue rodando
+
 func mayPanic() {
 	panic("a problem")
 }
