@@ -23,3 +23,14 @@ func main() {
 		panic(err)
 	}
 }
+
+// Rodando essa aplicação com a linha 14 descomentada irá fazer um panic,
+// imprimindo a mensagem de erro na tela, traços da goroutine e sair
+// com um status diferente de zero.
+
+// A aplicação é abortada ao encontrar o primeiro panic por isso só irá executar
+// a criação arquivo se a linha(14) com panic for comentada.
+
+// Diferente de muitas linguagens onde se usam excessões para lidar com muitos
+// tipos de erros, em Go isto é feito de uma maneira mais "idiomática" onde
+// se retorna um valor de erro indicativo onde é possível.
