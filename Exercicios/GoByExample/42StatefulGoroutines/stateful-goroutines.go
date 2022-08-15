@@ -112,3 +112,10 @@ func main() {
 // Rodando a aplicação mostra que esta abordagem de manejamento de estado
 // por meio de uma goroutine dona do estado completou mais de 80.000 operações
 // no total em 1 segundo.
+
+// Para este caso em particular, a abordagem de um estado manejado por uma goroutine
+// envolve um pouco a mais do que usando mutex.
+// Este exemplo pode ser útil em certos casos, por exemplo onde se tem outros canais
+// envolvidos ou quando manejar multiplos mutex estejam sujeitos a erros.
+// O importante é utilizar a abordagem que pareça mais natural em especial para o
+// correto entendimento da aplicação.
