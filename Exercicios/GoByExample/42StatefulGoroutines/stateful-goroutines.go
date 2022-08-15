@@ -34,12 +34,22 @@ type writeOp struct {
 
 func main() {
 
+	// Vamos registrar quantos operações serão realizadas.
 	var readOps uint64
 	var writeOps uint64
 
+	// Os canais reads e writes vão ser usados por outras goroutines para lançar
+	// as requisições de leitura e escrita.
 	reads := make(chan readOp)
 	writes := make(chan writeOp)
 
+	// A nossas goroutine que possui o state, que será um map assim como no exemplo
+	// anterior, porém agora privado para a goroutine stateful.
+	// Esta goroutine usa um select em loop entre os canais reads e writes,
+	// respondendo as requisições que chegam.
+	// Uma resposta é executada primeiramente performando uma operação de requisição
+	// e então enviando um valor no canal de resposta resp para indicar sucesso
+	// (e o valor desejado no caso de leitura reads)
 	go func() {
 		var state = make(map[int]int)
 		for {
