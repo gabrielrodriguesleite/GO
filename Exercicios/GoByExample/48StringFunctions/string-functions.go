@@ -5,9 +5,19 @@ import (
 	s "strings"
 )
 
+// O pacote padrão strings prove muitas funções úteis para trabalhar
+// com strings. Aqui temos alguns exemplos:
+
+// Apelidamos fmt.Println para um nome mais curto como será muito usado,
+// o mesmo é feito com stings
 var p = fmt.Println
 
+// Uma amostra das funções disponíveis no pacote padrão strings.
+// Como são funções do pacote e não métodos de string, é necessário
+// passar a string em questão como primero argumento da função.
+// Para mais exemplos acesse: https://pkg.go.dev/strings
 func main() {
+
 	p("Contains:  ", s.Contains("test", "es"))
 	p("Count:     ", s.Count("test", "t"))
 	p("HasPrefix: ", s.HasPrefix("test", "te"))
