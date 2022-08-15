@@ -63,6 +63,10 @@ func main() {
 		}
 	}()
 
+	// Aqui é iniciado 100 goroutines que lançaram requisições de leitura para a
+	// goroutine proprietária do estado via canal reads.
+	// Cada read precisa construir uma estrutura readOp e enviar através do canal
+	// reads e então receber o resultado pelo canal de resposta provido, resp.
 	for r := 0; r < 100; r++ {
 		go func() {
 			for {
@@ -78,6 +82,7 @@ func main() {
 		}()
 	}
 
+	// Iniciamos também 10 goroutines de escrita usando uma abordagem similar.
 	for w := 0; w < 10; w++ {
 		go func() {
 			for {
