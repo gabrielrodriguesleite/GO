@@ -36,8 +36,19 @@ func (s byLength) Less(i, j int) bool {
 	return len(s[i]) < len(s[j])
 }
 
+// Com toda lógica de ordenação pronta, implementamos a função
+// personalizada de sort por converter a slice original fruits
+// para byLenght, e então usar sort.Sort nesta slice tipada.
 func main() {
 	fruits := []string{"peach", "banana", "kiwi"}
 	sort.Sort(byLength(fruits))
 	fmt.Println(fruits)
 }
+
+// Rodando a aplicação é exibida a lista ordenada pelo comprimento.
+
+// Recapitulando:
+// Seguir o mesmo padrão de criação de um tipo personalizado
+// Implementar os 3 métodos da Interface deste tipo
+// Chamar a funçaõ sort.Sort numa coleção do tipo personalizado,
+// Assim é possível ordenar slices em Go usando funções personalizadas.
