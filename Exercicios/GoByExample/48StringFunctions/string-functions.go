@@ -33,7 +33,7 @@ func main() {
 
 }
 
-/*
+/* SAÍDA DOS EXEMPLOS ACIMA
 $ go run string-functions.go
 Contains:   true
 Count:      2
