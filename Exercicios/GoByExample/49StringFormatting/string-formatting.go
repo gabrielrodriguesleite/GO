@@ -35,4 +35,12 @@ func main() {
 	// Existem diversas formas de imprimir inteiros
 	// %d por padrão, formatação com base 10
 	fmt.Printf("int: %d\n", 123)
+
+	// -----------
+
+	fmt.Printf("bin: %b\n", 8)
+	fmt.Printf("char: %c\n", 65)
+	fmt.Printf("hex: %x\n", 10)
+	fmt.Printf("float1: %f\n", 65.32)
+
 }
