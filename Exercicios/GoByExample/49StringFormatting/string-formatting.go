@@ -26,9 +26,13 @@ func main() {
 
 	// -----------
 
+	// Para imprimir o tipo de um valor podemos usar %T
 	fmt.Printf("type: %T\n", p)
 
+	// Para imprimir um booleano %t
 	fmt.Printf("bool: %t\n", true)
 
+	// Existem diversas formas de imprimir inteiros
+	// %d por padrão, formatação com base 10
 	fmt.Printf("int: %d\n", 123)
 }
