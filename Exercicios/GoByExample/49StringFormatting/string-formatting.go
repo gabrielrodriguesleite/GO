@@ -24,4 +24,11 @@ func main() {
 	// ex: o código fonte que vai produzir o valor
 	fmt.Printf("struct3: %#v\n", p)
 
+	// -----------
+
+	fmt.Printf("type: %T\n", p)
+
+	fmt.Printf("bool: %t\n", true)
+
+	fmt.Printf("int: %d\n", 123)
 }
