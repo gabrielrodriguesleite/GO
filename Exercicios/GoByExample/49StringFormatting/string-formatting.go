@@ -17,8 +17,11 @@ func main() {
 	// estrutura point:
 	fmt.Printf("struct1: %v\n", p)
 
+	// Para valores que são estruturas o %+v vai incluir os nomes dos campos
 	fmt.Printf("struct2: %+v\n", p)
 
+	// %#v imprime a sintaxe Go que representa o valor.
+	// ex: o código fonte que vai produzir o valor
 	fmt.Printf("struct3: %#v\n", p)
 
 }
