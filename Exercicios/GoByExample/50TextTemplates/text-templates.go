@@ -6,7 +6,7 @@ import (
 )
 
 // Go possui na biblioteca padrão suporte para criação de conteúdo
-// dinâmico ou para apresesentar uma saída personalizada para o
+// dinâmico ou para apresentar uma saída personalizada para o
 // usuário com o pacote text/template. Um pacote irmão de nome
 // html/template prove a mesma API mas possui funcionalidades
 // adicionais de segurança e é usada para gerar HTML
