@@ -74,3 +74,14 @@ func main() {
 	t4 := Create("t4", "Range: {{range .}}{{.}} {{end}}\n")
 	t4.Execute(os.Stdout, []string{"Go", "Rust", "C++", "C#"})
 }
+
+/* SAÍDA DE EXEMPLO para o código acima
+Value: some text
+Value: 5
+Value: [Go Rust C++ C#]
+Name: Jane Doe
+Name: Mickey Mouse
+yes
+no
+Range: Go Rust C++ C#
+*/
