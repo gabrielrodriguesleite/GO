@@ -65,8 +65,12 @@ func main() {
 	// %x também apresenta um caractere como um byte hexadecimal
 	fmt.Printf("str3: %x\n", "hex this")
 
+	// %p representa um ponteiro (valor na memória em hexa)
 	fmt.Printf("pointer: %p\n", &p)
 
+	// %#verbo o # (inteiro) faz o controle de largura e a precisão de caracteres ao
+	// representar um número. Por padrão o resultado vai ser justificado a direita
+	// e preenchido com espaços.
 	fmt.Printf("width1: |%6d|%6d|\n", 648, 45)
 
 }
