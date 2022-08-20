@@ -13,6 +13,10 @@ import (
 
 func main() {
 
+	// Podemos criar um novo modelo de texto e traduzir seu corpo a
+	// partir de uma string. Modelos são uma mistura de texto estático
+	// e "ações" enclausuradas em {{...}} estas que são usadas para
+	// inserir conteúdo dinâmico.
 	t1 := template.New("t1")
 	t1, err := t1.Parse("Value is {{.}}\n")
 	if err != nil {
