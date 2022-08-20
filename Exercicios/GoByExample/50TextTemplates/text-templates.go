@@ -9,11 +9,11 @@ import (
 // dinâmico ou para apresentar uma saída personalizada para o
 // usuário com o pacote text/template. Um pacote irmão de nome
 // html/template prove a mesma API mas possui funcionalidades
-// adicionais de segurança e é usada para gerar HTML
+// adicionais de segurança e é usada para gerar HTML.
 
 func main() {
 
-	// Podemos criar um novo modelo de texto e traduzir seu corpo a
+	// Podemos criar um novo modelo de texto e traduzir seu corpo à
 	// partir de uma string. Modelos são uma mistura de texto estático
 	// e "ações" enclausuradas em {{...}} estas que são usadas para
 	// inserir conteúdo dinâmico.
@@ -23,7 +23,7 @@ func main() {
 		panic(err)
 	}
 
-	// Como alternativa, podemos usar temlate.Must para lançar um panic
+	// Como alternativa, podemos usar template.Must para lançar um panic
 	// no caso do parse retornar um erro. O que é especialmente útil
 	// para modelos inicializados no escopo global.
 	t1 = template.Must(t1.Parse("Value: {{.}}\n"))
