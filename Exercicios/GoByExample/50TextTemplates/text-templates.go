@@ -70,7 +70,7 @@ func main() {
 
 	// Blocos range permitem percorrer por slices, arrays, maps ou
 	// channels. Dentro do bloco range {{.}} leva o valor do item
-	// da iteração atual
+	// da iteração atual.
 	t4 := Create("t4", "Range: {{range .}}{{.}} {{end}}\n")
 	t4.Execute(os.Stdout, []string{"Go", "Rust", "C++", "C#"})
 }
