@@ -23,8 +23,14 @@ func main() {
 		panic(err)
 	}
 
+	// Como alternativa, podemos usar temlate.Must para lançar um panic
+	// no caso do parse retornar um erro. O que é especialmente útil
+	// para modelos inicializados no escopo global.
 	t1 = template.Must(t1.Parse("Value: {{.}}\n"))
 
+	// Executar o modelo geramos texto com valores especificados pelas
+	// "actions". As actions {{.}} são substituídas pelos valores
+	// passados por parâmetro para o Execute
 	t1.Execute(os.Stdout, "some text")
 	t1.Execute(os.Stdout, 5)
 	t1.Execute(os.Stdout, []string{
