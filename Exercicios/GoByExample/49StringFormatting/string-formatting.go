@@ -56,4 +56,10 @@ func main() {
 	// um com expoênte em maiúsculo e outra em minúsculo
 	fmt.Printf("float3: %E\n", 65.32)
 
+	fmt.Printf("str1: %s\n", "\"string\"")
+
+	fmt.Printf("str2: %q\n", "\"string\"")
+
+	fmt.Printf("str3: %x\n", "hex this")
+
 }
