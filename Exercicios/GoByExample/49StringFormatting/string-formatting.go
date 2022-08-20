@@ -90,8 +90,11 @@ func main() {
 	// Ou com a flag - para justificar à esquerda
 	fmt.Printf("width5: |%-6s|%-6s|\n", "ate", "g")
 
+	// Printf, formata e imprime strings para os.Stdout.
+	// SprintF formata e retorna a string sem imprimir em qualquer lugar
 	s := fmt.Sprintf("sprintf: a %s", "string")
 	fmt.Println(s)
 
+	// Também é possível formatar e imprimir para io.Writers além do os.Stdout usando Fprintf
 	fmt.Fprintf(os.Stderr, "io: an %s\n", "error")
 }
