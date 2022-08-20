@@ -41,7 +41,7 @@ func main() {
 	// %b para representar um binário
 	fmt.Printf("bin: %b\n", 8)
 
-	// %c para representar um caractere correspondente ao inteiro
+	// %c para rep resentar um caractere correspondente ao inteiro
 	fmt.Printf("char: %c\n", 65)
 
 	// %x apresenta codificação hexadecimal
@@ -64,5 +64,9 @@ func main() {
 
 	// %x também apresenta um caractere como um byte hexadecimal
 	fmt.Printf("str3: %x\n", "hex this")
+
+	fmt.Printf("pointer: %p\n", &p)
+
+	fmt.Printf("width1: |%6d|%6d|\n", 648, 45)
 
 }
