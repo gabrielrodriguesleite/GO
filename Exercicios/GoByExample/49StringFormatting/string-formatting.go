@@ -73,12 +73,18 @@ func main() {
 	// e preenchido com espaços.
 	fmt.Printf("width1: |%6d|%6d|\n", 648, 45)
 
+	// É possível especificar a largura e ao mesmo tempo a precisão de floats impressos
+	// já que é comum restringir a precisão destes valores.
 	fmt.Printf("width2: |%6.2f|%6.2f|\n", 64.8, 4.053)
 
+	// usando a flag - é possível justificar à esquerda
 	fmt.Printf("width3: |%-6.2f|%-6.2f|\n", 68.0, 0.457)
 
+	// Também é possível controlar a largura de strings principalmente em represntações
+	// de tabelas. Com o padrão justificado à direita
 	fmt.Printf("width4: |%6s|%6s|\n", "xoo", "k")
 
+	// Ou com a flag - para justificar à esquerda
 	fmt.Printf("width5: |%-6s|%-6s|\n", "ate", "g")
 
 }
