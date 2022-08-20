@@ -38,9 +38,16 @@ func main() {
 
 	// -----------
 
+	// %b para representar um binário
 	fmt.Printf("bin: %b\n", 8)
+
+	// %c para representar um caractere correspondente ao inteiro
 	fmt.Printf("char: %c\n", 65)
+
+	// %x apresenta codificação hexadecimal
 	fmt.Printf("hex: %x\n", 10)
+
+	// %f imprime uma das diversas representações para ponto flutuante
 	fmt.Printf("float1: %f\n", 65.32)
 
 }
