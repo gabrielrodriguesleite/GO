@@ -39,24 +39,38 @@ func main() {
 
 	// ---------
 
+	// Função auxiliar que utilizaremos nos exemplos (Helper)
 	Create := func(name, t string) *template.Template {
 		return template.Must(template.New(name).Parse(t))
 	}
 
+	// Se o dado é uma estrutura podemos usar a action {{.FieldName}}
+	// para ter acesso aos campos. O campo deve ser exportado para ser
+	// acessível quando um template é executado.
 	t2 := Create("t2", "Name: {{.Name}}\n")
 
 	t2.Execute(os.Stdout, struct {
 		Name string
 	}{"Jane Doe"})
 
+	// O mesmo se aplica a maps. Com maps não existem restrições com
+	// respeito aos nomes das chaves.
 	t2.Execute(os.Stdout, map[string]string{
 		"Name": "Mickey Mouse",
 	})
 
+	// Com if/else temos execução condicional nos templates.
+	// Um valor é considerado false se for igual ao valor padrão do tipo,
+	// como um 0 para int, uma string vazia, um ponteiro nil, etc.
+	// Este exemplo mostra outra funcionalidade dos templates: usando -
+	// nas actions para remover espaços vazios.
 	t3 := Create("t3", "{{if . -}} yes {{else -}} no {{end}}\n")
 	t3.Execute(os.Stdout, "not empty")
 	t3.Execute(os.Stdout, "")
 
+	// Blocos range permitem percorrer por slices, arrays, maps ou
+	// channels. Dentro do bloco range {{.}} leva o valor do item
+	// da iteração atual
 	t4 := Create("t4", "Range: {{range .}}{{.}} {{end}}\n")
 	t4.Execute(os.Stdout, []string{"Go", "Rust", "C++", "C#"})
 }
