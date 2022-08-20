@@ -73,4 +73,12 @@ func main() {
 	// e preenchido com espaços.
 	fmt.Printf("width1: |%6d|%6d|\n", 648, 45)
 
+	fmt.Printf("width2: |%6.2f|%6.2f|\n", 64.8, 4.053)
+
+	fmt.Printf("width3: |%-6.2f|%-6.2f|\n", 68.0, 0.457)
+
+	fmt.Printf("width4: |%6s|%6s|\n", "xoo", "k")
+
+	fmt.Printf("width5: |%-6s|%-6s|\n", "ate", "g")
+
 }
