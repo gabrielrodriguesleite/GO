@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 // go oferece um excelente suport para formatação de strings seguindo
 // o modelo pringf. Neste código temos alguns exemplos.
@@ -87,4 +90,8 @@ func main() {
 	// Ou com a flag - para justificar à esquerda
 	fmt.Printf("width5: |%-6s|%-6s|\n", "ate", "g")
 
+	s := fmt.Sprintf("sprintf: a %s", "string")
+	fmt.Println(s)
+
+	fmt.Fprintf(os.Stderr, "io: an %s\n", "error")
 }
