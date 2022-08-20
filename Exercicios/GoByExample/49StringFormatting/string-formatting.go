@@ -50,4 +50,10 @@ func main() {
 	// %f imprime uma das diversas representações para ponto flutuante
 	fmt.Printf("float1: %f\n", 65.32)
 
+	// %e e %E apresentam uma formatação de notação científica
+	fmt.Printf("float2: %e\n", 65.32)
+
+	// um com expoênte em maiúsculo e outra em minúsculo
+	fmt.Printf("float3: %E\n", 65.32)
+
 }
