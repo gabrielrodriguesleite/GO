@@ -56,10 +56,13 @@ func main() {
 	// um com expoênte em maiúsculo e outra em minúsculo
 	fmt.Printf("float3: %E\n", 65.32)
 
+	// %s para formatação mais simples para string
 	fmt.Printf("str1: %s\n", "\"string\"")
 
+	// %q é para imprimir a barra com aspas duplas como aqui no código fonte
 	fmt.Printf("str2: %q\n", "\"string\"")
 
+	// %x também apresenta um caractere como um byte hexadecimal
 	fmt.Printf("str3: %x\n", "hex this")
 
 }
