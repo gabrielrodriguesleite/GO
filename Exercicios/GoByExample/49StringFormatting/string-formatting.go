@@ -98,3 +98,29 @@ func main() {
 	// Também é possível formatar e imprimir para io.Writers além do os.Stdout usando Fprintf
 	fmt.Fprintf(os.Stderr, "io: an %s\n", "error")
 }
+
+/* EXEMPLO DE SAÍDA
+struct1: {1 2}
+struct2: {x:1 y:2}
+struct3: main.point{x:1, y:2}
+type: main.point
+bool: true
+int: 123
+bin: 1000
+char: A
+hex: a
+float1: 65.320000
+float2: 6.532000e+01
+float3: 6.532000E+01
+str1: "string"
+str2: "\"string\""
+str3: 6865782074686973
+pointer: 0xc00013a000
+width1: |   648|    45|
+width2: | 64.80|  4.05|
+width3: |68.00 |0.46  |
+width4: |   xoo|     k|
+width5: |ate   |g     |
+sprintf: a string
+io: an error
+*/
