@@ -12,13 +12,15 @@ func main() {
 
 	// Este código testa se um padrão combina com uma string
 	match, _ := regexp.MatchString("p([a-z]+)ego", "pessego")
-	fmt.Println(match)
+	fmt.Println(match) // true
 
 	// No exemplo acima usamos um padrão de string diretamente
 	// mas para outras tarefas envolvendo regexp vamos precisar
 	// compilar uma estrutura otimizada de expressão regular
 	r, _ := regexp.Compile("p([a-z]+ego)")
 
-	fmt.Println(r.MatchString("pessego"))
+	// Vários metodos estão disponíveis para essa estrutura.
+	// Este teste é o mesmo que o visto anteriormente
+	fmt.Println(r.MatchString("pessego")) // true
 
 }
