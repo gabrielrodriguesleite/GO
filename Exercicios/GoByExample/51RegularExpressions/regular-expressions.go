@@ -31,4 +31,9 @@ func main() {
 	// próprio texto que combina.
 	fmt.Println("idx:", r.FindStringIndex("pessego passado")) // idx: [0 7]
 
+	// A variante Submatch inclui informação sobre ambos, o
+	// padrão inteiro que combina e e as subcorrespondências
+	// dentro dessas correspondências. Neste exemplo vai retornar
+	// informações de ambos p([a-z]+ego) e ([a-z]+)
+	fmt.Println(r.FindStringSubmatch("pessego passado")) // [pessego essego]
 }
