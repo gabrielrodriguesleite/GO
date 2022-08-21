@@ -10,6 +10,7 @@ import (
 // a tarefas com expressões regulares.
 func main() {
 
+	// Este código testa se um padrão combina com uma string
 	match, _ := regexp.MatchString("p([a-z]+)ego", "pessego")
 	fmt.Println(match)
 
