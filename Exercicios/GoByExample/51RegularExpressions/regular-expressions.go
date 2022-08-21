@@ -14,4 +14,8 @@ func main() {
 	match, _ := regexp.MatchString("p([a-z]+)ego", "pessego")
 	fmt.Println(match)
 
+	r, _ := regexp.Compile("p([a-z]+ego)")
+
+	fmt.Println(r.MatchString("pessego"))
+
 }
