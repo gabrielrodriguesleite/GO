@@ -23,4 +23,12 @@ func main() {
 	// Este teste é o mesmo que o visto anteriormente
 	fmt.Println(r.MatchString("pessego")) // true
 
+	// Este teste encontra a parte que combina com a regexp
+	fmt.Println(r.FindString("pessego passado")) // pessego
+
+	// Este encontra a primeira combinação mas retorna
+	// os índices de início e fim do trecho ao invés do
+	// próprio texto que combina.
+	fmt.Println("idx:", r.FindStringIndex("pessego passado")) // idx: [0 7]
+
 }
