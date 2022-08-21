@@ -14,6 +14,9 @@ func main() {
 	match, _ := regexp.MatchString("p([a-z]+)ego", "pessego")
 	fmt.Println(match)
 
+	// No exemplo acima usamos um padrão de string diretamente
+	// mas para outras tarefas envolvendo regexp vamos precisar
+	// compilar uma estrutura otimizada de expressão regular
 	r, _ := regexp.Compile("p([a-z]+ego)")
 
 	fmt.Println(r.MatchString("pessego"))
