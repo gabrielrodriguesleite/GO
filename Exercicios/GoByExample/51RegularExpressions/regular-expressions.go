@@ -36,4 +36,9 @@ func main() {
 	// dentro dessas correspondências. Neste exemplo vai retornar
 	// informações de ambos p([a-z]+ego) e ([a-z]+)
 	fmt.Println(r.FindStringSubmatch("pessego passado")) // [pessego essego]
+
+	// Assim como no exemplo anterior este método vai retornar informações
+	// sobre os indices das correspondências e das subcorrespondências.
+	fmt.Println(r.FindStringSubmatchIndex("pessego passado")) // [0 7 1 7]
+
 }
