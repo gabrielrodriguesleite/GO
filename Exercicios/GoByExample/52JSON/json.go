@@ -88,4 +88,7 @@ func main() {
 	}
 	fmt.Println(dat) // json →
 
+	num := dat["num"].(float64)
+	fmt.Println(num)
+
 }
