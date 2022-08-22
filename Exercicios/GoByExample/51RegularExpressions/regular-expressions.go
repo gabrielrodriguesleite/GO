@@ -45,5 +45,10 @@ func main() {
 	// por exemplo para encontrar todas as combinações para uma regexp
 	fmt.Println(r.FindAllString("tomate topete torniquete", -1)) // [tomate topete torniquete]
 
+	fmt.Println("all:", r.FindAllStringSubmatchIndex("tomate topete torniquete", -1)) // all: [[0 6 1 6] [7 13 8 13] [14 24 15 24]]
+
+	fmt.Println(r.FindAllString("tomate topete torniquete", 2)) // [tomate topete]
+
+	fmt.Println(r.Match([]byte("tomate"))) // true
 	// https://gobyexample.com/regular-expressions
 }
