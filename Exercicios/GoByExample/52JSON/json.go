@@ -46,4 +46,13 @@ func main() {
 	mapD := map[string]int{"maçã": 5, "alface": 7}
 	mapB, _ := json.Marshal(mapD) // → json
 	fmt.Println(string(mapB))     // json →
+
+	// -------------
+
+	res1D := &response1{
+		Page:   1,
+		Fruits: []string{"maçã", "pêssego", "pêra"},
+	}
+	res1B, _ := json.Marshal(res1D) // → json
+	fmt.Println(string(res1B))      // json →
 }
