@@ -41,14 +41,18 @@ func main() {
 	// sobre os indices das correspondências e das subcorrespondências.
 	fmt.Println(r.FindStringSubmatchIndex("tomate topete")) // [0 6 1 6]
 
-	// A variante All aplica para todas as combinações na entrada, não apenas a primeira.
-	// por exemplo para encontrar todas as combinações para uma regexp
+	// A variante All aplica para todas as combinações na entrada, não apenas a primeira,
+	// por exemplo para encontrar todas as combinações para uma regexp.
 	fmt.Println(r.FindAllString("tomate topete torniquete", -1)) // [tomate topete torniquete]
 
+	// Esta variante All, também está disponível para as outras funções que já vimos.
 	fmt.Println("all:", r.FindAllStringSubmatchIndex("tomate topete torniquete", -1)) // all: [[0 6 1 6] [7 13 8 13] [14 24 15 24]]
 
+	// É possível limitar a quantidade de resultados retornados, passando um segundo parametro não negativo
 	fmt.Println(r.FindAllString("tomate topete torniquete", 2)) // [tomate topete]
 
+	// Podemos utilizar argumentos do tipo []byte (array de byte) e remover string do nome da função.
 	fmt.Println(r.Match([]byte("tomate"))) // true
+
 	// https://gobyexample.com/regular-expressions
 }
