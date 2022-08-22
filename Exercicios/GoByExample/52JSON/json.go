@@ -38,7 +38,12 @@ func main() {
 	strB, _ := json.Marshal("gopher") // → json
 	fmt.Println(string(strB))         // json →
 
+	// Aqui alguns exemplos de codificação/decodificação de slices e maps.
 	slcD := []string{"maçã", "pêssego", "pêra"}
 	slcB, _ := json.Marshal(slcD) // → json
 	fmt.Println(string(slcB))     // json →
+
+	mapD := map[string]int{"maçã": 5, "alface": 7}
+	mapB, _ := json.Marshal(mapD) // → json
+	fmt.Println(string(mapB))     // json →
 }
