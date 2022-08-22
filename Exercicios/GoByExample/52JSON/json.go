@@ -98,4 +98,10 @@ func main() {
 	str1 := strs[0].(string)
 	fmt.Println(str1)
 
+	str := `{"page":1, "fruits": ["maçã", "pêssego"]}`
+	res := response2{}
+	json.Unmarshal([]byte(str), &res)
+	fmt.Println(res)
+	fmt.Println(res.Fruits[0])
+
 }
