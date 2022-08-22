@@ -38,4 +38,7 @@ func main() {
 	strB, _ := json.Marshal("gopher") // → json
 	fmt.Println(string(strB))         // json →
 
+	slcD := []string{"maçã", "pêssego", "pêra"}
+	slcB, _ := json.Marshal(slcD) // → json
+	fmt.Println(string(slcB))     // json →
 }
