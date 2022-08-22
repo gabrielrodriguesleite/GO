@@ -49,6 +49,9 @@ func main() {
 
 	// -------------
 
+	// O pacote JSON pode codificar automaticamente seus tipos de dados personalizados.
+	// Ele irá incluir apenas campos exportados na saída codificada e vai por padrão
+	// usar seus nomes como chaves JSON.
 	res1D := &response1{
 		Page:   1,
 		Fruits: []string{"maçã", "pêssego", "pêra"},
@@ -56,6 +59,9 @@ func main() {
 	res1B, _ := json.Marshal(res1D) // → json
 	fmt.Println(string(res1B))      // json →
 
+	// É possível usar etiquetas nos campos da declaração da estrutura para personalizar
+	// os nomes das chaves codificadas em JSON. Verifique a definição de response2 para
+	// ver os exemplos de etiquetas deste tipo.
 	res2D := &response2{
 		Page:   1,
 		Fruits: []string{"maçã", "pêssego", "pêra"},
