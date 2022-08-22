@@ -22,6 +22,9 @@ type response2 struct {
 	Fruits []string `json:"fruits"`
 }
 
+// Regra: Chaves iniciando em maiúscula será codificada
+// o nome da chave codificada pode ser modificado utilizando o recurso de tag
+
 func main() {
 
 	// Primeiramente vamos ver codificação de tipos básicos para strings JSON.
