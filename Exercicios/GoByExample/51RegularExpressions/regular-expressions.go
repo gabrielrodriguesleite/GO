@@ -41,6 +41,8 @@ func main() {
 	// sobre os indices das correspondências e das subcorrespondências.
 	fmt.Println(r.FindStringSubmatchIndex("tomate topete")) // [0 6 1 6]
 
+	// A variante All aplica para todas as combinações na entrada, não apenas a primeira.
+	// por exemplo para encontrar todas as combinações para uma regexp
 	fmt.Println(r.FindAllString("tomate topete torniquete", -1)) // [tomate topete torniquete]
 
 	// https://gobyexample.com/regular-expressions
