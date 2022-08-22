@@ -55,4 +55,11 @@ func main() {
 	}
 	res1B, _ := json.Marshal(res1D) // → json
 	fmt.Println(string(res1B))      // json →
+
+	res2D := &response2{
+		Page:   1,
+		Fruits: []string{"maçã", "pêssego", "pêra"},
+	}
+	res2B, _ := json.Marshal(res2D) // → json
+	fmt.Println(string(res2B))      // json →
 }
