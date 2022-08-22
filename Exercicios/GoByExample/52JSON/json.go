@@ -93,4 +93,8 @@ func main() {
 	num := dat["num"].(float64)
 	fmt.Println(num)
 
+	strs := dat["strs"].([]interface{})
+	str1 := strs[0].(string)
+	fmt.Println(str1)
+
 }
