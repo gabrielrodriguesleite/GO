@@ -93,6 +93,7 @@ func main() {
 	num := dat["num"].(float64)
 	fmt.Println(num)
 
+	// Para acessar um dado aninhado é necessário converões em série:
 	strs := dat["strs"].([]interface{})
 	str1 := strs[0].(string)
 	fmt.Println(str1)
