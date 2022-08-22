@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"regexp"
 )
@@ -53,6 +54,15 @@ func main() {
 
 	// Podemos utilizar argumentos do tipo []byte (array de byte) e remover string do nome da função.
 	fmt.Println(r.Match([]byte("tomate"))) // true
+
+	r = regexp.MustCompile("t([a-z])+te")
+	fmt.Println("regexp:", r) // regexp: t([a-z])+te
+
+	fmt.Println(r.ReplaceAllString("um tomate", "<fruta>")) // um <fruta>
+
+	in := []byte("um tomate")
+	out := r.ReplaceAllFunc(in, bytes.ToUpper)
+	fmt.Println(string(out)) // um TOMATE
 
 	// https://gobyexample.com/regular-expressions
 }
