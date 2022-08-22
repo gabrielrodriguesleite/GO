@@ -55,11 +55,16 @@ func main() {
 	// Podemos utilizar argumentos do tipo []byte (array de byte) e remover string do nome da função.
 	fmt.Println(r.Match([]byte("tomate"))) // true
 
+	// Quando se precisa criar uma variável global com expressões regulares é possível utilizar
+	// MustCompile ao invés de Compile. MustCompile dispara um panic ao invés de retornar um erro,
+	// o que torna mais seguro ao utilizar como variavel global.
 	r = regexp.MustCompile("t([a-z])+te")
 	fmt.Println("regexp:", r) // regexp: t([a-z])+te
 
+	// O pacote regexp pode ser utilizado para substir partes de uma string por outros valores.
 	fmt.Println(r.ReplaceAllString("um tomate", "<fruta>")) // um <fruta>
 
+	// A variante Func permite transformar o texto combinado utilizando uma função:
 	in := []byte("um tomate")
 	out := r.ReplaceAllFunc(in, bytes.ToUpper)
 	fmt.Println(string(out)) // um TOMATE
