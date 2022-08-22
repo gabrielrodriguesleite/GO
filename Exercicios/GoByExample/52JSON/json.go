@@ -88,6 +88,8 @@ func main() {
 	}
 	fmt.Println(dat) // json →
 
+	// Para podermos usar o dado decodificado é necessário converter para um tipo apropriado.
+	// Neste exemplo o valor da chave num é convertido para um tipo experado float64
 	num := dat["num"].(float64)
 	fmt.Println(num)
 
