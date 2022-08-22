@@ -98,6 +98,9 @@ func main() {
 	str1 := strs[0].(string)
 	fmt.Println(str1)
 
+	// Também é possível decodificar JSON em tipos de dados personalizados.
+	// Este método possui vantagem de adicionar segurança para tipos em nossa
+	// aplicação e eliminar a necessidade de asserções de tipo quando se acessa dados decodificados.
 	str := `{"page":1, "fruits": ["maçã", "pêssego"]}`
 	res := response2{}
 	json.Unmarshal([]byte(str), &res)
