@@ -74,11 +74,18 @@ func main() {
 
 	// ----------
 
+	// Decodificando dados JSON em valores GO.
+	// Aqui um exemlo de uma estrutura de dados genérica
 	byt := []byte(`{"num":3.14, "strs":["a", "b"]}`)
+
+	// É preciso providenciar uma variável onde o pacote JSON possa colocar os dados
+	// decodificados. Este map vai conter um map de strings para tipos de dados arbitrários.
 	var dat map[string]interface{}
+
+	// Aqui a decodificação e o tratamento de erro
 	if err := json.Unmarshal(byt, &dat); err != nil {
 		panic(err)
 	}
-	fmt.Println(dat)
+	fmt.Println(dat) // json →
 
 }
