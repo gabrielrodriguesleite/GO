@@ -69,5 +69,5 @@ func main() {
 	out := r.ReplaceAllFunc(in, bytes.ToUpper)
 	fmt.Println(string(out)) // um TOMATE
 
-	// https://gobyexample.com/regular-expressions
+	// Documentação do pacote: https://pkg.go.dev/regexp
 }
