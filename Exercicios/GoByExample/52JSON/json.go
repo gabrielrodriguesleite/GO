@@ -1,5 +1,10 @@
 package main
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
 // Go possui suporte integrado para codificação e decodificação de JSON
 // incluindo de e para tipos de dados integrados e personalizados.
 
@@ -18,5 +23,19 @@ type response2 struct {
 }
 
 func main() {
+
+	// Primeiramente vamos ver codificação de tipos básicos para strings JSON.
+	// Aqui alguns exemplos para valores atômicos
+	bolB, _ := json.Marshal(true) // → json
+	fmt.Println(string(bolB))     // json →
+
+	intB, _ := json.Marshal(1) // → json
+	fmt.Println(string(intB))  // json →
+
+	fltB, _ := json.Marshal(3.14) // → json
+	fmt.Println(string(fltB))     // json →
+
+	strB, _ := json.Marshal("gopher") // → json
+	fmt.Println(string(strB))         // json →
 
 }
