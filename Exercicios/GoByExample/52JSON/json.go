@@ -108,6 +108,11 @@ func main() {
 	fmt.Println(res)
 	fmt.Println(res.Fruits[0])
 
+	// ----------
+
+	// Nos exemplos anteriores usamos bytes e strings como intermediários entre os dados e a
+	// representação JSON na saída padrão. É possível também "stremar" codificações JSON
+	// diretamente para os.Writers como os.Stout ou mesmo corpo de reposta HTTP
 	enc := json.NewEncoder(os.Stdout)
 	d := map[string]int{"maça": 5, "alface": 7}
 	enc.Encode(d)
