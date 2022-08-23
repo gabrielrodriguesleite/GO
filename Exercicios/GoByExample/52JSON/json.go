@@ -116,6 +116,9 @@ func main() {
 	enc := json.NewEncoder(os.Stdout)
 	d := map[string]int{"maça": 5, "alface": 7}
 	enc.Encode(d)
+
+	// Para mais acesse: https://go.dev/blog/json
+	// e também: https://pkg.go.dev/encoding/json
 }
 
 /* SAÍDA desse código para conferência
