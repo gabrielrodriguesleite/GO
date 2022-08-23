@@ -112,7 +112,7 @@ func main() {
 
 	// Nos exemplos anteriores usamos bytes e strings como intermediários entre os dados e a
 	// representação JSON na saída padrão. É possível também direcionar o fluxo de codificações JSON
-	// diretamente para os.Writers como os.Stout ou mesmo corpo de reposta HTTP
+	// diretamente para os.Writers como os.Stdout ou mesmo corpo de reposta HTTP
 	enc := json.NewEncoder(os.Stdout)
 	d := map[string]int{"maça": 5, "alface": 7}
 	enc.Encode(d)
