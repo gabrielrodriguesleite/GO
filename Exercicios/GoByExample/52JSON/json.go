@@ -10,7 +10,7 @@ import (
 // incluindo de e para tipos de dados integrados e personalizados.
 
 // Estas duas estruturas serão utilizadas para demonstrar codificação e
-// decodificação de tipos personalizados
+// decodificação de tipos personalizados.
 type response1 struct {
 	Page   int
 	Fruits []string
@@ -23,13 +23,13 @@ type response2 struct {
 	Fruits []string `json:"fruits"`
 }
 
-// Regra: Chaves iniciando em maiúscula será codificada
-// o nome da chave codificada pode ser modificado utilizando o recurso de tag
+// Regra: Chaves iniciando em maiúscula será codificada (exportada).
+// O nome da chave codificada pode ser modificado utilizando o recurso de tag.
 
 func main() {
 
 	// Primeiramente vamos ver codificação de tipos básicos para strings JSON.
-	// Aqui alguns exemplos para valores atômicos
+	// Aqui alguns exemplos para valores atômicos.
 	bolB, _ := json.Marshal(true) // → json
 	fmt.Println(string(bolB))     // json →
 
@@ -76,7 +76,7 @@ func main() {
 	// ----------
 
 	// Decodificando dados JSON em valores GO.
-	// Aqui um exemplo de uma estrutura de dados genérica
+	// Aqui um exemplo de uma estrutura de dados genérica.
 	byt := []byte(`{"num":3.14, "strs":["a", "b"]}`)
 
 	// É preciso providenciar uma variável onde o pacote JSON possa colocar os dados
