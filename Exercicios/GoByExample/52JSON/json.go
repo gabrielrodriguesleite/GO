@@ -117,3 +117,20 @@ func main() {
 	d := map[string]int{"maça": 5, "alface": 7}
 	enc.Encode(d)
 }
+
+/* SAÍDA desse código para conferência
+true
+1
+3.14
+"gopher"
+["maçã","pêssego","pêra"]
+{"alface":7,"maçã":5}
+{"Page":1,"Fruits":["maçã","pêssego","pêra"]}
+{"page":1,"fruits":["maçã","pêssego","pêra"]}
+map[num:3.14 strs:[a b]]
+3.14
+a
+{1 [maçã pêssego]}
+maçã
+{"alface":7,"maça":5}
+*/
