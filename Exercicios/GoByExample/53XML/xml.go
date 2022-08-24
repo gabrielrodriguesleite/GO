@@ -46,4 +46,18 @@ func main() {
 		panic(err)
 	}
 	fmt.Println(p)
+
+	tomato := &Plant{Id: 81, Name: "Tomato"}
+	tomato.Origin = []string{"Mexico", "California"}
+
+	type Nesting struct {
+		XMLName xml.Name `xml:"nesting"`
+		Plants  []*Plant `xml:"parent>child>plant"`
+	}
+
+	nesting := &Nesting{}
+	nesting.Plants = []*Plant{coffee, tomato}
+
+	out, _ = xml.MarshalIndent(nesting, " ", "  ")
+	fmt.Println(string(out))
 }
