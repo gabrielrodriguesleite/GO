@@ -35,5 +35,6 @@ func main() {
 	out, _ := xml.MarshalIndent(coffee, " ", "  ") // → XML
 	fmt.Println(string(out))                       // XML →
 
+	// Para adicionar um header genérico para a saída
 	fmt.Println(xml.Header + string(out))
 }
