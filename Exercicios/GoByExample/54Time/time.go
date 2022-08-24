@@ -49,6 +49,8 @@ func main() {
 	p(diff.Seconds())
 	p(diff.Nanoseconds())
 
+	// É possível utilizar Add para avançar um time por uma duration dada ou com uma
+	// duration negativa retroceder um time.
 	p(then.Add(diff))
 	p(then.Add(-diff))
 
