@@ -49,4 +49,7 @@ func main() {
 	p(diff.Seconds())
 	p(diff.Nanoseconds())
 
+	p(then.Add(diff))
+	p(then.Add(-diff))
+
 }
