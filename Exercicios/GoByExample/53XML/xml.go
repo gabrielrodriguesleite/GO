@@ -30,6 +30,8 @@ func main() {
 	coffee := &Plant{Id: 27, Name: "Coffee"}
 	coffee.Origin = []string{"Ethiopia", "Brazil"}
 
-	out, _ := xml.MarshalIndent(coffee, " ", "  ")
-	fmt.Println(string(out))
+	// Primeiramente emitimos o XML representando a estrutura.
+	// MarshalIdent produz uma saída de mais fácil compreensão
+	out, _ := xml.MarshalIndent(coffee, " ", "  ") // → XML
+	fmt.Println(string(out))                       // XML →
 }
