@@ -37,4 +37,10 @@ func main() {
 
 	// Para adicionar um header genérico para a saída
 	fmt.Println(xml.Header + string(out))
+
+	var p Plant
+	if err := xml.Unmarshal(out, &p); err != nil {
+		panic(err)
+	}
+	fmt.Println(p)
 }
