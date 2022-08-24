@@ -34,4 +34,6 @@ func main() {
 	// MarshalIdent produz uma saída de mais fácil compreensão
 	out, _ := xml.MarshalIndent(coffee, " ", "  ") // → XML
 	fmt.Println(string(out))                       // XML →
+
+	fmt.Println(xml.Header + string(out))
 }
