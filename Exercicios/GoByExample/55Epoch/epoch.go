@@ -22,6 +22,8 @@ func main() {
 	p(now.UnixMilli())
 	p(now.UnixNano())
 
+	// É possível converter inteiros segundos ou nanosegundos desde epoch
+	// no correspondente time formato.
 	p(time.Unix(now.Unix(), 0))
 	p(time.Unix(0, now.UnixNano()))
 }
