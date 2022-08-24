@@ -38,6 +38,9 @@ func main() {
 	// Para adicionar um header genérico para a saída
 	fmt.Println(xml.Header + string(out))
 
+	// Use Unmarshal para traduzir um fluxo de bytes com XML em uma estrutura de dados.
+	// Se o XML estiver mal formado ou não puder ser mapeado na estrutura, um erro
+	// descritivo será retornado.
 	var p Plant
 	if err := xml.Unmarshal(out, &p); err != nil {
 		panic(err)
