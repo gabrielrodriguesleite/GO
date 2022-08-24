@@ -27,4 +27,9 @@ func (p Plant) String() string {
 
 func main() {
 
+	coffee := &Plant{Id: 27, Name: "Coffee"}
+	coffee.Origin = []string{"Ethiopia", "Brazil"}
+
+	out, _ := xml.MarshalIndent(coffee, " ", "  ")
+	fmt.Println(string(out))
 }
