@@ -16,6 +16,8 @@ func main() {
 	now := time.Now()
 	p(now)
 
+	// Usando time.now com Unix, UnixMilli ou UnixNano para computar o tempo
+	// decorrido desde Unix epoch em segundos, milisegundos ou nanosegundos:
 	p(now.Unix())
 	p(now.UnixMilli())
 	p(now.UnixNano())
