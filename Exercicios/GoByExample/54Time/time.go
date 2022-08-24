@@ -43,6 +43,7 @@ func main() {
 	diff := now.Sub(then)
 	p(diff)
 
+	// É possível computar o comprimento de uma Duration em várias unidades:
 	p(diff.Hours())
 	p(diff.Minutes())
 	p(diff.Seconds())
