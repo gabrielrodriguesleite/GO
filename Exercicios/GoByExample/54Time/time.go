@@ -20,6 +20,7 @@ func main() {
 	then := time.Date(2009, 11, 17, 20, 34, 58, 651387237, time.UTC)
 	p(then)
 
+	// É possível extrair os componentes da estrutura time
 	p(then.Year())
 	p(then.Month())
 	p(then.Day())
@@ -29,8 +30,11 @@ func main() {
 	p(then.Nanosecond())
 	p(then.Location())
 
+	// O dia da semana também está disponível
 	p(then.Weekday())
 
+	// Este métodos comparam dois time, testando se o primeiro ocorre antes, depois
+	// ou ao mesmo segundo, respectivamente.
 	p(then.Before(now))
 	p(then.After(now))
 	p(then.Equal(now))
