@@ -43,4 +43,9 @@ func main() {
 	diff := now.Sub(then)
 	p(diff)
 
+	p(diff.Hours())
+	p(diff.Minutes())
+	p(diff.Seconds())
+	p(diff.Nanoseconds())
+
 }
