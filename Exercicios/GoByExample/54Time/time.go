@@ -11,6 +11,7 @@ func main() {
 
 	p := fmt.Println
 
+	// Para obter a data e hora atual
 	now := time.Now()
 	p(now)
 
