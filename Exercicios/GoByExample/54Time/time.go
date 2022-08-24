@@ -39,4 +39,7 @@ func main() {
 	p(then.After(now))
 	p(then.Equal(now))
 
+	diff := now.Sub(then)
+	p(diff)
+
 }
