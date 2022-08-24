@@ -50,6 +50,8 @@ func main() {
 	tomato := &Plant{Id: 81, Name: "Tomato"}
 	tomato.Origin = []string{"Mexico", "California"}
 
+	// A etiqueta do campo parent>child>plant fala ao codificador para aninhar
+	// todas as plants sob <parent><child>...
 	type Nesting struct {
 		XMLName xml.Name `xml:"nesting"`
 		Plants  []*Plant `xml:"parent>child>plant"`
