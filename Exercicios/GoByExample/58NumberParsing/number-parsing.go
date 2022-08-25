@@ -31,4 +31,7 @@ func main() {
 	u, _ := strconv.ParseUint("789", 0, 64)
 	fmt.Println(u)
 
+	k, _ := strconv.Atoi("123")
+	fmt.Println(k)
+
 }
