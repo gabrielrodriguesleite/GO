@@ -14,16 +14,16 @@ func main() {
 	// Este exemplo imprime 2 números aleatórios inteiros entre 0 e 100
 	fmt.Print(rand.Intn(100), ",")
 	fmt.Print(rand.Intn(100))
-	fmt.Println()
+	fmt.Println() // 81,87 → mesma sequência sempre
 
 	// Este exemplo retorna um ponto flutuante de 0.0 à f < 1.0
-	fmt.Println(rand.Float64())
+	fmt.Println(rand.Float64()) // 0.6645600532184904 → mesma sequência sempre
 
 	// Também é possível gerar um ponto flutuante em outra variação
 	// por exemplo 5.0 <= f < 10.0
 	fmt.Print((rand.Float64()*5)+5, ",")
 	fmt.Print((rand.Float64() * 5) + 5)
-	fmt.Println()
+	fmt.Println() // 7.1885709359349015,7.123187485356329 → mesma sequência sempre (salvo precisão)
 
 	// ---------------------- SEED
 
@@ -39,7 +39,7 @@ func main() {
 	// funções do pagote rand.
 	fmt.Print(r1.Intn(100), ",")
 	fmt.Print(r1.Intn(100))
-	fmt.Println()
+	fmt.Println() // 99,1
 
 	// ---------------------- SEED FOOT SHOT
 
@@ -50,14 +50,14 @@ func main() {
 
 	fmt.Print(r2.Intn(100), ",")
 	fmt.Print(r2.Intn(100))
-	fmt.Println()
+	fmt.Println() // 5,87
 
 	s3 := rand.NewSource(42)
 	r3 := rand.New(s3)
 
 	fmt.Print(r3.Intn(100), ",")
 	fmt.Print(r3.Intn(100))
-	fmt.Println()
+	fmt.Println() // 5,87
 
 }
 
