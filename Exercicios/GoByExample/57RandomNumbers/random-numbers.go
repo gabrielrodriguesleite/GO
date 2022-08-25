@@ -25,6 +25,11 @@ func main() {
 	fmt.Print((rand.Float64() * 5) + 5)
 	fmt.Println()
 
+	// Por padrão o gerador é deterministico, então ele vai produzir a mesma
+	// sequência de numeros cada vez que for executado.
+	// Para produzir sequências variadas, forneça uma semente que muda.
+	// Esta implementação não é uma forma segura de gerar números aleatórios
+	// para senhas. Para essa tarefa use crypto/rand.
 	s1 := rand.NewSource(time.Now().UnixNano())
 	r1 := rand.New(s1)
 
