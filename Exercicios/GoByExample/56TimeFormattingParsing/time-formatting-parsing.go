@@ -40,6 +40,8 @@ func main() {
 		t.Year(), t.Month(), t.Day(),
 		t.Hour(), t.Minute(), t.Second())
 
+	// Parse vai retornar um erro explicando o problema quando lhe é passado uma
+	// entrada malformada.
 	ansic := "Mon Jan _2 15:04:05 2006"
 	_, e := time.Parse(ansic, "8:41PM")
 	p(e)
