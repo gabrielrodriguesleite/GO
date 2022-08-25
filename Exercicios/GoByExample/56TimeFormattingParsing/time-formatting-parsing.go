@@ -29,8 +29,13 @@ func main() {
 	// para mostrar o padrão ao qual o format/parse deve formatar um time/string
 	// O exemplo deve ter exatamente estes valores com mostrado.
 	p(t.Format("Mon Jan _2 15:04:05 2006"))
-	p(t.Format("2021-08-10-03T14:00:04.000000-07:00"))
+	p(t.Format("2006-01-02T15:04:05.999999-07:00"))
 	form := "3 04 PM"
 	t2, _ := time.Parse(form, "8 41 PM")
 	p(t2)
+
+	fmt.Printf("%d-%02d-%02dT%02d:%02d:%02d-00:00\n",
+		t.Year(), t.Month(), t.Day(),
+		t.Hour(), t.Minute(), t.Second())
+
 }
