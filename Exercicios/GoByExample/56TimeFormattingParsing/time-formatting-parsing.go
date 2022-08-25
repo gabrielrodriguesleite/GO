@@ -34,6 +34,8 @@ func main() {
 	t2, _ := time.Parse(form, "8 41 PM")
 	p(t2)
 
+	// Para representações puramente numericas é possível usar formatação padrão
+	// de strings com os valores extraidos dos componentes de time.
 	fmt.Printf("%d-%02d-%02dT%02d:%02d:%02d-00:00\n",
 		t.Year(), t.Month(), t.Day(),
 		t.Hour(), t.Minute(), t.Second())
