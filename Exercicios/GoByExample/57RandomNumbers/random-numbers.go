@@ -5,6 +5,9 @@ import (
 	"math/rand"
 )
 
+// O pacote math/rand provê geração de números pseudo-aleatórios
+// Mais em: https://en.wikipedia.org/wiki/Pseudorandom_number_generator
+
 func main() {
 
 	fmt.Print(rand.Intn(100), ",")
