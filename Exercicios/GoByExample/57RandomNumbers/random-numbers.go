@@ -10,6 +10,7 @@ import (
 
 func main() {
 
+	// Este exemplo imprime 2 números aleatórios inteiros entre 0 e 100
 	fmt.Print(rand.Intn(100), ",")
 	fmt.Print(rand.Intn(100))
 	fmt.Println()
