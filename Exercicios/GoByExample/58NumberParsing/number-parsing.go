@@ -27,14 +27,15 @@ func main() {
 	d, _ := strconv.ParseInt("0x1c8", 0, 64)
 	fmt.Println(d)
 
-	// Existe também a opção de converter um número não negativo
+	// Existe também a opção de converter um número não negativo.
 	u, _ := strconv.ParseUint("789", 0, 64)
 	fmt.Println(u)
 
-	// Atoi é uma forma conveniente de converter um inteiro com base 10
+	// Atoi é uma forma conveniente de converter um inteiro com base 10.
 	k, _ := strconv.Atoi("123")
 	fmt.Println(k)
 
+	// Um erro é disparado ao entrar com um valor errado.
 	_, e := strconv.Atoi("wat")
 	fmt.Println(e)
 
