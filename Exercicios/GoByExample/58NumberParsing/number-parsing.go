@@ -31,6 +31,7 @@ func main() {
 	u, _ := strconv.ParseUint("789", 0, 64)
 	fmt.Println(u)
 
+	// Atoi é uma forma conveniente de converter um inteiro com base 10
 	k, _ := strconv.Atoi("123")
 	fmt.Println(k)
 
