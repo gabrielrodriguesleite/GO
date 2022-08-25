@@ -35,4 +35,7 @@ func main() {
 	k, _ := strconv.Atoi("123")
 	fmt.Println(k)
 
+	_, e := strconv.Atoi("wat")
+	fmt.Println(e)
+
 }
