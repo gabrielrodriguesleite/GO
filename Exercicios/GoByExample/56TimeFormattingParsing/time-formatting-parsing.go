@@ -46,3 +46,14 @@ func main() {
 	_, e := time.Parse(ansic, "8:41PM")
 	p(e)
 }
+
+/* SAÍDA DE REFERÊNCIA PARA ESSE CÓDIGO
+2022-08-24T21:53:48-03:00
+2021-11-01 22:08:41 +0000 +0000
+9:53PM
+Wed Aug 24 21:53:48 2022
+2022-08-24T21:53:48.323578-03:00
+0000-01-01 20:41:00 +0000 UTC
+2022-08-24T21:53:48-00:00
+parsing time "8:41PM" as "Mon Jan _2 15:04:05 2006": cannot parse "8:41PM" as "Mon"
+*/
