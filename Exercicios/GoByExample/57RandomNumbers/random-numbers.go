@@ -25,6 +25,8 @@ func main() {
 	fmt.Print((rand.Float64() * 5) + 5)
 	fmt.Println()
 
+	// ---------------------- SEED
+
 	// Por padrão o gerador é deterministico, então ele vai produzir a mesma
 	// sequência de numeros cada vez que for executado.
 	// Para produzir sequências variadas, forneça uma semente que muda.
@@ -33,14 +35,28 @@ func main() {
 	s1 := rand.NewSource(time.Now().UnixNano())
 	r1 := rand.New(s1)
 
+	// Chamar o rand.Rand resultante da mesma forma como chamaria as outras
+	// funções do pagote rand.
 	fmt.Print(r1.Intn(100), ",")
 	fmt.Print(r1.Intn(100))
 	fmt.Println()
 
+	// ---------------------- SEED FOOT SHOT
+
+	// Caso seja usada a mesma semente, o gerador irá produzir a mesma
+	// sequência de números aleatórios XD.
 	s2 := rand.NewSource(42)
 	r2 := rand.New(s2)
 
 	fmt.Print(r2.Intn(100), ",")
 	fmt.Print(r2.Intn(100))
 	fmt.Println()
+
+	s3 := rand.NewSource(42)
+	r3 := rand.New(s3)
+
+	fmt.Print(r3.Intn(100), ",")
+	fmt.Print(r3.Intn(100))
+	fmt.Println()
+
 }
