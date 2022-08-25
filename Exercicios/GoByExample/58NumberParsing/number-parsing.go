@@ -40,3 +40,12 @@ func main() {
 	fmt.Println(e)
 
 }
+
+/* SAÍDA EXPERADA PARA ESSE CÓDIGO
+1.234
+567
+456
+789
+123
+strconv.Atoi: parsing "wat": invalid syntax
+*/
