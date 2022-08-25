@@ -59,6 +59,8 @@ func main() {
 	fmt.Print(r3.Intn(100))
 	fmt.Println() // 5,87
 
+	// Para mais quantidades veja: https://pkg.go.dev/math/rand
+
 }
 
 /* SAÍDA ESPERADA PARA ESTE CÓDIGO
