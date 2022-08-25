@@ -37,4 +37,10 @@ func main() {
 	fmt.Print(r1.Intn(100))
 	fmt.Println()
 
+	s2 := rand.NewSource(42)
+	r2 := rand.New(s2)
+
+	fmt.Print(r2.Intn(100), ",")
+	fmt.Print(r2.Intn(100))
+	fmt.Println()
 }
