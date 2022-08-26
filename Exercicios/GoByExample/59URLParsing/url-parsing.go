@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net"
 	"net/url"
 )
 
@@ -30,4 +31,10 @@ func main() {
 	fmt.Println(u.User.Username())
 	p, _ := u.User.Password()
 	fmt.Println(p)
+
+	fmt.Println(u.Host)
+	host, port, _ := net.SplitHostPort(u.Host)
+	fmt.Println(host)
+	fmt.Println(port)
+
 }
