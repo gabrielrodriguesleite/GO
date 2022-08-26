@@ -24,6 +24,8 @@ func main() {
 	// Acessando o esquema diretamente
 	fmt.Println(u.Scheme) // postgres
 
+	// User contem todas as informações de autenticação
+	// Também é possível acessar os valores de nome e senha de forma individual.
 	fmt.Println(u.User)
 	fmt.Println(u.User.Username())
 	p, _ := u.User.Password()
