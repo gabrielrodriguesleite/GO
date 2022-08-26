@@ -39,4 +39,7 @@ func main() {
 	fmt.Println(host)
 	fmt.Println(port)
 
+	fmt.Println(u.Path)
+	fmt.Println(u.Fragment)
+
 }
