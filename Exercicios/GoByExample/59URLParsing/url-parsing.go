@@ -25,13 +25,15 @@ func main() {
 	// Acessando o esquema diretamente
 	fmt.Println(u.Scheme) // postgres
 
-	// User contem todas as informações de autenticação
+	// User contém todas as informações de autenticação
 	// Também é possível acessar os valores de nome e senha de forma individual.
 	fmt.Println(u.User)
 	fmt.Println(u.User.Username())
 	p, _ := u.User.Password()
 	fmt.Println(p)
 
+	// Host contém  tanto o hostname e a porta se presentes.
+	// Para extraí-los se usa SplitHostPort
 	fmt.Println(u.Host)
 	host, port, _ := net.SplitHostPort(u.Host)
 	fmt.Println(host)
