@@ -32,3 +32,10 @@ func main() {
 	fmt.Println(string(uDec))
 
 }
+
+/* SAÍDA ESPERADA PARA O CÓDIGO
+YWJjMTIzIT8kKiYoKSctPUB+
+abc123!?$*&()'-=@~
+YWJjMTIzIT8kKiYoKSctPUB-
+abc123!?$*&()'-=@~
+*/
