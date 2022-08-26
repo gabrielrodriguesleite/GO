@@ -24,4 +24,8 @@ func main() {
 	// Acessando o esquema diretamente
 	fmt.Println(u.Scheme) // postgres
 
+	fmt.Println(u.User)
+	fmt.Println(u.User.Username())
+	p, _ := u.User.Password()
+	fmt.Println(p)
 }
