@@ -16,20 +16,20 @@ func main() {
 	// Go suporte tanto o padrão base64 quanto o tipo compatível com URL.
 	// Aqui codificamos usando o tipo padrão.
 	sEnc := base64.StdEncoding.EncodeToString([]byte(data))
-	fmt.Println(sEnc)
+	fmt.Println(sEnc) // YWJjMTIzIT8kKiYoKSctPUB+
 
 	// A decodificação pode retornar um erro, pelo qual se pode verificar
 	// se a entrada está no formato correto.
 	sDec, _ := base64.StdEncoding.DecodeString(sEnc)
-	fmt.Println(string(sDec))
+	fmt.Println(string(sDec)) // abc123!?$*&()'-=@~
 
 	// URL
 
 	// Exemplo usando base64 compatível com URL
 	uEnc := base64.URLEncoding.EncodeToString([]byte(data))
-	fmt.Println(uEnc)
+	fmt.Println(uEnc) // YWJjMTIzIT8kKiYoKSctPUB-
 	uDec, _ := base64.URLEncoding.DecodeString(uEnc)
-	fmt.Println(string(uDec))
+	fmt.Println(string(uDec)) // abc123!?$*&()'-=@~
 
 }
 
