@@ -18,6 +18,8 @@ func main() {
 	sEnc := base64.StdEncoding.EncodeToString([]byte(data))
 	fmt.Println(sEnc)
 
+	// A decodificação pode retornar um erro, pelo qual se pode verificar
+	// se a entrada está no formato correto.
 	sDec, _ := base64.StdEncoding.DecodeString(sEnc)
 	fmt.Println(string(sDec))
 
