@@ -15,11 +15,13 @@ func main() {
 	// e fragmento de consulta.
 	s := "postgres://user:pass@host.com:5432/path?k=v#f"
 
+	// Analisando a URL e garantindo que não houveram erros.
 	u, err := url.Parse(s)
 	if err != nil {
 		panic(err)
 	}
 
+	// Acessando o esquema diretamente
 	fmt.Println(u.Scheme) // postgres
 
 }
