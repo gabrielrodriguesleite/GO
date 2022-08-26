@@ -10,8 +10,11 @@ import (
 
 func main() {
 
+	// A string que iremos codificar e decodificar
 	data := "abc123!?$*&()'-=@~"
 
+	// Go suporte tanto o padrão base64 quanto o tipo compatível com URL.
+	// Aqui codificamos usando o tipo padrão.
 	sEnc := base64.StdEncoding.EncodeToString([]byte(data))
 	fmt.Println(sEnc)
 
