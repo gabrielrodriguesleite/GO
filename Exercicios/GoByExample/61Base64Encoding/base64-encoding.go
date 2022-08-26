@@ -5,12 +5,12 @@ import (
 	"fmt"
 )
 
-// Go provê suporte integrado para codificação/decodificação base64
+// Go provê suporte integrado para codificação/decodificação base64.
 // Mais em: https://en.wikipedia.org/wiki/Base64
 
 func main() {
 
-	// A string que iremos codificar e decodificar
+	// A string que iremos codificar e decodificar:
 	data := "abc123!?$*&()'-=@~"
 
 	// Go suporte tanto o padrão base64 quanto o tipo compatível com URL.
@@ -25,7 +25,7 @@ func main() {
 
 	// URL
 
-	// Exemplo usando base64 compatível com URL
+	// Exemplo usando base64 compatível com URL.
 	uEnc := base64.URLEncoding.EncodeToString([]byte(data))
 	fmt.Println(uEnc) // YWJjMTIzIT8kKiYoKSctPUB-
 	uDec, _ := base64.URLEncoding.DecodeString(uEnc)
