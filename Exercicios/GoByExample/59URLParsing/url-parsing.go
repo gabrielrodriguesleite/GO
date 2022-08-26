@@ -43,4 +43,9 @@ func main() {
 	fmt.Println(u.Path)
 	fmt.Println(u.Fragment)
 
+	fmt.Println(u.RawQuery)
+	m, _ := url.ParseQuery(u.RawQuery)
+	fmt.Println(m)
+	fmt.Println(m["k"][0])
+
 }
