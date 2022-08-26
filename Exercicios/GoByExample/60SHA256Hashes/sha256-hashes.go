@@ -5,6 +5,11 @@ import (
 	"fmt"
 )
 
+// SHA256 hashes são frequentemente usados para computar identificadores curtos
+// para binários ou partes de textos. Por exemplo, certificados TLS/SSL usam
+// SHA256 para computar assinaturas de certificados. Neste exemplo temos uma
+// forma de computar hashes SHA256 em Go.
+
 func main() {
 
 	s := "sha256 this string"
