@@ -10,6 +10,9 @@ import (
 // Aqui alguns exemplos de como analizar URLs em Go.
 func main() {
 
+	// Neste exemplo será analizado uma URL de exemplo, que inclui um esquema,
+	// informação de autenticação, hospedeiro, porta, caminho, parametros de consulta
+	// e fragmento de consulta.
 	s := "postgres://user:pass@host.com:5432/path?k=v#f"
 
 	u, err := url.Parse(s)
@@ -17,6 +20,6 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println(u.Scheme)
+	fmt.Println(u.Scheme) // postgres
 
 }
