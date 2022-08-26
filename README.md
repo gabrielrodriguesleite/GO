@@ -236,3 +236,14 @@ Exercicios/GoByExample
 ###### Referências
 
 https://gobyexample.com/
+
+
+## Aprendendo Go com testes
+
+Próximo conteúdo a ser estudado. (em breve)
+
+###### Referências
+
+https://larien.gitbook.io/aprenda-go-com-testes/
+
+---
