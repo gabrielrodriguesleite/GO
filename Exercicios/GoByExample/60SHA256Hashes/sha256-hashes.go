@@ -27,6 +27,13 @@ func main() {
 	// Normalmente o argumento não é necessário.
 	bs := h.Sum(nil)
 
+	// A string base
 	fmt.Println(s)
+	// A hash impressa no formato hexadecimal
 	fmt.Printf("%x\n", bs)
 }
+
+// É possível computar outras hashes usando um padrão similar ao demonstrado acima.
+// Por exemplo, para computar uma hash SHA512 importe crypo/sha512 e use sha512.New()
+// Note que se for necessário uma hash segura criptograficamente pesquise por
+// hash strength: https://en.wikipedia.org/wiki/Cryptographic_hash_function
