@@ -39,3 +39,7 @@ abc123!?$*&()'-=@~
 YWJjMTIzIT8kKiYoKSctPUB-
 abc123!?$*&()'-=@~
 */
+
+// As strings codificadas são levemente diferentes entre os tipos de codificação
+// base64 padrão e o tipo compatível com URL (termina com + ou com -) mas os dois
+// decodificam da mesma forma na string original.
