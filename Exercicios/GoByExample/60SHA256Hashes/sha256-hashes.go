@@ -28,9 +28,9 @@ func main() {
 	bs := h.Sum(nil)
 
 	// A string base
-	fmt.Println(s)
+	fmt.Println(s) // sha256 this string
 	// A hash impressa no formato hexadecimal
-	fmt.Printf("%x\n", bs)
+	fmt.Printf("%x\n", bs) // 1af1dfa857bf1d8814fe1af8983c18080019922e557f15a8a0d3db739d77aacb
 }
 
 // É possível computar outras hashes usando um padrão similar ao demonstrado acima.
