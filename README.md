@@ -233,5 +233,6 @@ Exercícios sobre diversos pacotes embutidos resolvendo tarefas comuns estão na
 Exercicios/GoByExample
 ```
 
-###### REFERÊNCIAS
+###### Referências
+
 https://gobyexample.com/
