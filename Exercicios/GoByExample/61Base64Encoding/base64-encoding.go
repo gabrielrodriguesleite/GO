@@ -25,6 +25,7 @@ func main() {
 
 	// URL
 
+	// Exemplo usando base64 compatível com URL
 	uEnc := base64.URLEncoding.EncodeToString([]byte(data))
 	fmt.Println(uEnc)
 	uDec, _ := base64.URLEncoding.DecodeString(uEnc)
