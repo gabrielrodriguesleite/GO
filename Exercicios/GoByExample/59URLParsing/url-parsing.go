@@ -43,6 +43,10 @@ func main() {
 	fmt.Println(u.Path)
 	fmt.Println(u.Fragment)
 
+	// Para acessar os parametros em uma string no formato k=v, usasse RawQuery.
+	// Também é possível analisar parametros de consulta para um map.
+	// O map de parametros de consulta analisado é de strings para slices de strings
+	// então o index em [0] é para o caso de acessar apenas o primeiro valor.
 	fmt.Println(u.RawQuery)
 	m, _ := url.ParseQuery(u.RawQuery)
 	fmt.Println(m)
