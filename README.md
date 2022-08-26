@@ -224,3 +224,11 @@ func main() {
 ```
 
 A função Imprimir só estará disponível pois inicia com 'I' maiúsculo.
+
+## Go by example
+
+Exercícios sobre diversos pacotes embutidos resolvendo tarefas comuns estão na pasta:
+
+```
+Exercicios/GoByExample
+```
