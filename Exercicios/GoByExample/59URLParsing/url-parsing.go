@@ -53,3 +53,18 @@ func main() {
 	fmt.Println(m["k"][0])
 
 }
+
+/* SAÍDA ESPERADA PARA ESSE CÓDIGO
+postgres
+user:pass
+user
+pass
+host.com:5432
+host.com
+5432
+/path
+f
+k=v
+map[k:[v]]
+v
+*/
