@@ -40,5 +40,6 @@ func main() {
 	ext := filepath.Ext(filename)
 	fmt.Println(ext)
 
+	// strings.TrimSuffix é útil para remover a extenção do nome do arquivo.
 	fmt.Println(strings.TrimSuffix(filename, ext))
 }
