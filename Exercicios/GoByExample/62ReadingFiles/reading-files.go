@@ -24,9 +24,13 @@ func main() {
 	check(err)
 	fmt.Print(string(dat))
 
+	// Para um controle melhor de quanto se deseja ler do arquivo ou de qual parte
+	// começamos por abrir o arquivo para obter um valor os.File .
 	f, err := os.Open("/tmp/dat")
 	check(err)
 
+	// Ler alguns bytes do inicio do arquivo.
+	// Permitimos até 5 bytes serem lidos, e então verificamos quantos foram lidos de fato.
 	b1 := make([]byte, 5)
 	n1, err := f.Read(b1)
 	check(err)
