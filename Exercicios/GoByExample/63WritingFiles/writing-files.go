@@ -6,9 +6,9 @@ import (
 )
 
 // Escrever arquivo usando Go é uma tarefa parecida com a de leitura
-// demonstrada no exemplo anterior
+// demonstrada no exemplo anterior.
 
-// Novamente é muito útil ter uma função para tratar a verificação por erros
+// Novamente é muito útil ter uma função para tratar a verificação por erros.
 func check(e error) {
 	if e != nil {
 		panic(e)
@@ -22,11 +22,14 @@ func main() {
 	err := os.WriteFile("/tmp/dat1", d1, 0644)
 	check(err)
 
+	// Para escritas mais granulares, primeiro abrimos o arquivo para escrita:
 	f, err := os.Create("/tmp/dat2")
 	check(err)
 
+	// O padrão da linguagem é agendar o fechamento logo após abri o arquivo.
 	defer f.Close()
 
+	// É possível escrever slices de bytes como esperado.
 	d2 := []byte{115, 111, 109, 101, 10}
 	n2, err := f.Write(d2)
 	check(err)
