@@ -18,6 +18,8 @@ func check(e error) {
 
 func main() {
 
+	// A tarefa mais comum de leitura de um arquivo inteiro para a memória
+	// e então imprimindo o conteúdo convertido para string na tela.
 	dat, err := os.ReadFile("/tmp/dat")
 	check(err)
 	fmt.Print(string(dat))
