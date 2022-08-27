@@ -35,6 +35,7 @@ func main() {
 	check(err)
 	fmt.Printf("wrote %d bytes\n", n2)
 
+	// WriteString permite escrever uma string diretamente.
 	n3, err := f.WriteString("writes\n")
 	check(err)
 	fmt.Printf("wrote %d bytes\n", n3)
