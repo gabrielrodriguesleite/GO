@@ -36,3 +36,13 @@ func main() {
 		os.Exit(1)
 	}
 }
+
+/* SAÍDA ESPERADA
+# echo 'hello' > /tmp/lines
+# echo 'filter' >> /tmp/lines
+# cat /tmp/lines | go run line-filters.go
+HELLO
+FILTER
+# também funciona com a entrada do teclado se executado com
+go run line-filters.go
+*/
