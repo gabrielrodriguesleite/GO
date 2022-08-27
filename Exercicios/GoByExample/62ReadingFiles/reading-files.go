@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"os"
+)
+
 // Ler e escrever arquivos são tarefas básicas porém necessárias para muitos
 // programas Go. Primeiramente veremos exemplos de leitura.
 
@@ -12,5 +17,9 @@ func check(e error) {
 }
 
 func main() {
+
+	dat, err := os.ReadFile("/tmp/dat")
+	check(err)
+	fmt.Print(string(dat))
 
 }
