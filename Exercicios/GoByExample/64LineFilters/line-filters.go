@@ -45,4 +45,5 @@ HELLO
 FILTER
 # também funciona com a entrada do teclado se executado com
 go run line-filters.go
+# Ctrl-D sai do programa por enviar um EOF
 */
