@@ -16,6 +16,9 @@ import (
 // É possível implementar todo tipo de padrão de formatação.
 func main() {
 
+	// Envolvendo os.Stdin que é unbuffered com um scanner buferizado
+	// nos dá a conveniência do método Scan que avança o scanner para
+	// o próvimo token; o qual é a próxima linha no scanner padrão.
 	scanner := bufio.NewScanner(os.Stdin)
 
 	for scanner.Scan() {
