@@ -36,6 +36,7 @@ func main() {
 	check(err)
 	fmt.Printf("%d bytes: %s\n", n1, string(b1[:n1]))
 
+	// É possível ler a partir de uma posição determinada no arquivo.
 	o2, err := f.Seek(6, 0)
 	check(err)
 	b2 := make([]byte, 2)
