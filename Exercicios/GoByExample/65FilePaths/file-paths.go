@@ -9,6 +9,9 @@ import (
 // de forma portável entre sistemas operacionais. Por exemplo dir/file no linux
 // e dir\file no windows.
 func main() {
+
+	// Join deve ser usado quando se constroem paths de forma portável.
+	// Aceita n número de argumentos e constroe a hierarquia do caminho à partir destes.
 	p := filepath.Join("dir1", "dir2", "filename")
 	fmt.Println("p:", p)
 
