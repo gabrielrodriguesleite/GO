@@ -53,4 +53,7 @@ func main() {
 	n3, err := io.ReadAtLeast(f, b3, 2)
 	check(err)
 	fmt.Printf("%d bytes @ %d: %s\n", n3, o3, string(b3))
+
+	_, err = f.Seek(0, 0)
+	check(err)
 }
