@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"io"
 	"os"
@@ -57,4 +58,10 @@ func main() {
 	// Não existe função embutida para retroceder, porém Seek(0, 0) realiza essa tarefa.
 	_, err = f.Seek(0, 0)
 	check(err)
+
+	r4 := bufio.NewReader(f)
+	b4, err := r4.Peek(5)
+	check(err)
+	fmt.Printf("5 bytes: %s\n", string(b4))
+
 }
