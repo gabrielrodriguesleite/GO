@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"path/filepath"
+	"strings"
 )
 
 // O pacote filepath possui funções para analisar e contruir caminhos de arquivos
@@ -38,4 +39,6 @@ func main() {
 	filename := "config.json"
 	ext := filepath.Ext(filename)
 	fmt.Println(ext)
+
+	fmt.Println(strings.TrimSuffix(filename, ext))
 }
