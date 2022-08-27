@@ -42,4 +42,19 @@ func main() {
 
 	// strings.TrimSuffix é útil para remover a extenção do nome do arquivo.
 	fmt.Println(strings.TrimSuffix(filename, ext))
+
+	rel, err := filepath.Rel("a/b/", "a/b/t/file")
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(rel)
+
+	rel, err = filepath.Rel("a/b", "a/c/t/file")
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(rel)
+
 }
