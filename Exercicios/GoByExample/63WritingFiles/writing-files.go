@@ -50,5 +50,7 @@ func main() {
 	check(err)
 	fmt.Printf("wrote %d bytes \n", n4)
 
+	// Use Flush para se certificar que todos as operações em buffer foram
+	// aplicadas ao respectivo escritor.
 	w.Flush()
 }
