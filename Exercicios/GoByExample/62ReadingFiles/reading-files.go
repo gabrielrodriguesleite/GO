@@ -71,3 +71,17 @@ func main() {
 	f.Close()
 
 }
+
+/* ANTES DE EXECUTAR É NECESSÁRIO CRIAR OS ARQUIVOS P/ LEITURA
+$ echo "hello" > /tmp/dat
+$ echo "go" >>   /tmp/dat
+*/
+
+/* SAÍDA ESPERADA PARA ESSE CÓDIGO
+hello
+go
+5 bytes: hello
+2 bytes @ 6: go
+2 bytes @ 6: go
+5 bytes: hello
+*/
