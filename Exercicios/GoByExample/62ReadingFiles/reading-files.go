@@ -46,6 +46,7 @@ func main() {
 	fmt.Printf("%d bytes @ %d: ", n2, o2)
 	fmt.Printf("%v\n", string(b2[:n2]))
 
+	// A função ReadAtLeas permite ler como no exemplo anterior de uma forma mais robusta.
 	o3, err := f.Seek(6, 0)
 	check(err)
 	b3 := make([]byte, 2)
