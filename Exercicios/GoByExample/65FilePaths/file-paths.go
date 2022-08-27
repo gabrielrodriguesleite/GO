@@ -15,6 +15,9 @@ func main() {
 	p := filepath.Join("dir1", "dir2", "filename")
 	fmt.Println("p:", p)
 
+	// É importante sempre dar preferência ao Join ao invés de concatenar caminhos
+	// manualmente com /s ou \s. Além de prover portabilidade, Join também normaliza
+	// os caminhos por remover separadores e mudanças de pastas desnecessárias.
 	fmt.Println(filepath.Join("dir1//", "filename"))
 	fmt.Println(filepath.Join("dir1/../dir1", "filename"))
 }
