@@ -54,3 +54,22 @@ func main() {
 	// aplicadas ao respectivo escritor.
 	w.Flush()
 }
+
+/* SAÍDA ESPERADA PARA ESSE CÓDIGO
+wrote 5 bytes
+wrote 7 bytes
+wrote 9 bytes
+*/
+
+/* ARQUIVO CRIADO
+$ cat /tmp/dat1
+hello
+go
+*/
+
+/* ARQUIVO CRIADO
+$ cat /tmp/dat2
+some
+writes
+buffered
+*/
