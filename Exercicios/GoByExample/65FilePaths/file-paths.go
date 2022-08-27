@@ -32,4 +32,8 @@ func main() {
 	// É possível também testar se um caminho é relativo ou absoluto.
 	fmt.Println(filepath.IsAbs("dir/file"))
 	fmt.Println(filepath.IsAbs("/dir/file"))
+
+	filename := "config.json"
+	ext := filepath.Ext(filename)
+	fmt.Println(ext)
 }
