@@ -20,4 +20,8 @@ func main() {
 	// os caminhos por remover separadores e mudanças de pastas desnecessárias.
 	fmt.Println(filepath.Join("dir1//", "filename"))
 	fmt.Println(filepath.Join("dir1/../dir1", "filename"))
+
+	fmt.Println("Dir(p):", filepath.Dir(p))
+	fmt.Println("Base(p):", filepath.Base(p))
+
 }
