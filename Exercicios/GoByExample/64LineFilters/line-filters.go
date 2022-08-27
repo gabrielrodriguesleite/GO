@@ -25,9 +25,12 @@ func main() {
 	// da entrada.
 	for scanner.Scan() {
 		ucl := strings.ToUpper(scanner.Text())
+		// Escrevendo a versão capitalizada.
 		fmt.Println(ucl)
 	}
 
+	// Verifica por erros durante o Scan. EOF (fim de arquivo) é esperado
+	// então não é reportado como erro por Scan.
 	if err := scanner.Err(); err != nil {
 		fmt.Fprintln(os.Stderr, "error:", err)
 		os.Exit(1)
