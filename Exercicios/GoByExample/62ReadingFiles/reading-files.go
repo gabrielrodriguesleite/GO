@@ -66,6 +66,8 @@ func main() {
 	check(err)
 	fmt.Printf("5 bytes: %s\n", string(b4))
 
+	// É importante fechar o arquivo quando se finaliza as tarefas de leitura e escrita.
+	// Normalmente deve ser agendado o fechamento com defer logo após abrir o arquivo.
 	f.Close()
 
 }
