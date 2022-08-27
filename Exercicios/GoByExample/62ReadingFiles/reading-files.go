@@ -59,6 +59,8 @@ func main() {
 	_, err = f.Seek(0, 0)
 	check(err)
 
+	// O pacote bufio implementa um leitor bufferizado que pode ser útil tanto pela sua
+	// eficiência com pequenas leituras como também pelos métodos adicionais que possui.
 	r4 := bufio.NewReader(f)
 	b4, err := r4.Peek(5)
 	check(err)
