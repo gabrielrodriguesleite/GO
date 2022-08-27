@@ -12,4 +12,6 @@ func main() {
 	p := filepath.Join("dir1", "dir2", "filename")
 	fmt.Println("p:", p)
 
+	fmt.Println(filepath.Join("dir1//", "filename"))
+	fmt.Println(filepath.Join("dir1/../dir1", "filename"))
 }
