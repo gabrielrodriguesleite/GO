@@ -21,6 +21,8 @@ func main() {
 	fmt.Println(filepath.Join("dir1//", "filename"))
 	fmt.Println(filepath.Join("dir1/../dir1", "filename"))
 
+	// Dir e Base podem ser usados para separar um caminho em pasta e arquivo.
+	// De maneira alternativa, Split irá retornar ambos na mesma chamada:
 	fmt.Println("Dir(p):", filepath.Dir(p))
 	fmt.Println("Base(p):", filepath.Base(p))
 
