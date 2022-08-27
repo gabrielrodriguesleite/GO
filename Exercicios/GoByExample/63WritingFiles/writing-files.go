@@ -44,6 +44,7 @@ func main() {
 	// Chamar Sync escreve os dados no armazenamento rom liberando memória ram.
 	f.Sync()
 
+	// bufio fornece escrita buferizada.
 	w := bufio.NewWriter(f)
 	n4, err := w.WriteString("buffered\n")
 	check(err)
