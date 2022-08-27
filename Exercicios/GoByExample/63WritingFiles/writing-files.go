@@ -14,6 +14,7 @@ func check(e error) {
 
 func main() {
 
+	// Exemplo de escrita de string ou bytes em um arquivo.
 	d1 := []byte("hello\ngo\n")
 	err := os.WriteFile("/tmp/dat1", d1, 0644)
 	check(err)
