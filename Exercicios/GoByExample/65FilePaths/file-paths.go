@@ -33,6 +33,8 @@ func main() {
 	fmt.Println(filepath.IsAbs("dir/file"))
 	fmt.Println(filepath.IsAbs("/dir/file"))
 
+	// Alguns arquivos possuem nomes com a extenção indicada após o ponto.
+	// É possível dividir a extenção e capturar ela com Ext:
 	filename := "config.json"
 	ext := filepath.Ext(filename)
 	fmt.Println(ext)
