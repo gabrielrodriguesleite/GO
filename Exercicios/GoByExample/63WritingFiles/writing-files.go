@@ -39,4 +39,6 @@ func main() {
 	n3, err := f.WriteString("writes\n")
 	check(err)
 	fmt.Printf("wrote %d bytes\n", n3)
+
+	f.Sync()
 }
