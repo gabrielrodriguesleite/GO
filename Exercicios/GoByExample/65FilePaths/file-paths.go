@@ -26,6 +26,9 @@ func main() {
 	fmt.Println("Dir(p):", filepath.Dir(p))
 	fmt.Println("Base(p):", filepath.Base(p))
 
+	f, d := filepath.Split(p)
+	fmt.Printf("Split(p) → Dir: %s, Base: %s\n", f, d)
+
 	// É possível também testar se um caminho é relativo ou absoluto.
 	fmt.Println(filepath.IsAbs("dir/file"))
 	fmt.Println(filepath.IsAbs("/dir/file"))
