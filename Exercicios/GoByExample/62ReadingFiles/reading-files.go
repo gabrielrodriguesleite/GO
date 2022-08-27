@@ -54,6 +54,7 @@ func main() {
 	check(err)
 	fmt.Printf("%d bytes @ %d: %s\n", n3, o3, string(b3))
 
+	// Não existe função embutida para retroceder, porém Seek(0, 0) realiza essa tarefa.
 	_, err = f.Seek(0, 0)
 	check(err)
 }
