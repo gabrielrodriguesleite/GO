@@ -40,5 +40,6 @@ func main() {
 	check(err)
 	fmt.Printf("wrote %d bytes\n", n3)
 
+	// Chamar Sync escreve os dados no armazenamento rom liberando memória ram.
 	f.Sync()
 }
