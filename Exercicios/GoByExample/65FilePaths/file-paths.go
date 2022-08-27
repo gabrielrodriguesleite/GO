@@ -43,6 +43,8 @@ func main() {
 	// strings.TrimSuffix é útil para remover a extenção do nome do arquivo.
 	fmt.Println(strings.TrimSuffix(filename, ext))
 
+	// Rel procura um caminho relativo entre uma base e um target.
+	// Retorna um erro se o target não possuir um caminho relativo a base.
 	rel, err := filepath.Rel("a/b/", "a/b/t/file")
 	if err != nil {
 		panic(err)
