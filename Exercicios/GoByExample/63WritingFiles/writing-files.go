@@ -35,4 +35,7 @@ func main() {
 	check(err)
 	fmt.Printf("wrote %d bytes\n", n2)
 
+	n3, err := f.WriteString("writes\n")
+	check(err)
+	fmt.Printf("wrote %d bytes\n", n3)
 }
