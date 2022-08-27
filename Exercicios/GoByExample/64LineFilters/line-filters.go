@@ -1,5 +1,12 @@
 package main
 
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
+
 // Line filter é um tipo de programa comum que lê a entrada do stdin,
 // processa a entrada e então imprime o resultado para o stdout.
 // Exemplos desses tipos são grep e sed
@@ -9,4 +16,15 @@ package main
 // É possível implementar todo tipo de padrão de formatação.
 func main() {
 
+	scanner := bufio.NewScanner(os.Stdin)
+
+	for scanner.Scan() {
+		ucl := strings.ToUpper(scanner.Text())
+		fmt.Println(ucl)
+	}
+
+	if err := scanner.Err(); err != nil {
+		fmt.Fprintln(os.Stderr, "error:", err)
+		os.Exit(1)
+	}
 }
