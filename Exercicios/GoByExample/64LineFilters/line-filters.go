@@ -21,6 +21,8 @@ func main() {
 	// o próvimo token; o qual é a próxima linha no scanner padrão.
 	scanner := bufio.NewScanner(os.Stdin)
 
+	// O método Text retorna o token atual, neste caso a próxima linha
+	// da entrada.
 	for scanner.Scan() {
 		ucl := strings.ToUpper(scanner.Text())
 		fmt.Println(ucl)
