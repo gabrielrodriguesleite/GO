@@ -20,4 +20,11 @@ func main() {
 	// inteiro similar ao "rm -rf".
 	defer os.RemoveAll("subdir")
 
+	createEmptyFile := func(name string) {
+		d := []byte("")
+		check(os.WriteFile(name, d, 0644))
+	}
+
+	createEmptyFile("subdir/file1")
+
 }
