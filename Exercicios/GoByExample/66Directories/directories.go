@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 )
 
 func check(e error) {
@@ -67,4 +68,15 @@ func main() {
 	err = os.Chdir("../../../")
 	check(err)
 
+	fmt.Println("Visiting subdir")
+	err = filepath.Walk("subdir", visit)
+
+}
+
+func visit(p string, info os.FileInfo, err error) error {
+	if err != nil {
+		return err
+	}
+	fmt.Println(" ", p, info.IsDir())
+	return nil
 }
