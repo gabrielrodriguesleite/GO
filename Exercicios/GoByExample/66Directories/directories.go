@@ -40,6 +40,8 @@ func main() {
 	createEmptyFile("subdir/parent/file3")
 	createEmptyFile("subdir/parent/child/file4")
 
+	// ReadDir lista o conteúdo do diretório, retornando uma
+	// slice de objetos do tipo os.DirEntry
 	c, err := os.ReadDir("subdir/parent")
 	check(err)
 
@@ -48,9 +50,11 @@ func main() {
 		fmt.Println(" ", entry.Name(), entry.IsDir())
 	}
 
+	// Chdir similar ao "cd", permite mudar o diretório de trabalho.
 	err = os.Chdir("subdir/parent/child")
 	check(err)
 
+	// Agora para listar o conteúdo do diretório atual:
 	c, err = os.ReadDir(".")
 	check(err)
 
@@ -59,6 +63,7 @@ func main() {
 		fmt.Println(" ", entry.Name(), entry.IsDir())
 	}
 
+	// Navegando de volta para o início.
 	err = os.Chdir("../../../")
 	check(err)
 
