@@ -29,6 +29,7 @@ func main() {
 	// Criar um arquivo vazio.
 	createEmptyFile("subdir/file1")
 
+	// MkdirAll similar ao comando mkdir -p cria a hierarquia de diretórios.
 	err = os.MkdirAll("subdir/parent/child", 0755)
 	check(err)
 }
