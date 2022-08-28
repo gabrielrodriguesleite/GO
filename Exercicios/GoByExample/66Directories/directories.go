@@ -68,11 +68,16 @@ func main() {
 	err = os.Chdir("../../../")
 	check(err)
 
+	// É possível visitar um diretório recursivamente, incluindo todos os seus
+	// subdiretórios. Walk aceita uma callback para lidar com cada arquivo ou
+	// diretório visitado.
 	fmt.Println("Visiting subdir")
 	err = filepath.Walk("subdir", visit)
 
 }
 
+// A callback usada em Walk, chamada para cada arquivo ou diretório encontrado
+// recursivamente pelo método Walk de filepath
 func visit(p string, info os.FileInfo, err error) error {
 	if err != nil {
 		return err
