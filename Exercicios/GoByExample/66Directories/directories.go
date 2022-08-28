@@ -29,4 +29,6 @@ func main() {
 	// Criar um arquivo vazio.
 	createEmptyFile("subdir/file1")
 
+	err = os.MkdirAll("subdir/parent/child", 0755)
+	check(err)
 }
