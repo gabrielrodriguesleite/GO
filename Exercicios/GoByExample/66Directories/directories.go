@@ -46,22 +46,27 @@ func main() {
 	c, err := os.ReadDir("subdir/parent")
 	check(err)
 
-	fmt.Println("Listing subdir/parent")
+	fmt.Println("Listing subdir/parent") // Listing subdir/parent
 	for _, entry := range c {
 		fmt.Println(" ", entry.Name(), entry.IsDir())
+		// child true
+		// file2 false
+		// file3 false
 	}
 
 	// Chdir similar ao "cd", permite mudar o diretório de trabalho.
 	err = os.Chdir("subdir/parent/child")
+
 	check(err)
 
 	// Agora para listar o conteúdo do diretório atual:
 	c, err = os.ReadDir(".")
 	check(err)
 
-	fmt.Println("Listing subdir/parent/child")
+	fmt.Println("Listing subdir/parent/child") // Listing subdir/parent/child
 	for _, entry := range c {
 		fmt.Println(" ", entry.Name(), entry.IsDir())
+		// file4 false
 	}
 
 	// Navegando de volta para o início.
@@ -71,7 +76,7 @@ func main() {
 	// É possível visitar um diretório recursivamente, incluindo todos os seus
 	// subdiretórios. Walk aceita uma callback para lidar com cada arquivo ou
 	// diretório visitado.
-	fmt.Println("Visiting subdir")
+	fmt.Println("Visiting subdir") // Visiting subdir
 	err = filepath.Walk("subdir", visit)
 
 }
@@ -83,5 +88,30 @@ func visit(p string, info os.FileInfo, err error) error {
 		return err
 	}
 	fmt.Println(" ", p, info.IsDir())
+	// subdir true
+	// subdir/file1 false
+	// subdir/parent true
+	// subdir/parent/child true
+	// subdir/parent/child/file4 false
+	// subdir/parent/file2 false
+	// subdir/parent/file3 false
+
 	return nil
 }
+
+/* SAÍDA ESPERADA PARA ESTE CÓDIGO
+Listing subdir/parent
+  child true
+  file2 false
+  file3 false
+Listing subdir/parent/child
+  file4 false
+Visiting subdir
+  subdir true
+  subdir/file1 false
+  subdir/parent true
+  subdir/parent/child true
+  subdir/parent/child/file4 false
+  subdir/parent/file2 false
+  subdir/parent/file3 false
+*/
