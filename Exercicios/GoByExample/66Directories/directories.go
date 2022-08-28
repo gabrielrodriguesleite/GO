@@ -20,11 +20,13 @@ func main() {
 	// inteiro similar ao "rm -rf".
 	defer os.RemoveAll("subdir")
 
+	// Função auxiliar para criar arquivos vazios.
 	createEmptyFile := func(name string) {
 		d := []byte("")
 		check(os.WriteFile(name, d, 0644))
 	}
 
+	// Criar um arquivo vazio.
 	createEmptyFile("subdir/file1")
 
 }
