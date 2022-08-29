@@ -48,3 +48,18 @@ func main() {
 	println("Fim")
 
 }
+
+/* SAÍDA ESPERADA PARA ESSE CÓDIGO
+$ mkdir -p folder
+$ echo "hello go" > folder/single_file.txt
+$ echo "123" > folder/file1.hash
+$ echo "456" > folder/file2.hash
+
+$ go run embed-directive.go
+hello go
+hello go
+123
+456
+*/
+
+// IMPORTANTE: NA VERSÃO 1.19 NÃO FUNCIONOU, NÃO QUEBRA TAMBÉM NÃO IMPRIME NADA
