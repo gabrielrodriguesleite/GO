@@ -52,6 +52,8 @@ func main() {
 	check(err)
 	fmt.Println("Temp dir name:", dname)
 
+	// RemoveAll apaga toda árvore de diretórios e arquivos dentro do diretório
+	// passado como argumento.
 	defer os.RemoveAll(dname)
 
 }
