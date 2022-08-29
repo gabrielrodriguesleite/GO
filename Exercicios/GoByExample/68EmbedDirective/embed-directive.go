@@ -38,6 +38,7 @@ func main() {
 	println(fileString)
 	println(string(fileByte))
 
+	// Recuperando os arquivos embutidos.
 	content1, _ := folder.ReadFile("folder/file1.hash")
 	println(string(content1))
 
