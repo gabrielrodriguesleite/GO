@@ -40,6 +40,7 @@ func main() {
 
 	// -----------
 
+	// Escrevendo alguns dados no arquivo.
 	_, err = f.Write([]byte{1, 2, 3, 4})
 	check(err)
 
