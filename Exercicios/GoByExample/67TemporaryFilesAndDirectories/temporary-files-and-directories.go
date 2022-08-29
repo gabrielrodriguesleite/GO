@@ -33,6 +33,9 @@ func main() {
 	// que ao chamar esse método novamente crie um nome diferente.
 	fmt.Println("Temp file name:", f.Name())
 
+	// Removemos o arquivo depois do fim da excução do programa. O próprio
+	// sistema se encarrega de limpar os arquivos temporários de tempos em
+	// tempos, mas é uma boa prática fazer isso explicitamente.
 	defer os.Remove(f.Name())
 
 }
