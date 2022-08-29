@@ -18,6 +18,11 @@ import (
 // go:embed folder/single_file.txt
 var fileString string
 
+// Também é possível embutir o arquivo em um array de bytes.
+
+// go:embed folder/single_file.txt
+var fileByte []byte
+
 func main() {
 
 }
