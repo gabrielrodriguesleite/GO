@@ -34,4 +34,7 @@ var folder embed.FS
 
 func main() {
 
+	print(fileString)
+	print(string(fileByte))
+
 }
