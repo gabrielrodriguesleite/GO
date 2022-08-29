@@ -52,4 +52,6 @@ func main() {
 	check(err)
 	fmt.Println("Temp dir name:", dname)
 
+	defer os.RemoveAll(dname)
+
 }
