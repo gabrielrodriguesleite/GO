@@ -3,7 +3,7 @@ package main
 import (
 	// Ao importar o pacote "embed" use algum identificador de exportação
 	// do pacote ou faça um importe em branco com "_"
-	_ "embed"
+	"embed"
 )
 
 // "go:embed" é uma diretiva de compilador que permite um programa incluir
@@ -22,6 +22,10 @@ var fileString string
 
 // go:embed folder/single_file.txt
 var fileByte []byte
+
+// go:embed folder/single_file.txt
+// go:embed folder/*.hash
+var folder embed.FS
 
 func main() {
 
