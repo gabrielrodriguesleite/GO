@@ -25,5 +25,11 @@ func main() {
 	// fará com que o arquivo seja criado no local padrão para seu OS.
 	f, err := os.CreateTemp("", "sample")
 	check(err)
+
+	// Mostrando o nome e a localização do arquivo temporário.
+	// Em sistemas Unix o diretório base deve ser "/tmp".
+	// O nome do arquivo leva o prefixo definido no segundo argumento,
+	// o restante do nome é definido automaticamente de forma a garantir
+	// que ao chamar esse método novamente crie um nome diferente.
 	fmt.Println("Temp file name:", f.Name())
 }
