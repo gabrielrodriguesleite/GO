@@ -38,4 +38,9 @@ func main() {
 	// tempos, mas é uma boa prática fazer isso explicitamente.
 	defer os.Remove(f.Name())
 
+	// -----------
+
+	_, err = f.Write([]byte{1, 2, 3, 4})
+	check(err)
+
 }
