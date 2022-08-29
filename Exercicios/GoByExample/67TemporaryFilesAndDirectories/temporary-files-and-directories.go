@@ -57,6 +57,8 @@ func main() {
 	// passado como argumento.
 	defer os.RemoveAll(dname)
 
+	// É possível sintetizar o arquivo temporário passando como prefixo o nome
+	// do nosso diretório temporário.
 	fname := filepath.Join(dname, "file1")
 	err = os.WriteFile(fname, []byte{1, 2}, 0666)
 	check(err)
