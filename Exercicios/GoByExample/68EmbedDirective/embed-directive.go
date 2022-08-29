@@ -1,9 +1,13 @@
 package main
 
-// go:embed é uma diretiva de compilador que permite um programa incluir
+// "go:embed" é uma diretiva de compilador que permite um programa incluir
 // arquivos e diretórios no binário na hora da contrução.
 // Mais aqui: https://pkg.go.dev/embed
 // E aqui também: https://pkg.go.dev/cmd/compile#hdr-Compiler_Directives
+
+// go:embed folder/single_file.txt
+var fileString string
+
 func main() {
 
 }
