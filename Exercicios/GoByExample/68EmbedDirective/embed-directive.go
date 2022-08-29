@@ -23,6 +23,11 @@ var fileString string
 // go:embed folder/single_file.txt
 var fileByte []byte
 
+// É possível embutir vários arquivos usando coringas.
+// Este exemplo usa uma variável do tipo embed.FS.type que
+// implementa um sistema de arquivos virtual.
+// Mais em: https://pkg.go.dev/embed#FS
+
 // go:embed folder/single_file.txt
 // go:embed folder/*.hash
 var folder embed.FS
