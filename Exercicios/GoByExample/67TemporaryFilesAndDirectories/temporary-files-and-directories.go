@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 )
 
 // Durante toda execução do programa, muitas vezes queremos
@@ -55,5 +56,9 @@ func main() {
 	// RemoveAll apaga toda árvore de diretórios e arquivos dentro do diretório
 	// passado como argumento.
 	defer os.RemoveAll(dname)
+
+	fname := filepath.Join(dname, "file1")
+	err = os.WriteFile(fname, []byte{1, 2}, 0666)
+	check(err)
 
 }
