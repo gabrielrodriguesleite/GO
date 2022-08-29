@@ -59,3 +59,6 @@ hello go
 123
 456
 */
+
+// IMPORTANTE: não confundir a diretiva //go:embed por um comentário // go:embed
+// pois a segunda forma está errada porém não retorna erro
