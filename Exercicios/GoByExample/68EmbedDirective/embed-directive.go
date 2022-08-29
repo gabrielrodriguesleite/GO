@@ -35,7 +35,15 @@ var folder embed.FS
 func main() {
 
 	// Imprimindo o conteúdo de single_file.txt
-	print(fileString)
-	print(string(fileByte))
+	println(fileString)
+	println(string(fileByte))
+
+	content1, _ := folder.ReadFile("folder/file1.hash")
+	println(string(content1))
+
+	content2, _ := folder.ReadFile("folder/file2.hash")
+	println(string(content2))
+
+	println("Fim")
 
 }
