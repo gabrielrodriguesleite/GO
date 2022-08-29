@@ -44,6 +44,10 @@ func main() {
 	_, err = f.Write([]byte{1, 2, 3, 4})
 	check(err)
 
+	// No caso de termos muitos arquivos temporários, e preferível utilizarmos
+	// um diretório temporário. Os argumentos de os.MkdirTemp funcionam da mesma
+	// forma que CreateTemp, porém retorna um nome de diretório ao invés de um
+	// arquivo aberto.
 	dname, err := os.MkdirTemp("", "sampledir")
 	check(err)
 	fmt.Println("Temp dir name:", dname)
