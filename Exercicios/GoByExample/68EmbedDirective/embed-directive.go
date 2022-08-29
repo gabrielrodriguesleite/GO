@@ -34,6 +34,7 @@ var folder embed.FS
 
 func main() {
 
+	// Imprimindo o conteúdo de single_file.txt
 	print(fileString)
 	print(string(fileByte))
 
