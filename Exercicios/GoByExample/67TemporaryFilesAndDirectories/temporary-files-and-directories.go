@@ -64,3 +64,8 @@ func main() {
 	check(err)
 
 }
+
+/* SAÍDA DE EXEMPLO DESTE CÓDIGO
+Temp file name: /tmp/sample3468639473
+Temp dir name: /tmp/sampledir3225681559
+*/
