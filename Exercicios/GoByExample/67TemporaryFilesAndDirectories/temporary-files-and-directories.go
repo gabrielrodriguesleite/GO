@@ -18,6 +18,11 @@ func check(e error) {
 }
 
 func main() {
+
+	// A maneira mais fácil de crirar um arquivo temporário em Go
+	// é chamando os.CreateTemp. Este método cria e abre um arquivo
+	// para leitura e escrita. Passando "" no primeiro argumento
+	// fará com que o arquivo seja criado no local padrão para seu OS.
 	f, err := os.CreateTemp("", "sample")
 	check(err)
 	fmt.Println("Temp file name:", f.Name())
