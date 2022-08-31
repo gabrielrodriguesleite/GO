@@ -1,5 +1,7 @@
 package main
 
+import "testing"
+
 // Teste unitários são uma importante parte dos princípios de programação em Go.
 // O pacote de testes fornece as ferramentas necessárias para escrever testes
 // unitários. O comando "go test" roda os testes.
@@ -16,4 +18,11 @@ func IntMin(a, b int) int {
 		return a
 	}
 	return b
+}
+
+func TestIntMinBasic(t *testing.T) {
+	ans := IntMin(2, -2)
+	if ans != -2 {
+		t.Errorf("IntMin(2, -2) = %d; want -2", ans)
+	}
 }
