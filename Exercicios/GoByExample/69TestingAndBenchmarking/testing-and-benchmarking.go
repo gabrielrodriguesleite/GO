@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 // Teste unitários são uma importante parte dos princípios de programação em Go.
 // O pacote de testes fornece as ferramentas necessárias para escrever testes
@@ -28,5 +31,28 @@ func TestIntMinBasic(t *testing.T) {
 		// próximos testes. t.Fatal* vai reportar o teste com falha e parar o
 		// teste imediatamente.
 		t.Errorf("IntMin(2, -2) = %d; want -2", ans)
+	}
+}
+
+func TestIntMinTableDriven(t *testing.T) {
+	var tests = []struct {
+		a, b int
+		want int
+	}{
+		{0, 1, 0},
+		{1, 0, 0},
+		{2, -2, -2},
+		{0, -1, -1},
+		{-1, 0, -1},
+	}
+
+	for _, tt := range tests {
+		testname := fmt.Sprintf("%d,%d", tt.a, tt.b)
+		t.Run(testname, func(t *testing.T) {
+			ans := IntMin(tt.a, tt.b)
+			if ans != tt.want {
+				t.Errorf("got %d, want %d", ans, tt.want)
+			}
+		})
 	}
 }
