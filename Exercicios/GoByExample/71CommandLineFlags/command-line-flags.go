@@ -43,3 +43,61 @@ func main() {
 	fmt.Println("svar:", svar)
 	fmt.Println("tail:", flag.Args())
 }
+
+// SAÍDA ESPERADA PARA ESTE CÓDIGO CONFORME A FLAG USADA:
+
+/*
+# ----------------------------------------------------------
+$ go run 71CommandLineFlags/command-line-flags.go -word=opt
+-numb=7 -fork -svar=flag
+word: opt
+numb: 7
+fork: true
+svar: flag
+tail: []
+# ----------------------------------------------------------
+$ go run 71CommandLineFlags/command-line-flags.go -word=opt
+word: opt
+numb: 42
+fork: false
+svar: bar
+tail: []
+# ----------------------------------------------------------
+$ go run 71CommandLineFlags/command-line-flags.go -word=opt a1 a2 a3
+word: opt
+numb: 42
+fork: false
+svar: bar
+tail: [a1 a2 a3]
+# ----------------------------------------------------------
+$ go run 71CommandLineFlags/command-line-flags.go -word=opt a1 a2 a3 -numb=7
+word: opt
+numb: 42
+fork: false
+svar: bar
+tail: [a1 a2 a3 -numb=7]
+# ----------------------------------------------------------
+$ go run 71CommandLineFlags/command-line-flags.go -h
+Usage of /tmp/go-build3344106437/b001/exe/command-line-flags:
+  -fork
+        a bool
+  -numb int
+        an int (default 42)
+  -svar string
+        a string var (default "bar")
+  -word string
+        a string (default "foo")
+# ----------------------------------------------------------
+$ go run 71CommandLineFlags/command-line-flags.go -wat
+flag provided but not defined: -wat
+Usage of /tmp/go-build676409743/b001/exe/command-line-flags:
+  -fork
+        a bool
+  -numb int
+        an int (default 42)
+  -svar string
+        a string var (default "bar")
+  -word string
+        a string (default "foo")
+exit status 2
+*/
