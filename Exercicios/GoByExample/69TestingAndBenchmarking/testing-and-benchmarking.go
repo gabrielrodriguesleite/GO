@@ -50,6 +50,8 @@ func TestIntMinTableDriven(t *testing.T) {
 		{-1, 0, -1},
 	}
 
+	// t.Run permite rodar "subtestes" um para cada linha da tabela.
+	// Então são visualizados separadamente quando se executa "go test -v"
 	for _, tt := range tests {
 		testname := fmt.Sprintf("%d,%d", tt.a, tt.b)
 		t.Run(testname, func(t *testing.T) {
