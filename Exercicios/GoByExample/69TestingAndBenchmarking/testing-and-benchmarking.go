@@ -63,6 +63,10 @@ func TestIntMinTableDriven(t *testing.T) {
 	}
 }
 
+// Testes de Benchmark são definidos geralmente nos arquivos "_test.go" e
+// possuem "Benchmark" como prefixo dos seus nomes. Go roda os testes de
+// benchmark várias vezes, aumentando b.N a cada vez até que seja capturada
+// uma medida precisa.
 func BenchmarkIntMin(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		IntMin(1, 2)
