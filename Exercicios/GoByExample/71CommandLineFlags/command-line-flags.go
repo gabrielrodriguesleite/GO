@@ -47,14 +47,16 @@ func main() {
 // SAÍDA ESPERADA PARA ESTE CÓDIGO CONFORME A FLAG USADA:
 
 /*
+# PASSANDO VALORES PRA TODAS AS FLAGS.
 # ----------------------------------------------------------
-$ go run 71CommandLineFlags/command-line-flags.go -word=opt
--numb=7 -fork -svar=flag
+$ go run 71CommandLineFlags/command-line-flags.go -word=opt -numb=7 -fork -svar=flag
 word: opt
 numb: 7
 fork: true
 svar: flag
 tail: []
+# ----------------------------------------------------------
+# FLAGS OMITIDAS RECEBEM O VALOR PADRÃO.
 # ----------------------------------------------------------
 $ go run 71CommandLineFlags/command-line-flags.go -word=opt
 word: opt
@@ -62,6 +64,8 @@ numb: 42
 fork: false
 svar: bar
 tail: []
+# ----------------------------------------------------------
+# ARGUMENTOS POSICIONAIS PODEM VIR DEPOIS DE QUALQUER FLAG.
 # ----------------------------------------------------------
 $ go run 71CommandLineFlags/command-line-flags.go -word=opt a1 a2 a3
 word: opt
@@ -70,12 +74,17 @@ fork: false
 svar: bar
 tail: [a1 a2 a3]
 # ----------------------------------------------------------
+# ARGUMENTOS POSICIONAIS PASSADOS ANTES DAS FLAGS FARÁ COM QUE AS FLAGS
+# PASSADAS POR ÚLTIMO SEJAM INTERPRETADAS COMO ARGUMENTOS.
+# ----------------------------------------------------------
 $ go run 71CommandLineFlags/command-line-flags.go -word=opt a1 a2 a3 -numb=7
 word: opt
 numb: 42
 fork: false
 svar: bar
 tail: [a1 a2 a3 -numb=7]
+# ----------------------------------------------------------
+# A FLAG -h OU --help IRÁ MOSTRAR O TEXTO DE AJUDA AUTOMÁTICAMENTE GERADO.
 # ----------------------------------------------------------
 $ go run 71CommandLineFlags/command-line-flags.go -h
 Usage of /tmp/go-build3344106437/b001/exe/command-line-flags:
@@ -87,6 +96,9 @@ Usage of /tmp/go-build3344106437/b001/exe/command-line-flags:
         a string var (default "bar")
   -word string
         a string (default "foo")
+# ----------------------------------------------------------
+# FLAGS NÃO ESPECIFICADAS VÃO FORÇAR A IMPRESSÃO DE UMA MENSAGEM DE ERRO
+# E TAMBÉM A IMPRESSÃO DA MENSAGEM DE AJDA.
 # ----------------------------------------------------------
 $ go run 71CommandLineFlags/command-line-flags.go -wat
 flag provided but not defined: -wat
