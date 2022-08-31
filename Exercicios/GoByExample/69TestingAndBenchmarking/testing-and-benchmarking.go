@@ -7,6 +7,9 @@ package main
 // Neste exemplo o cógido está no package main, mas poderia estar em quaquer
 // pacote. Geralmente o código de teste fica no mesmo pacote que ele testa.
 
-func main() {
-
+func IntMin(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
