@@ -31,3 +31,9 @@ func main() {
 
 // Então executar incluindo argumentos:
 // ./command-line-arguments a b c d
+
+/* SAÍDA ESPERADA DESTE CÓDIGO COMPILADO E EXECUTADO COM 4 ARGUMENTOS
+[./command-line-arguments a b c d]
+[a b c d]
+c
+*/
