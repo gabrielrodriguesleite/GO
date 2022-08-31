@@ -5,6 +5,8 @@ package main
 // uma flag de linha de comando.
 // Mais em: https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option
 
+// Go fornece um pacote de suporte básico para análise de flags de linha de
+// comando.
 func main() {
 
 }
