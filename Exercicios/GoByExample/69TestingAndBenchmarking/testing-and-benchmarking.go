@@ -20,6 +20,7 @@ func IntMin(a, b int) int {
 	return b
 }
 
+// Um teste é criado por escrever uma função com prefixo "Test" no nome
 func TestIntMinBasic(t *testing.T) {
 	ans := IntMin(2, -2)
 	if ans != -2 {
