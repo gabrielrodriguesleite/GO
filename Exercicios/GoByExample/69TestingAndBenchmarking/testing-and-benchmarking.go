@@ -7,6 +7,10 @@ package main
 // Neste exemplo o cógido está no package main, mas poderia estar em quaquer
 // pacote. Geralmente o código de teste fica no mesmo pacote que ele testa.
 
+// Esta função simples de seleção do mínimo inteiro será usada nos testes.
+// Geralmente o código que precisamos testar fica em um arquivo fonte com o
+// nome do estilo "intutils.go", e o arquivo de teste para ele terá o nome
+// "intutils_test.go".
 func IntMin(a, b int) int {
 	if a < b {
 		return a
