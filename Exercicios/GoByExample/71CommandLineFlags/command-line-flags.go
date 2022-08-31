@@ -1,5 +1,10 @@
 package main
 
+import (
+	"flag"
+	"fmt"
+)
+
 // Flags de linha de comando são uma forma fácil de especificar opções
 // para programas de linha de comando. Por exemplo, em "wc -l" o "-l" é
 // uma flag de linha de comando.
@@ -9,4 +14,9 @@ package main
 // comando.
 func main() {
 
+	wordPtr := flag.String("word", "foo", "a string")
+
+	flag.Parse()
+
+	fmt.Println("word:", *wordPtr)
 }
