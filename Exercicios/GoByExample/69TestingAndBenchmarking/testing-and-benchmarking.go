@@ -4,6 +4,9 @@ package main
 // O pacote de testes fornece as ferramentas necessárias para escrever testes
 // unitários. O comando "go test" roda os testes.
 
+// Neste exemplo o cógido está no package main, mas poderia estar em quaquer
+// pacote. Geralmente o código de teste fica no mesmo pacote que ele testa.
+
 func main() {
 
 }
