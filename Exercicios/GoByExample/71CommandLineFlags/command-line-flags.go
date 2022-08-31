@@ -34,6 +34,9 @@ func main() {
 	// análise da linha de comando.
 	flag.Parse()
 
+	// Neste exemplo será apenas escrito na saída os valores dos argumentos.
+	// Note que é necessário dereferenciar os ponteiros para conseguir acessar
+	// os valores propriamente ditos.
 	fmt.Println("word:", *wordPtr)
 	fmt.Println("numb:", *numbPtr)
 	fmt.Println("fork:", *forkPtr)
