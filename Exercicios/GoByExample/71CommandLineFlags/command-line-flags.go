@@ -20,6 +20,8 @@ func main() {
 	// Abaixo vemos como usar este ponteiro.
 	wordPtr := flag.String("word", "foo", "a string")
 
+	// Aqui é declaradas as flags "numb" e "fork" usando uma abordagem similar a
+	// anterior.
 	numbPtr := flag.Int("numb", 42, "an int")
 	forkPtr := flag.Bool("fork", false, "a bool")
 
