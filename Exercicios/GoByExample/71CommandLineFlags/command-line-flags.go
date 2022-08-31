@@ -25,6 +25,8 @@ func main() {
 	numbPtr := flag.Int("numb", 42, "an int")
 	forkPtr := flag.Bool("fork", false, "a bool")
 
+	// Também é possível definir uma variável e passar ela como referência para
+	// que receba o valor de flag.
 	var svar string
 	flag.StringVar(&svar, "svar", "bar", "a string var")
 
