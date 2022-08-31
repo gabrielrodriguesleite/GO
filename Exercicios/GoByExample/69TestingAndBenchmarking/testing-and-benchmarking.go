@@ -34,6 +34,10 @@ func TestIntMinBasic(t *testing.T) {
 	}
 }
 
+// Escrever testes pode ser repetitivo, então é interessante escrever testes
+// no estilo dirigido a tabela, onde os valores do input e os resultados
+// experados são litados numa tabela e um loop único percorre cada linha
+// e executa a lógica do teste.
 func TestIntMinTableDriven(t *testing.T) {
 	var tests = []struct {
 		a, b int
