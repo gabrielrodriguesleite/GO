@@ -25,3 +25,9 @@ func main() {
 	fmt.Println(argsWithoutProg)
 	fmt.Println(arg)
 }
+
+// IMPORTANTE - para esse exemplo funcionar é necessário compilar antes:
+// go build command-line-arguments.go
+
+// Então executar incluindo argumentos:
+// ./command-line-arguments a b c d
