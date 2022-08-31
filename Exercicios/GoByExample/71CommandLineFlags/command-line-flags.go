@@ -30,6 +30,8 @@ func main() {
 	var svar string
 	flag.StringVar(&svar, "svar", "bar", "a string var")
 
+	// Depois de declarar as variáveis, uma chamada para "flag.Parse()" executa a
+	// análise da linha de comando.
 	flag.Parse()
 
 	fmt.Println("word:", *wordPtr)
