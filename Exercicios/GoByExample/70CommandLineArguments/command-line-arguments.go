@@ -18,6 +18,7 @@ func main() {
 	argsWithProg := os.Args
 	argsWithoutProg := os.Args[1:]
 
+	// É possível acessar os argumentos individualmente com indexação normal.
 	arg := os.Args[3]
 
 	fmt.Println(argsWithProg)
