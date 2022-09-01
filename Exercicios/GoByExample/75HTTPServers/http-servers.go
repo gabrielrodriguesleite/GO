@@ -37,6 +37,9 @@ func headers(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 
+	// Então são registrados os manipuladores para suas respectivas rotas usando
+	// http.HandleFunc. Esta função configura o roteador padrão do pacote net/http
+	// e leva uma função como argumento.
 	http.HandleFunc("/hello", hello)
 	http.HandleFunc("/headers", headers)
 
