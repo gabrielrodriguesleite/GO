@@ -1,6 +1,10 @@
 package main
 
-import "flag"
+import (
+	"flag"
+	"fmt"
+	"os"
+)
 
 // Algumas ferramentas de linha de comando como ferramentas de"go" ou "git" possuem
 // muitos _subcomandos_ cada um com suas próprias flags.
@@ -19,5 +23,10 @@ func main() {
 	// Para diferentes subcomandos definimos diferentes flags suportadas.
 	barCmd := flag.NewFlagSet("bar", flag.ExitOnError)
 	barLevel := barCmd.Int("level", 0, "level")
+
+	if len(os.Args) < 2 {
+		fmt.Println("expected 'foo' or 'bar' subcommands")
+		os.Exit(1)
+	}
 
 }
