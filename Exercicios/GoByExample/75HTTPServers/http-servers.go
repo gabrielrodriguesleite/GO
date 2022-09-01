@@ -40,3 +40,7 @@ hello
 User-Agent: curl/7.68.0
 Accept: * /*
 */
+
+/* curl localhost:8090/
+404 page not found
+*/
