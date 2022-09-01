@@ -30,7 +30,11 @@ func main() {
 		os.Exit(1)
 	}
 
+	// Verifica qual subcomando foi invocado.
 	switch os.Args[1] {
+
+	// Para cada subprograma é preciso analisar (parse) as suas próprias flags
+	// e também ter acesso aos argumentos posicionais subsequêntes.
 	case "foo":
 		fooCmd.Parse(os.Args[2:])
 		fmt.Println("subcommand 'foo'")
