@@ -61,3 +61,9 @@ subcommand 'foo'
   name: joe
   tail: [a1 a2]
 */
+
+/* go run 72CommandLineSubcommands/command-line-subcommands.go bar -level 8 a1
+subcommand 'bar'
+  level: 8
+  tail: []
+*/
