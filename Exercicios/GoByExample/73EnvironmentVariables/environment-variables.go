@@ -22,6 +22,10 @@ func main() {
 	fmt.Println("FOO:", os.Getenv("FOO"))
 	fmt.Println("BAR:", os.Getenv("BAR"))
 
+	// "os.Environ" lista todos os pares chave/valor no ambiente.
+	// Ele retorna um slice de strings no formato "KEY=value".
+	// É possível usar strings.SplitN para pegar a chave e o valor.
+	// Neste caso são impressas todas as chaves.
 	fmt.Println()
 	for _, e := range os.Environ() {
 		pair := strings.SplitN(e, "=", 2)
