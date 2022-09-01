@@ -24,6 +24,7 @@ func main() {
 	barCmd := flag.NewFlagSet("bar", flag.ExitOnError)
 	barLevel := barCmd.Int("level", 0, "level")
 
+	// Os subcomandos são esperados como primeiros argumentos do programa.
 	if len(os.Args) < 2 {
 		fmt.Println("expected 'foo' or 'bar' subcommands")
 		os.Exit(1)
