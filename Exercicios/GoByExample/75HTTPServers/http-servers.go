@@ -17,6 +17,12 @@ que adapta a função com a assinatura apropriada.
 */
 func hello(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprintf(w, "hello\n")
+	/*
+	   	Funções que servem com manipuladores recebem um http.ResponseWriter e
+
+	   um http.Request como argumentos. O ResponseWrites é usado para preencher o
+	   corpo da Response. Neste exemplo a response leva apenas um "hello\n."
+	*/
 }
 
 func headers(w http.ResponseWriter, req *http.Request) {
