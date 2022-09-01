@@ -49,6 +49,7 @@ func main() {
 
 // SAÍDA ESPERADA PARA O CÓDIGO
 
+// # Rodando o servidor em segundo plano
 // go run 76Context/context.go &
 
 // COMPORTAMENTO AGUARDANDO 10s P/ GET
@@ -59,6 +60,7 @@ hello
 */
 
 // COMPORTAMENTO CANCELANDO A REQUISIÇÃO GET
+// # Cliente pressiona Ctrl+C
 /* curl localhost:8090/hello
 server: hello handler started
 ^C
