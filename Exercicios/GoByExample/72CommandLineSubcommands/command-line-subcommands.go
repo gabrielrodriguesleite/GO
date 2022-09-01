@@ -16,4 +16,7 @@ func main() {
 	fooEnable := fooCmd.Bool("enable", false, "enable")
 	fooName := fooCmd.String("name", "", "name")
 
+	barCmd := flag.NewFlagSet("bar", flag.ExitOnError)
+	barLevel := barCmd.Int("level", 0, "level")
+
 }
