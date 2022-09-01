@@ -67,3 +67,11 @@ subcommand 'bar'
   level: 8
   tail: []
 */
+
+/* go run 72CommandLineSubcommands/command-line-subcommands.go bar -enable a1
+flag provided but not defined: -enable
+Usage of bar:
+  -level int
+        level
+exit status 2
+*/
