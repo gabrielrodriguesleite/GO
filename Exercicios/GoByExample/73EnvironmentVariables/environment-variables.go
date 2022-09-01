@@ -36,6 +36,9 @@ func main() {
 
 // SAÍDAS ESPERADAS PARA ESTE CÓDIGO
 
+// Apenas rodar o programa mostra mostra que pegamos o valor de 'FOO' porém
+// 'BAR' está vazio.
+// A lista subsequênte de variáveis vai depender da configuração da máquina.
 /* go run 73EnvironmentVariables/environment-variables.go
 FOO: 1
 BAR:
@@ -46,6 +49,7 @@ LANGUAGE
  ...
 */
 
+// Se definirmos uma variável antes de executar o programa irá mostrar seu valor.
 /* BAR=2 go run 73EnvironmentVariables/environment-variables.go
 FOO: 1
 BAR: 2
