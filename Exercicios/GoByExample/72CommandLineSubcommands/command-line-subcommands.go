@@ -68,6 +68,7 @@ subcommand 'bar'
   tail: []
 */
 
+// BAR NÃO ACEITA FLAGS DE FOO
 /* go run 72CommandLineSubcommands/command-line-subcommands.go bar -enable a1
 flag provided but not defined: -enable
 Usage of bar:
