@@ -8,6 +8,13 @@ import (
 // Escrever um servido http básico é uma tarefa fácil usando o pacote
 // net/http que vem com Go
 
+/*
+	Um conceito fundamental em servidores net/http é manipuladores (handlers).
+
+Um manipulador é um objeto que implementa a interface http.Handler.
+Uma forma comum de escrever manipuladores é usando a função http.HandlerFunc
+que adapta a função com a assinatura apropriada.
+*/
 func hello(w http.ResponseWriter, req *http.Request) {
 	fmt.Fprintf(w, "hello\n")
 }
