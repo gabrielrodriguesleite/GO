@@ -20,8 +20,14 @@ func hello(w http.ResponseWriter, req *http.Request) {
 	defer fmt.Println("server: hello handler ended")
 
 	select {
+
+	// Aguardando alguns segundos antes de enviar a resposta para o cliente.
+	// Isto simula um serviço sendo executado no servidor.
 	case <-time.After(10 * time.Second):
 		fmt.Fprintf(w, "hello\n")
+
+	// Enquanto trabalha fica de olho no canal "Done" do contexto por um sinal
+	// de que deve cancelar o trabalho e responder o mais rápido possível.
 	case <-ctx.Done():
 		err := ctx.Err()
 		fmt.Println("server:", err)
