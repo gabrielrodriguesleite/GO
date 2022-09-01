@@ -33,3 +33,15 @@ func main() {
 	}
 
 }
+
+// SAÍDAS ESPERADAS PARA ESTE CÓDIGO
+
+/* go run 73EnvironmentVariables/environment-variables.go
+FOO: 1
+BAR:
+
+QT_SCALE_FACTOR
+USER
+LANGUAGE
+ ...
+*/
