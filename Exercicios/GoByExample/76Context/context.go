@@ -12,6 +12,9 @@ import (
 // e outros valores no escopo de requisições que cruzam entre API e rotinas go.
 
 func hello(w http.ResponseWriter, req *http.Request) {
+
+	// Um "context.Context" é criado para cada requisição pelo mecanismo do
+	// pacote net/http, e está disponível com o método "Context".
 	ctx := req.Context()
 	fmt.Println("server: hello handler started")
 	defer fmt.Println("server: hello handler ended")
