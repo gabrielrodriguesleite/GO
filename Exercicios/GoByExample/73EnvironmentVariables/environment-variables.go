@@ -13,6 +13,10 @@ import (
 
 func main() {
 
+	// Para definir um par de chave/valor se usa "os.Setenv".
+	// Para ler um valor de uma chave se usa "os.Getenv".
+	// O valor retornado será uma string vazia caso a chave não esteja
+	// presente no ambiente.
 	os.Setenv("FOO", "1")
 	fmt.Println("FOO:", os.Getenv("FOO"))
 	fmt.Println("BAR:", os.Getenv("BAR"))
