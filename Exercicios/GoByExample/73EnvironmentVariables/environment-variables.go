@@ -45,3 +45,12 @@ USER
 LANGUAGE
  ...
 */
+
+/* BAR=2 go run 73EnvironmentVariables/environment-variables.go
+FOO: 1
+BAR: 2
+
+QT_SCALE_FACTOR
+USER
+LANGUAGE
+*/
