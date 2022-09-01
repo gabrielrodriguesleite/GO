@@ -38,7 +38,7 @@ func main() {
 	case "foo":
 		fooCmd.Parse(os.Args[2:])
 		fmt.Println("subcommand 'foo'")
-		fmt.Println(" enable:", *fooEnable)
+		fmt.Println("  enable:", *fooEnable)
 		fmt.Println("  name:", *fooName)
 		fmt.Println("  tail:", fooCmd.Args())
 	case "bar":
@@ -52,3 +52,12 @@ func main() {
 	}
 
 }
+
+// SAÍDAS ESPERADAS PARA ALGUMAS SITUAÇÕES
+
+/* go run 72CommandLineSubcommands/command-line-subcommands.go foo -enable -name=joe a1 a2
+subcommand 'foo'
+ 	enable: true
+  name: joe
+  tail: [a1 a2]
+*/
