@@ -33,3 +33,22 @@ func main() {
 	http.ListenAndServe(":8090", nil)
 
 }
+
+// SAÍDA ESPERADA PARA O CÓDIGO
+
+// go run 76Context/context.go &
+
+// COMPORTAMENTO AGUARDANDO 10s P/ GET
+/* curl localhost:8090/hello
+server: hello handler started
+server: hello handler ended
+hello
+*/
+
+// COMPORTAMENTO CANCELANDO A REQUISIÇÃO GET
+/* curl localhost:8090/hello
+server: hello handler started
+^C
+server: context canceled
+server: hello handler ended
+*/
