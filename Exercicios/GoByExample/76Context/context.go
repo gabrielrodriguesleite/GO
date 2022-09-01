@@ -29,6 +29,9 @@ func hello(w http.ResponseWriter, req *http.Request) {
 	// Enquanto trabalha fica de olho no canal "Done" do contexto por um sinal
 	// de que deve cancelar o trabalho e responder o mais rápido possível.
 	case <-ctx.Done():
+
+		// O método "Err" do contexto retorna um erro que explica o montivo do
+		// canal "Done" ter sido fechado.
 		err := ctx.Err()
 		fmt.Println("server:", err)
 		internalError := http.StatusInternalServerError
