@@ -41,6 +41,7 @@ func hello(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 
+	// Registrando o manipulador da rota e iniciando o servidor na porta definida.
 	http.HandleFunc("/hello", hello)
 	http.ListenAndServe(":8090", nil)
 
