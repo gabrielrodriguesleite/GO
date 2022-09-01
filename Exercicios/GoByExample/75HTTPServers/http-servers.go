@@ -43,12 +43,16 @@ func main() {
 	http.HandleFunc("/hello", hello)
 	http.HandleFunc("/headers", headers)
 
+	// Por fim se chama ListenAndServe com a porta e o manipulador.
+	// "nil" significa que iremos utilizar o roteador padrão que foi configurado
+	// acima.
 	http.ListenAndServe(":8090", nil)
 }
 
 // SAÍDA ESPERADA PARA ESTE CÓDIGO
 
-// go run 75HTTPServers/http-servers.go
+// RODAR O SERVIDOR DESACOPLADO
+// go run 75HTTPServers/http-servers.go &
 
 /* curl localhost:8090/hello
 hello
