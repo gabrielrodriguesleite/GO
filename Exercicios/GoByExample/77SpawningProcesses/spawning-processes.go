@@ -17,6 +17,8 @@ func main() {
 	fmt.Println("> date")
 	fmt.Println(string(dateOut))
 
+	// ------------
+
 	_, err = exec.Command("date", "-x").Output()
 	if err != nil {
 		switch e := err.(type) {
@@ -28,6 +30,8 @@ func main() {
 			panic(err)
 		}
 	}
+
+	// ------------
 
 	grepCmd := exec.Command("grep", "hello")
 
@@ -44,4 +48,14 @@ func main() {
 
 	fmt.Println("> grep hello")
 	fmt.Println(string(grepBytes))
+
+	// ------------
+
+	lsCmd := exec.Command("bash", "-c", "ls -a -l -h")
+	lsOut, err := lsCmd.Output()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("> ls -a -l -h")
+	fmt.Println(string(lsOut))
 }
