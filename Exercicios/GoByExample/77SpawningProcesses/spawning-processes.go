@@ -61,11 +61,15 @@ func main() {
 	grepBytes, _ := io.ReadAll(grepOut)
 	grepCmd.Wait()
 
+	// Neste exemplo o tratamento de erros foi omitido porém deve ser feido da forma
+	// normal com "if err != nil". Aqui coletamos apenas o "StdoutPipe" mas é possível
+	// coletar também "StderrPipe" da mesma maneira.
 	fmt.Println("> grep hello")
 	fmt.Println(string(grepBytes))
 
 	// ------------
 
+	//
 	lsCmd := exec.Command("bash", "-c", "ls -a -l -h")
 	lsOut, err := lsCmd.Output()
 	if err != nil {
