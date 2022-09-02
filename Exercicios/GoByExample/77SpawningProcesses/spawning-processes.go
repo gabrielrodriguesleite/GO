@@ -25,6 +25,10 @@ func main() {
 
 	// ------------
 
+	// "Output" e outros métodos de "Command" vão retornar "*exec.Error" se
+	// houver um erro na execução do comando, por exemplo um caminho errado,
+	// ou "*exec.ExitError" se o comando rodar mas sair com um código de retorno
+	// diferente de "0".
 	_, err = exec.Command("date", "-x").Output()
 	if err != nil {
 		switch e := err.(type) {
