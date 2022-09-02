@@ -69,7 +69,9 @@ func main() {
 
 	// ------------
 
-	//
+	// Note que é preciso delinear os comandos e os argumentos ao invés de passar
+	// tudo na mesma string. Porém é possível passar uma string para o comando
+	// "bash" "-c" "comandos e argumentos em uma string".
 	lsCmd := exec.Command("bash", "-c", "ls -a -l -h")
 	lsOut, err := lsCmd.Output()
 	if err != nil {
