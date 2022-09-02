@@ -21,6 +21,9 @@ func main() {
 		panic(lookErr)
 	}
 
+	// Exec também precisados argumentos em forma de slice (ao invés de uma
+	//string grande). Entregamos alguns argumentos. Note que o primeiro
+	// deve ser o nome do comando.
 	args := []string{"ls", "-a", "-l", "-h"}
 	env := os.Environ()
 
