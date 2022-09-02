@@ -41,6 +41,7 @@ func main() {
 
 // SAÍDA ESPERADA PARA ESTE CÓDIGO
 
+// Quando rodamos o programa ele é substituido pelo comando "ls".
 /* go run 78ExecingProcesses/execing-processes.go
 total 344K
 drwxrwxr-x 80 k_co k_co  16K set  1 23:18 .
