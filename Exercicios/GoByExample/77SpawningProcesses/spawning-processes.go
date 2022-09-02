@@ -9,7 +9,13 @@ import (
 // As vezes é necessário lançar outros processos de dentro da aplicação Go.
 func main() {
 
+	// Exemplo simples de um comando que não leva argumentos e que se captura a
+	// saída para imprimir na tela.
 	dateCmd := exec.Command("date")
+
+	// O método "Output" roda o comando, aguarda o término e coleta a saída
+	// padrão. Se nenhum erro ocorrer "dateOut" vai conter bytes com a
+	// informação da data.
 	dateOut, err := dateCmd.Output()
 	if err != nil {
 		panic(err)
