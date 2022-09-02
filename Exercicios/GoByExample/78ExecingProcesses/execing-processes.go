@@ -26,3 +26,14 @@ func main() {
 		panic(execErr)
 	}
 }
+
+// SAÍDA PADRÃO PARA ESTE CÓDIGO
+
+/* go run 78ExecingProcesses/execing-processes.go
+total 344K
+drwxrwxr-x 80 k_co k_co  16K set  1 23:18 .
+drwxrwxr-x  3 k_co k_co 4,0K ago 28 22:50 ..
+drwxrwxr-x  2 k_co k_co 4,0K ago 28 22:50 01HelloWorld
+drwxrwxr-x  2 k_co k_co 4,0K ago 28 22:50 02Values
+	...
+*/
