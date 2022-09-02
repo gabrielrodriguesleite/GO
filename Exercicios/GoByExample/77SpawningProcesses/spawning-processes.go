@@ -80,3 +80,23 @@ func main() {
 	fmt.Println("> ls -a -l -h")
 	fmt.Println(string(lsOut))
 }
+
+// SAÍDA ESPERADA PARA ESTE CÓDIGO
+
+/* go run 77SpawningProcesses/spawning-processes.go
+> date
+qui 01 set 2022 23:12:08 -03
+
+command exit rc = 1
+> grep hello
+hello grep
+
+> ls -a -l -h
+total 340K
+drwxrwxr-x 79 k_co k_co  16K set  1 22:31 .
+drwxrwxr-x  3 k_co k_co 4,0K ago 28 22:50 ..
+drwxrwxr-x  2 k_co k_co 4,0K ago 28 22:50 01HelloWorld
+drwxrwxr-x  2 k_co k_co 4,0K ago 28 22:50 02Values
+drwxrwxr-x  2 k_co k_co 4,0K ago 28 22:50 03Variables
+	...
+*/
