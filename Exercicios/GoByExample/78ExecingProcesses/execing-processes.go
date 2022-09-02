@@ -13,6 +13,9 @@ import (
 // Para isso Go possui uma implementação para a clássica função "exec".
 func main() {
 
+	// Neste exemplo será executado o comando "ls".
+	// Go precisa do caminho exato do binário então vamos usar LookPath para
+	// encontrar este caminho. (provavelmente "/bin/ls")
 	binary, lookErr := exec.LookPath("ls")
 	if lookErr != nil {
 		panic(lookErr)
