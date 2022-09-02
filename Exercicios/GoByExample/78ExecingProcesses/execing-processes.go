@@ -50,3 +50,7 @@ drwxrwxr-x  2 k_co k_co 4,0K ago 28 22:50 01HelloWorld
 drwxrwxr-x  2 k_co k_co 4,0K ago 28 22:50 02Values
 	...
 */
+
+// Note que Go não oferece a um "fork" clássico do Unix.
+// Normalmente isso não é problema já que iniciar uma goroutine, lançar um
+// processo e executar um processo cobrem a maioria dos casos de uso de um "fork".
