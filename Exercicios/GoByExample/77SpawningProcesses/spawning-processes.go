@@ -83,6 +83,12 @@ func main() {
 
 // SAÍDA ESPERADA PARA ESTE CÓDIGO
 
+// Os comandos spawnados retornam saídas que são as mesmas como se fossem
+// executadas direto na linha de comando.
+
+// date não possui uma flag -x então ela vai sair com uma mensagem de erro
+// e um código de saída diferente de 1
+
 /* go run 77SpawningProcesses/spawning-processes.go
 > date
 qui 01 set 2022 23:12:08 -03
