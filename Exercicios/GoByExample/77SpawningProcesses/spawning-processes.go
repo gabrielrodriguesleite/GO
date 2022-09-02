@@ -43,16 +43,21 @@ func main() {
 
 	// ------------
 
+	// Neste exemplo é usado pipe para para enviar dados para o comando no seu
+	// "stdin" e então é usado pipe para coletar os dados de retorno do seu "stdout".
 	grepCmd := exec.Command("grep", "hello")
 
+	// Aqui foi escrito de forma explicita os passos que são seguidos:
+	// Pegamos os pipes de entrada e saída,
 	grepIn, _ := grepCmd.StdinPipe()
 	grepOut, _ := grepCmd.StdoutPipe()
-
+	// o processo é iniciado,
 	grepCmd.Start()
-
+	// dados são escritos na entrada padrão,
 	grepIn.Write([]byte("hello grep\ngoodbye grep"))
 	grepIn.Close()
-
+	// dados resultantes são coletados da saída pradrão,
+	// e por fim aguardamos o processo concluir.
 	grepBytes, _ := io.ReadAll(grepOut)
 	grepCmd.Wait()
 
