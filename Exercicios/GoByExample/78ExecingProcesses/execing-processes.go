@@ -30,6 +30,9 @@ func main() {
 	// Neste caso usamos as atuais.
 	env := os.Environ()
 
+	// Aqui finalmente chamamos "syscall.Exec". Caso a chamada dê sucesso
+	// este processo termina aqui e é substituido pelo "/bin/ls -a -l -h".
+	// Se houver um erro teremos um valor no retorno.
 	execErr := syscall.Exec(binary, args, env)
 	if execErr != nil {
 		panic(execErr)
