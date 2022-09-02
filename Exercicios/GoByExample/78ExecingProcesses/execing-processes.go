@@ -27,7 +27,7 @@ func main() {
 	}
 }
 
-// SAÍDA PADRÃO PARA ESTE CÓDIGO
+// SAÍDA ESPERADA PARA ESTE CÓDIGO
 
 /* go run 78ExecingProcesses/execing-processes.go
 total 344K
