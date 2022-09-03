@@ -30,6 +30,9 @@ func main() {
 	done := make(chan bool, 1)
 
 	go func() {
+		// A goroutine executa um bloco esperando receber sinais.
+		// Quando receber um irá imprimi-lo e então irá notificar o programa
+		// que este pode terminar.
 		sig := <-sigs
 		fmt.Println("\nSinal:", sig)
 		done <- true
