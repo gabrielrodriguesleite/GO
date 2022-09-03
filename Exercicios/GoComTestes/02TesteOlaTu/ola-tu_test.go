@@ -4,7 +4,7 @@ import "testing"
 
 func TestOlaTu(t *testing.T) {
 
-	resultado := OlaTu("Gabriel")
+	resultado := OlaTu("Gabriel", "Leite")
 	esperado := "Olá, Gabriel"
 
 	if resultado != esperado {
