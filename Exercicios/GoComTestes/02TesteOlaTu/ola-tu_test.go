@@ -8,7 +8,7 @@ func TestOlaTu(t *testing.T) {
 	esperado := "Olá, Gabriel"
 
 	if resultado != esperado {
-		t.ErrorF("Resultado: '%s'\nEsperado: '%s'", resultado, esperado)
+		t.Errorf("Resultado: '%s'\nEsperado: '%s'", resultado, esperado)
 	}
 }
 
