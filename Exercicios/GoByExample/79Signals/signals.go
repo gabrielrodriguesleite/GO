@@ -23,6 +23,10 @@ func main() {
 	// "signal.Notify" registra o canal fornecido para receber nitificações para
 	// os sinais especificados.
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
+
+	// É possível receber de "sigs" aqui na função principal, mas neste exemplo
+	// será feito em uma goroutine para demonstrar um cenário mais realístico
+	// de desligamento elegante.
 	done := make(chan bool, 1)
 
 	go func() {
