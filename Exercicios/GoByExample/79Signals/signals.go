@@ -29,3 +29,13 @@ func main() {
 	<-done
 	fmt.Println("Sinal recebido\nSaindo.")
 }
+
+// SAÍDA ESPERADA PARA ESTE CÓDIGO:
+
+/* go run 79Signals/signals.go
+Aguardando sinal...
+^C
+Sinal: interrupt
+Sinal recebido
+Saindo.
+*/
