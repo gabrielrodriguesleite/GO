@@ -24,3 +24,12 @@ func TestOlaTu(t *testing.T) {
 FAIL    command-line-arguments [build failed]
 FAIL
 */
+
+// EXEMPLO DE ERRO QUANDO É PASSADO UM PARAMETRO A MAIS:
+/* go test 02TesteOlaTu/*
+# command-line-arguments [command-line-arguments.test]
+02TesteOlaTu/ola-tu_test.go:7:32: too many arguments in call to OlaTu
+        have (string, string)
+        want (string)
+FAIL    command-line-arguments [build failed]
+FAIL*/
