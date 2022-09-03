@@ -25,6 +25,16 @@ func main() {
 
 // SAÍDA ESPERADA PARA ESTE CÓDIGO:
 
+// Executando com "go run exit.go" a saída será capturada por "go" e impressa
+
 /* go run 80Exit/exit.go
 exit status 3
+*/
+
+// "echo $?" pode ser usado para mostrar o esdado do processo anterior
+
+/*go build exit.go
+./exit
+echo $?
+3
 */
