@@ -22,3 +22,9 @@ func main() {
 // de retorno de "main" para indicar o estado de saída.
 // Se é necessario sair com um estado diferente de zero então "os.Exit"
 // é a solução.
+
+// SAÍDA ESPERADA PARA ESTE CÓDIGO:
+
+/* go run 80Exit/exit.go
+exit status 3
+*/
