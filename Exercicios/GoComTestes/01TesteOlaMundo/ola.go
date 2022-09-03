@@ -7,9 +7,11 @@ import "fmt"
 // A string que estamos usando dentro dela é o domínio.
 
 func Ola() string {
+	// Domínio = regra de negócio
 	return "Olá, mundo"
 }
 
 func main() {
+	// Efeito colateral - resto do mundo.
 	fmt.Println(Ola())
 }
