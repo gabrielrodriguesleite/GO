@@ -19,6 +19,9 @@ func main() {
 	// Um canal é criado para receber estas notificações.
 	// Note que este canal deve ser bufferizado.
 	sigs := make(chan os.Signal, 1)
+
+	// "signal.Notify" registra o canal fornecido para receber nitificações para
+	// os sinais especificados.
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
 	done := make(chan bool, 1)
 
