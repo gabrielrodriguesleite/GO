@@ -11,6 +11,13 @@ func TestOla(t *testing.T) {
 	}
 }
 
+// SAÍDA ESPERADA PARA ESTE CÓDIGO:
+
+// UM CÓDIGO QUE TESTA OK
+/*go test 01TesteOlaMundo/*
+ok      command-line-arguments  0.003s
+*/
+
 // UM CÓDIGO COM FALHA IRIA IMPRIMIR ALGO ASSIM:
 /* go test 01TesteOlaMundo/*
 --- FAIL: TestOla (0.00s)
