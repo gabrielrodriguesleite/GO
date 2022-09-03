@@ -34,3 +34,6 @@ FAIL
 FAIL    command-line-arguments  0.003s
 FAIL
 */
+
+// é possível ver a documentação de go rodando godoc --http :8000
+// e abrindo o endereço http://localhost:8000/pkg/testing/
