@@ -38,3 +38,5 @@ exit status 3
 echo $?
 3
 */
+
+// Relembrando que "!" nunca será impresso.
