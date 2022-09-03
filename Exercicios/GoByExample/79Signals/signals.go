@@ -47,6 +47,10 @@ func main() {
 
 // SAÍDA ESPERADA PARA ESTE CÓDIGO:
 
+// Quando executado este código irá parar aguardando por um sinal.
+// Precionando Ctrl+C (que o terminal mostra como ^C) enviamos um sinal do tipo
+// SIGINT, causando com que o programa imprima interrupt e então saia.
+
 /* go run 79Signals/signals.go
 Aguardando sinal...
 ^C
