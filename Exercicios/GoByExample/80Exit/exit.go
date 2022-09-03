@@ -17,3 +17,8 @@ func main() {
 	os.Exit(3)
 
 }
+
+// Note que diferente de "C" por exemplo, Go não usa um inteiro como valor
+// de retorno de "main" para indicar o estado de saída.
+// Se é necessario sair com um estado diferente de zero então "os.Exit"
+// é a solução.
