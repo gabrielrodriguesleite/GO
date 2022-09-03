@@ -38,6 +38,8 @@ func main() {
 		done <- true
 	}()
 
+	// O programa vai aguradar até que receba o sinal, como indicado acima na
+	// goroutine enviando um valor em "done" e então irá sair.
 	fmt.Println("Aguardando sinal...")
 	<-done
 	fmt.Println("Sinal recebido\nSaindo.")
