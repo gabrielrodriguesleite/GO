@@ -1,5 +1,13 @@
 package main
 
+// REGRAS PARA ESCREVER ARQUIVOS DE TESTES:
+
+// - O arquivo de teste precisa ter um nome que siga o padrão "****_test.go"
+// - A função de teste precisa comaçar com a palavra "Test"
+// - A função de testes recebe um único argumento que é "t *testing.T"
+// - "t" é nossa ferramenta de testes importada do pacote "testing"
+// - Relatamos uma falha com "t.Fail()"
+
 import "testing"
 
 func TestOla(t *testing.T) {
