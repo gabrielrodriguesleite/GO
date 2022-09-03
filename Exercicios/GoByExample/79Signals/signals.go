@@ -15,6 +15,9 @@ import (
 // Neste exemplo veremos como manejar sinais do sistema com canais Go.
 func main() {
 
+	// Notificações de sinais Go funcionam por enviar valores "os.Signal" em um canal.
+	// Um canal é criado para receber estas notificações.
+	// Note que este canal deve ser bufferizado.
 	sigs := make(chan os.Signal, 1)
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
 	done := make(chan bool, 1)
