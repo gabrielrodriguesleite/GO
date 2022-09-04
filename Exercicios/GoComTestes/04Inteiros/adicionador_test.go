@@ -1,6 +1,9 @@
 package inteiros
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestAdicionador(t *testing.T) {
 
@@ -21,4 +24,12 @@ func TestAdicionador(t *testing.T) {
 			t.Errorf("Esperado: %d, resultado '%d'", esperado, soma)
 		}
 	})
+}
+
+func ExampleAdiciona() {
+	// Example funciona como teste, para mostrar os detalhes
+	// rode com "go test -v 04Inteiros/*"
+	soma := Adiciona(1, 5)
+	fmt.Println(soma)
+	// Output: 4
 }
