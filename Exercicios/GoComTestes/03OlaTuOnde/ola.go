@@ -7,6 +7,10 @@ const prefixoOlaFrances = "Bonjour, "
 // Constantes melhoram a performance da aplicação por evitar de
 // criar uma string "Olá, " toda vez que "OlaTu" é chamado.
 
+// Definir o nome do retorno torna a intenção do código mais
+// clara, já que a assinatura é exibida no "go doc"
+// Além disso esta função tem o nome começado em minúsculo para
+// a tornar privada.
 func prefixoSaudacao(idioma string) (prefixo string) {
 	switch idioma {
 	case "espanhol":
