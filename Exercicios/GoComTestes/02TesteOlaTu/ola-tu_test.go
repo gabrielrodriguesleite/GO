@@ -4,6 +4,13 @@ import "testing"
 
 func TestOlaTu(t *testing.T) {
 
+	verificaMensagemCorreta := func(t testing.TB, resultado, esperado string) {
+		t.Helper()
+		if resultado != esperado {
+			t.Errorf("Resultado: '%s'\nEsperado: '%s'", resultado, esperado)
+		}
+	}
+
 	// TDD RESULTADO 01:
 
 	// Teste implementado:
@@ -30,17 +37,13 @@ func TestOlaTu(t *testing.T) {
 		resultado := OlaTu("Gabriel")
 		esperado := "Olá, Gabriel"
 
-		if resultado != esperado {
-			t.Errorf("Resultado: '%s'\nEsperado: '%s'", resultado, esperado)
-		}
+		verificaMensagemCorreta(t, resultado, esperado)
 	})
 
 	t.Run("Teste se diz 'Olá, mundo' quando uma string vazia for passada", func(t *testing.T) {
-		resultado := Ola("")
+		resultado := OlaTu("")
 		esperado := "Olá, mundo"
 
-		if resultado != esperado {
-			t.Errorf("Resultado: '%s'\nEsperado: '%s'", resultado, esperado)
-		}
+		verificaMensagemCorreta(t, resultado, esperado)
 	})
 }
