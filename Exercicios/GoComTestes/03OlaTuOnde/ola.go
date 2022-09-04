@@ -7,18 +7,23 @@ const prefixoOlaFrances = "Bonjour, "
 // Constantes melhoram a performance da aplicação por evitar de
 // criar uma string "Olá, " toda vez que "OlaTu" é chamado.
 
+func prefixoSaudacao(idioma string) string {
+	switch idioma {
+	case "espanhol":
+		return prefixoOlaEspanhol
+	case "francês":
+		return prefixoOlaFrances
+	default:
+		return prefixoOlaPortugues
+	}
+}
+
 func Ola(nome, idioma string) string {
-	prefixo := prefixoOlaPortugues
 	if nome == "" {
 		nome = "mundo"
 	}
-	switch idioma {
-	case "espanhol":
-		prefixo = prefixoOlaEspanhol
-	case "francês":
-		prefixo = prefixoOlaFrances
-	}
-	return prefixo + nome
+
+	return prefixoSaudacao(idioma) + nome
 }
 
 // SOBRE O FLUXO TDD:
