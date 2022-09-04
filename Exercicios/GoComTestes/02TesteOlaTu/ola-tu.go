@@ -6,5 +6,8 @@ const prefixoOlaPortugues = "Olá, "
 // criar uma string "Olá, " toda vez que "OlaTu" é chamado.
 
 func OlaTu(nome string) string {
+	if nome == "" {
+		nome = "mundo"
+	}
 	return prefixoOlaPortugues + nome
 }
