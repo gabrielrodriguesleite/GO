@@ -1,15 +1,21 @@
 package main
 
 const prefixoOlaPortugues = "Olá, "
+const prefixoOlaEspanhol = "Hola, "
 
 // Constantes melhoram a performance da aplicação por evitar de
 // criar uma string "Olá, " toda vez que "OlaTu" é chamado.
 
-func Ola(nome string) string {
+func Ola(nome, idioma string) string {
+	prefixo := prefixoOlaPortugues
 	if nome == "" {
 		nome = "mundo"
 	}
-	return prefixoOlaPortugues + nome
+	switch idioma {
+	case "espanhol":
+		prefixo = prefixoOlaEspanhol
+	}
+	return prefixo + nome
 }
 
 // SOBRE O FLUXO TDD:
