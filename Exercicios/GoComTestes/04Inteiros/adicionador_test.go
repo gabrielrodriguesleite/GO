@@ -34,3 +34,9 @@ func ExampleAdiciona() {
 	fmt.Println(soma)
 	// Output: 6
 }
+
+// O teste de Example não será executado se // Output: 6 for
+// removido apesar de ser compilado.
+
+// Para ver funcionando execute godoc -http=:6060 e acesse
+// http://localhost:6060/pkg/
