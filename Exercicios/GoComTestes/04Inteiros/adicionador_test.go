@@ -31,5 +31,5 @@ func ExampleAdiciona() {
 	// rode com "go test -v 04Inteiros/*"
 	soma := Adiciona(1, 5)
 	fmt.Println(soma)
-	// Output: 4
+	// Output: 6
 }
