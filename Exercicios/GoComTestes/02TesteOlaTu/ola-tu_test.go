@@ -35,4 +35,12 @@ func TestOlaTu(t *testing.T) {
 		}
 	})
 
+	t.Run("Teste se diz 'Olá, mundo' quando uma string vazia for passada", func(t *testing.T) {
+		resultado := Ola("")
+		esperado := "Olá, mundo"
+
+		if resultado != esperado {
+			t.Errorf("Resultado: '%s'\nEsperado: '%s'", resultado, esperado)
+		}
+	})
 }
