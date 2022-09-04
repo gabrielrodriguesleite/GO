@@ -40,3 +40,13 @@ func Ola(nome, idioma string) string {
 - Escrever a quantidade mínima de código para o teste passar
 - Refatorar
 */
+
+/*
+		+ Escrever um teste que falha e ver ele falhar para saber que é um teste relevante para
+	o requisito, além de produzir uma descrição clara da falha.
+
+		+ Escrever a solução que satisfaz o teste passar.
+
+		+ Em seguida, refatorar o código tendo a certeza que o teste vai garantir que o código
+	funciona, podendo se preocupar apenas em deixá-lo bem feito e fácil de dar manutenção.
+*/
