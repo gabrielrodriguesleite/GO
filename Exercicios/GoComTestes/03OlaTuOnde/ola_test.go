@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func TestOlaTu(t *testing.T) {
+func TestOla(t *testing.T) {
 
 	// Função auxiliar para verificação dos resultados (asserção).
 	verificaMensagemCorreta := func(t testing.TB, resultado, esperado string) {
@@ -38,15 +38,22 @@ func TestOlaTu(t *testing.T) {
 	FAIL*/
 	t.Run("Teste se diz olá para as pessoas", func(t *testing.T) {
 
-		resultado := OlaTu("Gabriel")
+		resultado := Ola("Gabriel")
 		esperado := "Olá, Gabriel"
 
 		verificaMensagemCorreta(t, resultado, esperado)
 	})
 
 	t.Run("Teste se diz 'Olá, mundo' quando uma string vazia for passada", func(t *testing.T) {
-		resultado := OlaTu("")
+		resultado := Ola("")
 		esperado := "Olá, mundo"
+
+		verificaMensagemCorreta(t, resultado, esperado)
+	})
+
+	t.Run("Teste se comprimenta em espanhol com 'Hola, --nome--'", func(t *testing.T) {
+		resultado := Ola("Marcela", "espanhol")
+		esperado := "Hola, Marcela"
 
 		verificaMensagemCorreta(t, resultado, esperado)
 	})
