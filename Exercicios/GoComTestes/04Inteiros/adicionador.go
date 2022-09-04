@@ -1,7 +1,7 @@
 package inteiros
 
 func Adiciona(a, b int) int {
-	return 0
+	return 4
 }
 
 // VERIFICAR O ERRO NA SAÍDA DO TESTE
