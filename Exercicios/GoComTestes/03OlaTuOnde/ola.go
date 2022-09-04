@@ -2,6 +2,7 @@ package main
 
 const prefixoOlaPortugues = "Olá, "
 const prefixoOlaEspanhol = "Hola, "
+const prefixoOlaFrances = "Bonjour, "
 
 // Constantes melhoram a performance da aplicação por evitar de
 // criar uma string "Olá, " toda vez que "OlaTu" é chamado.
@@ -14,6 +15,8 @@ func Ola(nome, idioma string) string {
 	switch idioma {
 	case "espanhol":
 		prefixo = prefixoOlaEspanhol
+	case "francês":
+		prefixo = prefixoOlaFrances
 	}
 	return prefixo + nome
 }
