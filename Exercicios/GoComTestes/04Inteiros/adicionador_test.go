@@ -26,6 +26,7 @@ func TestAdicionador(t *testing.T) {
 	})
 }
 
+// Mais sobre Examples em: https://blog.golang.org/examples
 func ExampleAdiciona() {
 	// Example funciona como teste, para mostrar os detalhes
 	// rode com "go test -v 04Inteiros/*"
