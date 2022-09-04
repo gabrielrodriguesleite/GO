@@ -7,15 +7,16 @@ const prefixoOlaFrances = "Bonjour, "
 // Constantes melhoram a performance da aplicação por evitar de
 // criar uma string "Olá, " toda vez que "OlaTu" é chamado.
 
-func prefixoSaudacao(idioma string) string {
+func prefixoSaudacao(idioma string) (prefixo string) {
 	switch idioma {
 	case "espanhol":
-		return prefixoOlaEspanhol
+		prefixo = prefixoOlaEspanhol
 	case "francês":
-		return prefixoOlaFrances
+		prefixo = prefixoOlaFrances
 	default:
-		return prefixoOlaPortugues
+		prefixo = prefixoOlaPortugues
 	}
+	return
 }
 
 func Ola(nome, idioma string) string {
