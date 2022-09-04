@@ -4,7 +4,11 @@ import "testing"
 
 func TestOlaTu(t *testing.T) {
 
+	// Função auxiliar para verificação dos resultados (asserção).
 	verificaMensagemCorreta := func(t testing.TB, resultado, esperado string) {
+		// É muito importante indicar uma função aulixiliar de testes usando
+		// "t.Helper()", assim caso o teste falhe, go irá indicar a linha do código
+		// que falhou ao invés de indicar estas linhas.
 		t.Helper()
 		if resultado != esperado {
 			t.Errorf("Resultado: '%s'\nEsperado: '%s'", resultado, esperado)
