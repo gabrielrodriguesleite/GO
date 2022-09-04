@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+const prefixoOlaPortugues = "Olá, "
 
 func OlaTu(nome string) string {
-	return fmt.Sprintf("Olá, %s", nome)
+	return prefixoOlaPortugues + nome
 }
