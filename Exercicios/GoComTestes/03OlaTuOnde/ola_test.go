@@ -38,14 +38,14 @@ func TestOla(t *testing.T) {
 	FAIL*/
 	t.Run("Teste se diz olá para as pessoas", func(t *testing.T) {
 
-		resultado := Ola("Gabriel")
+		resultado := Ola("Gabriel", "portugues")
 		esperado := "Olá, Gabriel"
 
 		verificaMensagemCorreta(t, resultado, esperado)
 	})
 
 	t.Run("Teste se diz 'Olá, mundo' quando uma string vazia for passada", func(t *testing.T) {
-		resultado := Ola("")
+		resultado := Ola("", "portugues")
 		esperado := "Olá, mundo"
 
 		verificaMensagemCorreta(t, resultado, esperado)
