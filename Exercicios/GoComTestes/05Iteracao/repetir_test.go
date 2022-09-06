@@ -16,3 +16,13 @@ func BenchmarkRepetir(t *testing.B) {
 		Repetir("a")
 	}
 }
+
+// SAÍDA ESPERADA PARA O BENCHMARK
+/*  go test -bench=. 05Iteracao/*
+goos: linux
+goarch: amd64
+cpu: Intel(R) Celeron(R) CPU B800 @ 1.50GHz
+BenchmarkRepetir-2       3026282               396.3 ns/op
+PASS
+ok      command-line-arguments  1.613s
+*/
