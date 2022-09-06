@@ -1,5 +1,15 @@
 package somatudo
 
-func SomaTudo(arr ...[]int) (resultado []int) {
+func soma(a []int) int {
+	return a[0] + a[1]
+}
+
+func SomaTudo(arr ...[]int) (resultados []int) {
+	qtdNumeros := len(arr)
+	resultados = make([]int, qtdNumeros)
+
+	for i, n := range arr {
+		resultados[i] = soma(n)
+	}
 	return
 }
