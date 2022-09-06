@@ -4,7 +4,7 @@ import "testing"
 
 func TestRepetir(t *testing.T) {
 	repeticoes := Repetir("a", 9)
-	esperado := "aaaaa"
+	esperado := "aaaaaaaaa"
 
 	if repeticoes != esperado {
 		t.Errorf("Esperado: '%s' mas obteve: '%s'", esperado, repeticoes)
@@ -21,7 +21,7 @@ ok      command-line-arguments  0.004s
 
 func BenchmarkRepetir(t *testing.B) {
 	for i := 0; i < t.N; i++ {
-		Repetir("a")
+		Repetir("a", 7)
 	}
 }
 
