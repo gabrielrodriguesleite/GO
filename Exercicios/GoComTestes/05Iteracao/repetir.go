@@ -1,5 +1,9 @@
 package iteracao
 
 func Repetir(caractere string) string {
-	return ""
+	var repeticoes string
+	for i := 0; i < 5; i++ {
+		repeticoes += caractere
+	}
+	return repeticoes
 }
