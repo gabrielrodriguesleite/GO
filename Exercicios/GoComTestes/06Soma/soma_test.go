@@ -11,4 +11,14 @@ func TestSoma(t *testing.T) {
 			t.Errorf("Resultado: '%d', esperado: '%d', dado: '%v'", resultado, esperado, numeros)
 		}
 	})
+
+	t.Run("Coleção de qualquer número", func(t *testing.T) {
+		numeros := []int{3, 4, 5}
+		resultado := Soma(numeros)
+		esperado := 12
+		if esperado != resultado {
+			t.Errorf("Resultado: '%d', esperado: '%d', dado: '%v'", resultado, esperado, numeros)
+		}
+	})
+
 }
