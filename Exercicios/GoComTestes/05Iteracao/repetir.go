@@ -1,10 +1,8 @@
 package iteracao
 
-const quantidadeRepeticoes = 5
-
-func Repetir(caractere string) string {
+func Repetir(caractere string, quantidade int) string {
 	var repeticoes string
-	for i := 0; i < quantidadeRepeticoes; i++ {
+	for i := 0; i < quantidade; i++ {
 		repeticoes += caractere
 	}
 	return repeticoes
