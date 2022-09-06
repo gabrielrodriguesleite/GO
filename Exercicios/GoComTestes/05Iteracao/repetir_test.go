@@ -1,6 +1,7 @@
 package iteracao
 
 import "testing"
+import "fmt"
 
 func TestRepetir(t *testing.T) {
 	repeticoes := Repetir("a", 9)
@@ -36,3 +37,9 @@ ok      command-line-arguments  1.613s
 */
 
 // BenchmarkRepetir executada 3026282 levou uma média de 396.3 ns/op
+
+func ExampleRepetir() {
+	rep := Repetir("k", 8)
+	fmt.Println(rep)
+	//Output: kkkkkkkk
+}
