@@ -22,3 +22,9 @@ func TestSoma(t *testing.T) {
 	})
 
 }
+
+// SAÍDA ESPERADA PARA O TESTE COVERAGE
+
+/* go test -cover 06Soma/*
+ok      command-line-arguments  0.004s  coverage: 100.0% of statements
+*/
