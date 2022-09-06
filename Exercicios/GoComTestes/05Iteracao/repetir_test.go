@@ -3,7 +3,7 @@ package iteracao
 import "testing"
 
 func TestRepetir(t *testing.T) {
-	repeticoes := Repetir("a")
+	repeticoes := Repetir("a", 9)
 	esperado := "aaaaa"
 
 	if repeticoes != esperado {
