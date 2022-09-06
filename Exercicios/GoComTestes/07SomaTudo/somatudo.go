@@ -5,11 +5,8 @@ func soma(a []int) int {
 }
 
 func SomaTudo(arr ...[]int) (resultados []int) {
-	qtdNumeros := len(arr)
-	resultados = make([]int, qtdNumeros)
-
-	for i, n := range arr {
-		resultados[i] = soma(n)
+	for _, n := range arr {
+		resultados = append(resultados, soma(n))
 	}
 	return
 }
