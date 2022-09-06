@@ -1,6 +1,7 @@
 package somatodoresto
 
 import "testing"
+import "reflect"
 
 func TestSomaTodoResto(t *testing.T) {
 	res := SomaTodoResto([]int{1, 2}, []int{0, 9})
