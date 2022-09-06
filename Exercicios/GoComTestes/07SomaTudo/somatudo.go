@@ -7,6 +7,8 @@ func soma(a []int) int {
 func SomaTudo(arr ...[]int) (resultados []int) {
 	for _, n := range arr {
 		resultados = append(resultados, soma(n))
+		// append retorna um novo slice que corresponde a 2 slices
+		// anexados.
 	}
 	return
 }
