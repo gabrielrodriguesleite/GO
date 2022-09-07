@@ -25,4 +25,15 @@ func TestArea(t *testing.T) {
 			t.Errorf("Resultado: '%.2f' esperado: '%.2f'", res, esp)
 		}
 	})
+
+	t.Run("do círculo:", func(t *testing.T) {
+
+		cir := Circulo{10}
+		res := Area(cir)
+		esp := 314.1592653589793
+
+		if res != esp {
+			t.Errorf("Resultado: '%.2f' esperado: '%.2f'", res, esp)
+		}
+	})
 }
