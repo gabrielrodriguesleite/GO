@@ -15,15 +15,22 @@ func TestPerimetro(t *testing.T) {
 }
 
 func TestArea(t *testing.T) {
+	verificaArea := func(t *testing.T, forma Forma, esp float64) {
+		t.Helper()
+		res = forma.Area()
+
+		if res != esp {
+			t.Errorf("Resultado: '%.2f' esperado: '%.2f'", res, esp)
+		}
+	}
+
 	t.Run("do retângulo:", func(t *testing.T) {
 
 		ret := Retangulo{12.0, 6.0}
 		res := ret.Area()
 		esp := 72.0
 
-		if res != esp {
-			t.Errorf("Resultado: '%.2f' esperado: '%.2f'", res, esp)
-		}
+		verificaArea(t, ret, esp)
 	})
 
 	t.Run("do círculo:", func(t *testing.T) {
@@ -32,8 +39,6 @@ func TestArea(t *testing.T) {
 		res := cir.Area()
 		esp := 314.1592653589793
 
-		if res != esp {
-			t.Errorf("Resultado: '%.2f' esperado: '%.2f'", res, esp)
-		}
+		verificaArea(t, ret, esp)
 	})
 }
