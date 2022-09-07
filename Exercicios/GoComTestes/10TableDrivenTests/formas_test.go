@@ -11,9 +11,11 @@ func TestArea(t *testing.T) {
 		forma    Forma
 		esperado float64
 	}{
-		{forma: Retangulo{Largura: 12, Altura: 6}, esperado: 72.0},
-		{forma: Circulo{Raio: 10}, esperado: 314.1592653589793},
-		{forma: Triangulo{Base: 12, Altura: 6}, esperado: 36.0},
+		// "O teste é lido de forma mais clara como se fosse a 
+		// afirmação da verdade, não uma sequência de operações." - Kent Beck
+		{forma: Retangulo {Largura: 12, Altura: 6}, esperado: 72.0},
+		{forma: Circulo   {Raio: 10},               esperado: 314.1592653589793},
+		{forma: Triangulo {Base: 12, Altura: 6},    esperado: 36.0},
 	}
 
 	for _, tt := range testesArea {
