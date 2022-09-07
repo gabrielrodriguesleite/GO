@@ -5,7 +5,8 @@ import (
 )
 
 func TestPerimetro(t *testing.T) {
-	res := Perimetro(10.0, 10.0)
+	ret := Retangulo{10.0, 10.0}
+	res := Perimetro(ret)
 	esp := 40.0
 
 	if res != esp {
