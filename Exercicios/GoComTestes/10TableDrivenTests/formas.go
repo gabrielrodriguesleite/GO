@@ -12,7 +12,7 @@ type Retangulo struct {
 }
 
 type Triangulo struct {
-	Largura float64
+	Base float64
 	Altura  float64
 }
 
@@ -33,5 +33,5 @@ func (c Circulo) Area() (area float64) {
 }
 
 func (t Triangulo) Area() (area float64) {
-	return t.Largura * t.Altura / 2
+	return t.Base * t.Altura / 2
 }
