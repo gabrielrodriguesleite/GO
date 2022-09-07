@@ -15,11 +15,14 @@ func TestPerimetro(t *testing.T) {
 }
 
 func TestArea(t *testing.T) {
-	ret := Retangulo{12.0, 6.0}
-	res := Area(ret)
-	esp := 72.0
+	t.Run("do retângulo:", func(t *testing.T) {
 
-	if res != esp {
-		t.Errorf("Resultado: '%.2f' esperado: '%.2f'", res, esp)
-	}
+		ret := Retangulo{12.0, 6.0}
+		res := Area(ret)
+		esp := 72.0
+
+		if res != esp {
+			t.Errorf("Resultado: '%.2f' esperado: '%.2f'", res, esp)
+		}
+	})
 }
