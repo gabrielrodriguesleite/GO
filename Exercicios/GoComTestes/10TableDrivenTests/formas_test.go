@@ -5,6 +5,8 @@ import (
 )
 
 func TestArea(t *testing.T) {
+
+	// struct anônima usada pra declara a "tabela"
 	testesArea := []struct {
 		forma    Forma
 		esperado float64
