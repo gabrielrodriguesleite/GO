@@ -5,8 +5,8 @@ type Retangulo struct {
 	Altura  float64
 }
 
-func Perimetro(lar float64, alt float64) (per float64) {
-	return 2 * (lar + alt)
+func Perimetro(ret Retangulo) (per float64) {
+	return 2 * (ret.Largura + ret.Altura)
 }
 
 func Area(lar float64, alt float64) (area float64) {
