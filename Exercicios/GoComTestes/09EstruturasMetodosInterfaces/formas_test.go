@@ -15,7 +15,8 @@ func TestPerimetro(t *testing.T) {
 }
 
 func TestArea(t *testing.T) {
-	res := Area(12.0, 6.0)
+	ret := Retangulo{12.0, 6.0}
+	res := Area(ret)
 	esp := 72.0
 
 	if res != esp {
