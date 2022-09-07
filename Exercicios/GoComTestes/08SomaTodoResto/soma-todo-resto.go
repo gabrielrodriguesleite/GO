@@ -9,9 +9,13 @@ func Soma(a []int) (s int) {
 
 func SomaTodoResto(arr ...[]int) (res []int) {
 	for _, num := range arr {
-		resto := num[1:]
-		// slice pode ser fatiado
-		res = append(res, Soma(resto))
+		if len(num) == 0 {
+			res = append(res, 0)
+		} else {
+			resto := num[1:]
+			// slice pode ser fatiado
+			res = append(res, Soma(resto))
+		}
 	}
 	return
 }
