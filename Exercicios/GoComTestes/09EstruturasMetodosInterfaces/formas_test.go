@@ -40,3 +40,5 @@ func TestArea(t *testing.T) {
 		verificaArea(t, cir, esp)
 	})
 }
+
+// Refatorado no próximo exemplo para usar TDT Table driven tests
