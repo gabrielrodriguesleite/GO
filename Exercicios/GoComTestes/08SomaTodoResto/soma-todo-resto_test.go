@@ -29,3 +29,5 @@ func TestSomaTodoResto(t *testing.T) {
 	})
 
 }
+
+// Mais sobre slices em: https://blog.golang.org/go-slices-usage-and-internals
