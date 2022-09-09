@@ -33,4 +33,19 @@ func TestCarteira(t *testing.T) {
 		confirmaSaldo(t, carteira, esperado)
 
 	})
+
+	t.Run("Retirar", func(t *testing.T) {
+		saldoInicial := Bitcoin(40)
+
+		carteira := Carteira{saldo: saldoInicial}
+
+		erro := carteira.Retirar(Bitcoin(100))
+
+		confirmaSaldo(t, carteira, saldoInicial)
+
+		if erro == nil {
+			t.Error("Esperava um erro mas nenhum ocorreu")
+		}
+
+	})
 }
