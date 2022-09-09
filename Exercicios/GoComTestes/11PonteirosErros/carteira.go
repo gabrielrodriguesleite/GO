@@ -1,13 +1,15 @@
 package carteira
 
+type Bitcoin int
+
 type Carteira struct {
-	saldo int
+	saldo Bitcoin
 }
 
-func (c *Carteira) Depositar(quantidade int) {
+func (c *Carteira) Depositar(quantidade Bitcoin) {
 	c.saldo += quantidade
 }
 
-func (c *Carteira) Saldo() int {
+func (c *Carteira) Saldo() Bitcoin {
 	return c.saldo
 }
