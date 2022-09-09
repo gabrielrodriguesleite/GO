@@ -47,4 +47,10 @@ func (b Bitcoin) String() string {
 escrevendo uma função que precise mudar o estado, você precisará de um ponteiro para
 o valor que você quer mudar.
 
++ O fato de que Go pega um cópia dos valores é muito útil na maior parte do tempo,
+mas às vezes você não vai querer que o seu sistema faça cópia de alguma coisa. Nesse
+caso, você precisa passar uma referência. Podemos, por exemplo, ter dados muito
+grandes, ou coisas que você talvez pretenda ter apenas uma instância (como conexões
+a banco de dados).
+
 */
