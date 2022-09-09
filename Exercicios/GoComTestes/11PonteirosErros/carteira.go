@@ -21,6 +21,8 @@ type Stringer interface {
 	String() string
 }
 
+// Com o uso da interface a invés de imprimir o valor do int ao usar o print com %d
+// é possível usar print com %s e receber a string resposta da implementação abaixo
 func (b Bitcoin) String() string {
 	return fmt.Sprintf("%d BTC", b)
 }
