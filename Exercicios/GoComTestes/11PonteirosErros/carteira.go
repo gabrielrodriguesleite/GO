@@ -61,3 +61,10 @@ a banco de dados).
 
 // "Não apenas verifique por erros, mas trate-os graciosamente:"
 // Main em: https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully
+
+// TIPOS
+/*
++ Tipos são úteis para adicionar domínios mais específicos a valores.
+
++ Tipos também permitem implementar interfaces.
+*/
