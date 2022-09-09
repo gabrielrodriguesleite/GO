@@ -17,8 +17,9 @@ func (c *Carteira) Saldo() Bitcoin {
 	return c.saldo
 }
 
-func (c *Carteira) Retirar(quantidade Bitcoin) {
+func (c *Carteira) Retirar(quantidade Bitcoin) error {
 	c.saldo -= quantidade
+	return nil
 }
 
 // ----------------------------
