@@ -2,6 +2,16 @@ package carteira
 
 import "testing"
 
+// Teste de cobertura de verificação por erro no código:
+// errcheck é um linter que ajuda a descobrir onde não testamos o retorno
+// de erro.
+// Instalação: go get -u github.com/kisielk/errcheck
+// Instrução: dentro do diretório executar errcheck .
+// Neste caso deveria retornar algo como:
+// carteira_test.go:17:30 carteira.Retirar(Bitcoin(14))
+// indicando que não foi verificado o erro retornado.
+// Lembrando que Retirar é bem sucedido quando erro retorna nil.
+
 func TestCarteira(t *testing.T) {
 
 	t.Run("Depositar", func(t *testing.T) {
