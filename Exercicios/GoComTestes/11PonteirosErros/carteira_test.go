@@ -9,10 +9,10 @@ func TestCarteira(t *testing.T) {
 
 	resultado := carteira.Saldo()
 
-	esperado := Bitcoin(10)
+	esperado := Bitcoin(20)
 
 	if resultado != esperado {
-		t.Errorf("Resultado: '%d', esperado: '%d'", resultado, esperado)
+		t.Errorf("Resultado: '%s', esperado: '%s'", resultado, esperado)
 	}
 
 }
