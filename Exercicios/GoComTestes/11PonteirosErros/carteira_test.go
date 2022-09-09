@@ -42,7 +42,7 @@ func TestCarteira(t *testing.T) {
 
 	})
 
-	t.Run("Retirar", func(t *testing.T) {
+	t.Run("Retirar um saldo insuficiente", func(t *testing.T) {
 		saldoInicial := Bitcoin(40)
 
 		carteira := Carteira{saldo: saldoInicial}
