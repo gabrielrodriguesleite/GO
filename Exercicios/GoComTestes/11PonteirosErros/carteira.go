@@ -18,6 +18,7 @@ func (c *Carteira) Saldo() Bitcoin {
 }
 
 func (c *Carteira) Retirar(quantidade Bitcoin) {
+	c.saldo -= quantidade
 }
 
 // ----------------------------
