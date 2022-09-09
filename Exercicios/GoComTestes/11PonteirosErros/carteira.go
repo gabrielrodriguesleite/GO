@@ -17,6 +17,11 @@ func (c *Carteira) Saldo() Bitcoin {
 	return c.saldo
 }
 
+func (c *Carteira) Retirar(quantidade Bitcoin) {
+}
+
+// ----------------------------
+
 type Stringer interface {
 	String() string
 }
