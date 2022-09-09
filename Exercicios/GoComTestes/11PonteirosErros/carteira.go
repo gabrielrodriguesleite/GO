@@ -1,9 +1,13 @@
 package carteira
 
-type Carteira struct{}
+type Carteira struct {
+	saldo int
+}
 
-func (c Carteira) Depositar(quantidade int) {}
+func (c Carteira) Depositar(quantidade int) {
+	c.saldo += quantidade
+}
 
 func (c Carteira) Saldo() int {
-	return 0
+	return c.saldo
 }
