@@ -62,7 +62,7 @@ func confirmaSaldo(t *testing.T, carteira Carteira, esperado Bitcoin) {
 func confirmaErro(t *testing.T, valor error, esperado string) {
 	t.Helper()
 	if valor == nil {
-		t.Fatal("Esperava um erro mas nenhum ocorreu")
+		t.Fatal("esperava um erro mas nenhum ocorreu")
 	}
 	resultado := valor.Error()
 	if resultado != esperado {
