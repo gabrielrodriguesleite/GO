@@ -39,3 +39,12 @@ type Stringer interface {
 func (b Bitcoin) String() string {
 	return fmt.Sprintf("%d BTC", b)
 }
+
+// PONTEIROS
+
+/*
++ GO opia os valores quando são passados para funções/métodos. Então, se estiver
+escrevendo uma função que precise mudar o estado, você precisará de um ponteiro para
+o valor que você quer mudar.
+
+*/
