@@ -6,6 +6,7 @@ func TestCarteira(t *testing.T) {
 	carteira := Carteira{}
 
 	carteira.Depositar(Bitcoin(10))
+	carteira.Depositar(Bitcoin(10))
 
 	resultado := carteira.Saldo()
 
