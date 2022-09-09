@@ -43,7 +43,7 @@ func (b Bitcoin) String() string {
 // PONTEIROS
 
 /*
-+ GO opia os valores quando são passados para funções/métodos. Então, se estiver
++ GO copia os valores quando são passados para funções/métodos. Então, se estiver
 escrevendo uma função que precise mudar o estado, você precisará de um ponteiro para
 o valor que você quer mudar.
 
@@ -52,6 +52,8 @@ mas às vezes você não vai querer que o seu sistema faça cópia de alguma coi
 caso, você precisa passar uma referência. Podemos, por exemplo, ter dados muito
 grandes, ou coisas que você talvez pretenda ter apenas uma instância (como conexões
 a banco de dados).
+
++ Ponteiros podem ser "nil". "Nil" também é útil para descrever algo que está faltando.
 
 */
 
