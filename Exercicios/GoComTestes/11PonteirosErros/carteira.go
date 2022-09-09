@@ -1,5 +1,6 @@
 package carteira
 
+// Para criarmos Bitcoin usamos a sintaxe Bitcoin(123)
 type Bitcoin int
 
 type Carteira struct {
