@@ -54,3 +54,8 @@ grandes, ou coisas que você talvez pretenda ter apenas uma instância (como con
 a banco de dados).
 
 */
+
+// ERROS
+
+// "Não apenas verifique por erros, mas trate-os graciosamente:"
+// Main em: https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully
