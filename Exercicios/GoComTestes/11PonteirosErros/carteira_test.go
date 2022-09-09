@@ -29,11 +29,12 @@ func TestCarteira(t *testing.T) {
 	t.Run("Retirar", func(t *testing.T) {
 		carteira := Carteira{saldo: Bitcoin(30)}
 
-		carteira.Retirar(Bitcoin(14))
+		erro := carteira.Retirar(Bitcoin(14))
 
 		esperado := Bitcoin(16)
 
 		confirmaSaldo(t, carteira, esperado)
+		confirmaErroInexistente(t, erro)
 
 	})
 
@@ -45,7 +46,6 @@ func TestCarteira(t *testing.T) {
 		erro := carteira.Retirar(Bitcoin(100))
 
 		confirmaSaldo(t, carteira, saldoInicial)
-
 		confirmaErro(t, erro, "impossível retirar: saldo insuficiente")
 
 	})
@@ -67,5 +67,12 @@ func confirmaErro(t *testing.T, valor error, esperado string) {
 	resultado := valor.Error()
 	if resultado != esperado {
 		t.Errorf("Resultado: '%s', esperado: '%s'", resultado, esperado)
+	}
+}
+
+func confirmaErroInexistente(t *testing.T, resultado error) {
+	t.Helper()
+	if resultado != nil {
+		t.Fatal("erro inesperado recebido")
 	}
 }
