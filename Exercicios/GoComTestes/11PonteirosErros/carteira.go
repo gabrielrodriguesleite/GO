@@ -1,6 +1,9 @@
 package carteira
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 // Para criarmos Bitcoin usamos a sintaxe Bitcoin(123)
 type Bitcoin int
@@ -18,6 +21,9 @@ func (c *Carteira) Saldo() Bitcoin {
 }
 
 func (c *Carteira) Retirar(quantidade Bitcoin) error {
+	if quantidade > c.saldo {
+		return errors.New("Saldo insuficiente")
+	}
 	c.saldo -= quantidade
 	return nil
 }
