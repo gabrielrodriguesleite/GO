@@ -4,25 +4,6 @@ import "testing"
 
 func TestCarteira(t *testing.T) {
 
-	confirmaSaldo := func(t *testing.T, carteira Carteira, esperado Bitcoin) {
-		t.Helper()
-		resultado := carteira.Saldo()
-		if resultado != esperado {
-			t.Errorf("Resultado: '%s', esperado: '%s'", resultado, esperado)
-		}
-	}
-
-	confirmaErro := func(t *testing.T, valor error, esperado string) {
-		t.Helper()
-		if valor == nil {
-			t.Fatal("Esperava um erro mas nenhum ocorreu")
-		}
-		resultado := valor.Error()
-		if resultado != esperado {
-			t.Errorf("Resultado: '%s', esperado: '%s'", resultado, esperado)
-		}
-	}
-
 	t.Run("Depositar", func(t *testing.T) {
 
 		carteira := Carteira{}
@@ -58,4 +39,23 @@ func TestCarteira(t *testing.T) {
 		confirmaErro(t, erro, "impossível retirar: saldo insuficiente")
 
 	})
+}
+
+func confirmaSaldo(t *testing.T, carteira Carteira, esperado Bitcoin) {
+	t.Helper()
+	resultado := carteira.Saldo()
+	if resultado != esperado {
+		t.Errorf("Resultado: '%s', esperado: '%s'", resultado, esperado)
+	}
+}
+
+func confirmaErro(t *testing.T, valor error, esperado string) {
+	t.Helper()
+	if valor == nil {
+		t.Fatal("Esperava um erro mas nenhum ocorreu")
+	}
+	resultado := valor.Error()
+	if resultado != esperado {
+		t.Errorf("Resultado: '%s', esperado: '%s'", resultado, esperado)
+	}
 }
