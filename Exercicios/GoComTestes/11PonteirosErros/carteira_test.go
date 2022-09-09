@@ -3,6 +3,14 @@ package carteira
 import "testing"
 
 func TestCarteira(t *testing.T) {
+	confirmaSaldo := func(t *testing.T, carteira Carteira, esperado Bitcoin) {
+		t.Helper()
+		resultado := carteira.Saldo()
+		if resultado != esperado {
+			t.Errorf("Resultado: '%s', esperado: '%s'", resultado, esperado)
+		}
+	}
+
 	t.Run("Depositar", func(t *testing.T) {
 
 		carteira := Carteira{}
@@ -10,13 +18,9 @@ func TestCarteira(t *testing.T) {
 		carteira.Depositar(Bitcoin(10))
 		carteira.Depositar(Bitcoin(10))
 
-		resultado := carteira.Saldo()
-
 		esperado := Bitcoin(20)
 
-		if resultado != esperado {
-			t.Errorf("Resultado: '%s', esperado: '%s'", resultado, esperado)
-		}
+		confirmaSaldo(t, carteira, esperado)
 	})
 
 	t.Run("Retirar", func(t *testing.T) {
@@ -24,12 +28,9 @@ func TestCarteira(t *testing.T) {
 
 		carteira.Retirar(Bitcoin(14))
 
-		resultado := carteira.Saldo()
-
 		esperado := Bitcoin(16)
 
-		if resultado != esperado {
-			t.Errorf("Resultado: '%s', esperado: '%s'", resultado, esperado)
-		}
+		confirmaSaldo(t, carteira, esperado)
+
 	})
 }
