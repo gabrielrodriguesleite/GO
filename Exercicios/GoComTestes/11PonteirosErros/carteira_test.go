@@ -12,10 +12,14 @@ func TestCarteira(t *testing.T) {
 		}
 	}
 
-	confirmaErro := func(t *testing.T, erro error) {
+	confirmaErro := func(t *testing.T, valor error, esperado string) {
 		t.Helper()
-		if erro == nil {
-			t.Error("Esperava um erro mas nenhum ocorreu")
+		if valor == nil {
+			t.Fatal("Esperava um erro mas nenhum ocorreu")
+		}
+		resultado := valor.Error()
+		if resultado != esperado {
+			t.Errorf("Resultado: '%s', esperado: '%s'", resultado, esperado)
 		}
 	}
 
@@ -51,7 +55,7 @@ func TestCarteira(t *testing.T) {
 
 		confirmaSaldo(t, carteira, saldoInicial)
 
-		confirmaErro(t, erro)
+		confirmaErro(t, erro, "impossível retirar: saldo insuficiente")
 
 	})
 }
