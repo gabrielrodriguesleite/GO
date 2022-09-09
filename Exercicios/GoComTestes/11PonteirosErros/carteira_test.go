@@ -3,11 +3,19 @@ package carteira
 import "testing"
 
 func TestCarteira(t *testing.T) {
+
 	confirmaSaldo := func(t *testing.T, carteira Carteira, esperado Bitcoin) {
 		t.Helper()
 		resultado := carteira.Saldo()
 		if resultado != esperado {
 			t.Errorf("Resultado: '%s', esperado: '%s'", resultado, esperado)
+		}
+	}
+
+	confirmaErro := func(t *testing.T, erro error) {
+		t.Helper()
+		if erro == nil {
+			t.Error("Esperava um erro mas nenhum ocorreu")
 		}
 	}
 
@@ -43,9 +51,7 @@ func TestCarteira(t *testing.T) {
 
 		confirmaSaldo(t, carteira, saldoInicial)
 
-		if erro == nil {
-			t.Error("Esperava um erro mas nenhum ocorreu")
-		}
+		confirmaErro(t, erro)
 
 	})
 }
