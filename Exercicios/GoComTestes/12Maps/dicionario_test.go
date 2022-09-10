@@ -49,7 +49,9 @@ func TestUpdate(t *testing.T) {
 		dicionario := Dicionario{palavra: definicao}
 		novaDefinicao := "nova definição"
 
-		dicionario.Atualiza(palavra, novaDefinicao)
+		err := dicionario.Atualiza(palavra, novaDefinicao)
+
+		comparaErro(t, err, nil)
 		comparaDefinicao(t, dicionario, palavra, novaDefinicao)
 	})
 }
