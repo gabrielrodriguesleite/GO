@@ -4,7 +4,7 @@ import "testing"
 
 func TestBusca(t *testing.T) {
 	dicionario := Dicionario{"teste": "isso é apenas um teste"}
-	resultado := Busca(dicionario, "teste")
+	resultado := dicionario.Busca("teste")
 	esperado := "isso é apenas um teste"
 
 	comparaString(t, resultado, esperado)
