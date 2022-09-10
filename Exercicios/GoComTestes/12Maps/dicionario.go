@@ -27,6 +27,14 @@ func (d Dicionario) Busca(palavra string) (retorno string, erro error) {
 }
 
 func (d Dicionario) Adiciona(chave, valor string) (erro error) {
-	d[chave] = valor
+	_, err := d.Busca(chave)
+	switch err {
+	case ErrNaoEncontrado:
+		d[chave] = valor
+	case nil:
+		return ErrPalavraExistente
+	default:
+		return err
+	}
 	return
 }
