@@ -19,12 +19,15 @@ func TestBusca(t *testing.T) {
 }
 
 func TestAdiciona(t *testing.T) {
-	dicionario := Dicionario{}
-	palavra := "teste"
-	definicao := "isto é apenas um teste"
-	dicionario.Adiciona(palavra, definicao)
+	t.Run("palavra nova", func(t *testing.T) {
+		dicionario := Dicionario{}
+		palavra := "teste"
+		definicao := "isto é apenas um teste"
+		err := dicionario.Adiciona(palavra, definicao)
 
-	comparaDefinicao(t, dicionario, palavra, definicao)
+		comparaErro(t, err, nil)
+		comparaDefinicao(t, dicionario, palavra, definicao)
+	})
 
 }
 
