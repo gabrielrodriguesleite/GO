@@ -12,11 +12,17 @@ func TestBusca(t *testing.T) {
 	})
 
 	t.Run("palavra desconhecida", func(t *testing.T) {
-		_, err := dicionario.Busca("desconhecida")
-		if err == nil {
-			t.Fatal("é esperado que um erro seja obtido")
-		}
+		_, resultado := dicionario.Busca("desconhecida")
+
+		comparaErro(t, resultado, ErrNaoEncontrado)
 	})
+}
+
+func comparaErro(t *testing.T, resultado, esperado error) {
+	t.Helper()
+	if resultado != esperado {
+		t.Errorf("Resultado: '%s', esperado '%s'", resultado, esperado)
+	}
 }
 
 func comparaString(t *testing.T, resultado, esperado string) {
