@@ -23,6 +23,7 @@ func (d Dicionario) Busca(palavra string) (retorno string, erro error) {
 	return definicao, nil
 }
 
-func (d Dicionario) Adiciona(chave, valor string) {
+func (d Dicionario) Adiciona(chave, valor string) (erro error) {
 	d[chave] = valor
+	return
 }
