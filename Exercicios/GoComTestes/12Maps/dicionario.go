@@ -44,3 +44,5 @@ func (d Dicionario) Adiciona(chave, valor string) (erro error) {
 	}
 	return
 }
+
+func (d Dicionario) Atualiza(chave, valor string) {}
