@@ -1,11 +1,15 @@
 package main
 
-import "errors"
-
-var (
-	ErrNaoEncontrado    = errors.New("não foi possível encontrar a palavra que você buscou")
-	ErrPalavraExistente = errors.New("não foi possível adicionar a palavra pois ela já existe")
+const (
+	ErrNaoEncontrado    = ErrDicionario("não foi possível encontrar a palavra que você buscou")
+	ErrPalavraExistente = ErrDicionario("não foi possível adicionar a palavra pois ela já existe")
 )
+
+type ErrDicionario string
+
+func (e ErrDicionario) Error() string {
+	return string(e)
+}
 
 // Maps é um tipo de referência por isso podemos modificá-lo sem passar como ponteiro.
 // Maps usa uma estrutura de dados chamada tabela de dispersão ou mapa de hash.
