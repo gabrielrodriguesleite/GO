@@ -18,6 +18,19 @@ func TestBusca(t *testing.T) {
 	})
 }
 
+func TestAdiciona(t *testing.T) {
+	dicionario := Dicionario{}
+	dicionario.Adiciona("teste", "isto é apenas um teste")
+	esperado := "isto é apenas um teste"
+	resultado, err := dicionario.Busca("teste")
+	if err != nil {
+		t.Fatal("não foi possível encontrar a palavra adicionada: ", err)
+	}
+	if esperado != resultado {
+		t.Errorf("Resultado: '%s', esperado '%s'", resultado, esperado)
+	}
+}
+
 func comparaErro(t *testing.T, resultado, esperado error) {
 	t.Helper()
 	if resultado != esperado {
