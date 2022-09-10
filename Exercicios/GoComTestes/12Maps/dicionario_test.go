@@ -29,6 +29,16 @@ func TestAdiciona(t *testing.T) {
 		comparaDefinicao(t, dicionario, palavra, definicao)
 	})
 
+	t.Run("palavra existente", func(t *testing.T) {
+		palavra := "teste"
+		definicao := "isto é apenas um teste"
+		dicionario := Dicionario{palavra: definicao}
+		err := dicionario.Adiciona(palavra, "teste novo")
+
+		comparaErro(t, err, ErrPalavraExistente)
+		comparaDefinicao(t, dicionario, palavra, definicao)
+	})
+
 }
 
 func comparaDefinicao(t *testing.T, dicionario Dicionario, palavra, definicao string) {
