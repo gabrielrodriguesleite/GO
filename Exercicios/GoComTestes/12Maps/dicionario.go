@@ -9,8 +9,9 @@ func (e ErrDicionario) Error() string {
 }
 
 const (
-	ErrNaoEncontrado    = ErrDicionario("não foi possível encontrar a palavra que você buscou")
-	ErrPalavraExistente = ErrDicionario("não foi possível adicionar a palavra pois ela já existe")
+	ErrNaoEncontrado      = ErrDicionario("não foi possível encontrar a palavra que você buscou")
+	ErrPalavraExistente   = ErrDicionario("não foi possível adicionar a palavra pois ela já existe")
+	ErrPalavraInexistente = ErrDicionario("não foi possível atualizar a palavra pois ela não existe")
 )
 
 // Maps é um tipo de referência por isso podemos modificá-lo sem passar como ponteiro.
