@@ -4,10 +4,12 @@ import "testing"
 
 func TestBusca(t *testing.T) {
 	dicionario := Dicionario{"teste": "isso é apenas um teste"}
-	resultado := dicionario.Busca("teste")
-	esperado := "isso é apenas um teste"
 
-	comparaString(t, resultado, esperado)
+	t.Run("palavra conhecida", func(t *testing.T) {
+		resultado := dicionario.Busca("teste")
+		esperado := "isso é apenas um teste"
+		comparaString(t, resultado, esperado)
+	})
 
 }
 
