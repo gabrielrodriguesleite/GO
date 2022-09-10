@@ -54,6 +54,17 @@ func TestUpdate(t *testing.T) {
 		comparaErro(t, err, nil)
 		comparaDefinicao(t, dicionario, palavra, novaDefinicao)
 	})
+
+	t.Run("palavra nova", func(t *testing.T) {
+
+		palavra := "teste"
+		definicao := "isto é apenas um teste"
+		dicionario := Dicionario{}
+
+		err := dicionario.Atualiza(palavra, definicao)
+
+		comparaErro(t, err, ErrPalavraInexistente)
+	})
 }
 
 // ----------- HELPERS -----------
