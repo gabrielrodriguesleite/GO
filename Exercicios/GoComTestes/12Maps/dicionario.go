@@ -9,6 +9,12 @@ var ErrNaoEncontrado = errors.New("não foi possível encontrar a palavra que vo
 // Mais aqui: https://pt.wikipedia.org/wiki/Tabela_de_dispers%C3%A3o
 type Dicionario map[string]string
 
+// IMPORTANTE: nunca inicie um map vazio como:
+// var m map[string]string
+// ao invés disso usamos make ou dessa forma:
+// dicionario = map[string]string{} // chaves indica que está vazio (nil)
+// dicionario = make(map[string]string)
+
 func (d Dicionario) Busca(palavra string) (retorno string, erro error) {
 	definicao, existe := d[palavra]
 	if !existe {
