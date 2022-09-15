@@ -58,3 +58,6 @@ func (d Dicionario) Atualiza(chave, valor string) (erro error) {
 	}
 	return
 }
+
+func (d Dicionario) Deleta(chave string) {
+}
