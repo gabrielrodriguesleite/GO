@@ -20,6 +20,7 @@ func (s *SleeperSpy) Sleep() {
 // argumentos definidos, etc.
 
 const pausa = "pausa"
+const escrita = "escrita"
 
 type SpyContagemOperacoes struct {
 	Chamadas []string
@@ -27,6 +28,11 @@ type SpyContagemOperacoes struct {
 
 func (s *SpyContagemOperacoes) Sleep() {
 	s.Chamadas = append(s.Chamadas, pausa)
+}
+
+func (s *SpyContagemOperacoes) Write(p []byte) (n int, err error) {
+	s.Chamadas = append(s.Chamadas, escrita)
+	return
 }
 
 func Test(t *testing.T) {
