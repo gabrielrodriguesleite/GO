@@ -5,6 +5,11 @@ import (
 	"testing"
 )
 
+//spy sleeper
+type Sleeper interface {
+	Sleep()
+}
+
 func Test(t *testing.T) {
 	buffer := &bytes.Buffer{}
 
