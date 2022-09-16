@@ -10,6 +10,15 @@ type Sleeper interface {
 	Sleep()
 }
 
+//mock
+type SleeperSpy struct {
+	Chamadas int
+}
+
+func (s *SleeperSpy) Sleep() {
+	s.Chamadas++
+}
+
 func Test(t *testing.T) {
 	buffer := &bytes.Buffer{}
 
