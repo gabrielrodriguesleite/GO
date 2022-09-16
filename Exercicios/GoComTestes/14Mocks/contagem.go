@@ -3,9 +3,12 @@ package main
 import (
 	"fmt"
 	"io"
-	"os"
 	"time"
 )
+
+type Sleeper interface {
+	Sleep()
+}
 
 /* DEFINIÇÃO DO PROBLEMA:
 Escrever um programa que conta regressivamente a partir de 3 e então
@@ -21,7 +24,7 @@ contornar este problema.
 const ultimaPalavra = "Vai!"
 const inicioContagem = 3
 
-func Contagem(saida io.Writer) {
+func Contagem(saida io.Writer, sleeper Sleeper) {
 	for i := inicioContagem; i > 0; i-- {
 		time.Sleep(1 * time.Second)
 		fmt.Fprintln(saida, i)
@@ -32,5 +35,5 @@ func Contagem(saida io.Writer) {
 }
 
 func main() {
-	Contagem(os.Stdout)
+	// Contagem(os.Stdout)
 }
