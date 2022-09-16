@@ -10,6 +10,12 @@ type Sleeper interface {
 	Sleep()
 }
 
+type SleeperPadrao struct{}
+
+func (d *SleeperPadrao) Sleep() {
+	time.Sleep(1 * time.Second)
+}
+
 /* DEFINIÇÃO DO PROBLEMA:
 Escrever um programa que conta regressivamente a partir de 3 e então
 imprime "Vai!" (sem imprimir o zero)
