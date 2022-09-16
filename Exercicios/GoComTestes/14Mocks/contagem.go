@@ -32,6 +32,14 @@ contornar este problema.
 // as chamadas da função sleeper ocorrem na ordem correta com as impressões.
 // De fora intercalada atrazo, impressão.
 
+type SleeperConfiguravel struct {
+	duracao time.Duration
+}
+
+func (s *SleeperConfiguravel) Sleep() {
+	time.Sleep(s.duracao)
+}
+
 const ultimaPalavra = "Vai!"
 const inicioContagem = 3
 
@@ -46,6 +54,6 @@ func Contagem(saida io.Writer, sleeper Sleeper) {
 }
 
 func main() {
-	sleeper := &SleeperPadrao{}
+	sleeper := &SleeperConfiguravel{duracao: 1 * time.Second}
 	Contagem(os.Stdout, sleeper)
 }
