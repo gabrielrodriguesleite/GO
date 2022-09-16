@@ -28,6 +28,9 @@ Neste caso é essencial usar a injeção de dependência pra
 contornar este problema.
 */
 
+// Parece que está tudo correto porém o teste ainda não confirma que
+// as chamadas da função sleeper ocorrem na ordem correta com as impressões.
+
 const ultimaPalavra = "Vai!"
 const inicioContagem = 3
 
