@@ -6,10 +6,6 @@ import (
 )
 
 //spy sleeper
-type Sleeper interface {
-	Sleep()
-}
-
 //mock
 type SleeperSpy struct {
 	Chamadas int
