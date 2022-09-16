@@ -12,7 +12,10 @@ imprime "Vai!" (sem imprimir o zero)
 */
 
 func Contagem(saida io.Writer) {
-	fmt.Fprint(saida, "3")
+	for i := 3; i > 0; i-- {
+		fmt.Fprintln(saida, i)
+	}
+	fmt.Fprint(saida, "Vai!")
 }
 
 func main() {
