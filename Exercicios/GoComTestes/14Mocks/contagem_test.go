@@ -19,6 +19,16 @@ func (s *SleeperSpy) Sleep() {
 // exemplo: quantas vezes a função foi chamada. Também podem gravar os
 // argumentos definidos, etc.
 
+const pausa = "pausa"
+
+type SpyContagemOperacoes struct {
+	Chamadas []string
+}
+
+func (s *SpyContagemOperacoes) Sleep() {
+	s.Chamadas = append(s.Chamadas, pausa)
+}
+
 func Test(t *testing.T) {
 	buffer := &bytes.Buffer{}
 	sleeperSpy := &SleeperSpy{}
