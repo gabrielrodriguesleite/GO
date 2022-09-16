@@ -6,5 +6,5 @@ import (
 )
 
 func Cumprimenta(escritor io.Writer, nome string) {
-	fmt.Printf("Olá, %s", nome)
+	fmt.Fprintf(escritor, "Olá, %s", nome)
 }
