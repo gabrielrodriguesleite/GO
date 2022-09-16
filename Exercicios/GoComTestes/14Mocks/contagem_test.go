@@ -19,6 +19,10 @@ func (s *SleeperSpy) Sleep() {
 	s.Chamadas++
 }
 
+// Spies são um tipo de mock no qual podemos gravar informações como por
+// exemplo: quantas vezes a função foi chamada. Também podem gravar os
+// argumentos definidos, etc.
+
 func Test(t *testing.T) {
 	buffer := &bytes.Buffer{}
 
