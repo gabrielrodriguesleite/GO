@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
+	"os"
 	"time"
 )
 
@@ -41,5 +42,6 @@ func Contagem(saida io.Writer, sleeper Sleeper) {
 }
 
 func main() {
-	// Contagem(os.Stdout)
+	sleeper := &SleeperPadrao{}
+	Contagem(os.Stdout, sleeper)
 }
