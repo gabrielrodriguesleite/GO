@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"reflect"
 	"testing"
 )
 
@@ -45,9 +46,9 @@ func Test(t *testing.T) {
 
 		resultado := buffer.String()
 		esperado := `3
-		2
-		1
-		Vai!`
+2
+1
+Vai!`
 
 		if resultado != esperado {
 			t.Errorf("resultado: '%s', esperado '%s'", resultado, esperado)
@@ -55,6 +56,25 @@ func Test(t *testing.T) {
 
 		if sleeperSpy.Chamadas != 4 {
 			t.Errorf("não houve chamadas suficientes de sleep, esperando 4, resultado %d", sleeperSpy.Chamadas)
+		}
+	})
+
+	t.Run("pausa antes de cada impressão", func(t *testing.T) {
+		spyImpressoraSleep := &SpyContagemOperacoes{}
+		Contagem(spyImpressoraSleep, spyImpressoraSleep)
+		esperado := []string{
+			pausa,
+			escrita,
+			pausa,
+			escrita,
+			pausa,
+			escrita,
+			pausa,
+			escrita,
+		}
+
+		if !reflect.DeepEqual(esperado, spyImpressoraSleep.Chamadas) {
+			t.Errorf("esperado %v chamadas, resultado %v", esperado, spyImpressoraSleep.Chamadas)
 		}
 	})
 }
