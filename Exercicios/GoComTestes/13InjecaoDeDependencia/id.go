@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
-	"os"
+	"net/http"
 )
 
 func Cumprimenta(escritor io.Writer, nome string) {
@@ -11,5 +11,16 @@ func Cumprimenta(escritor io.Writer, nome string) {
 }
 
 func main() {
-	Cumprimenta(os.Stdout, "Hello\n")
+	// Cumprimenta(os.Stdout, "Hello\n")
+	err := http.ListenAndServe(
+		":5000",
+		http.HandlerFunc(
+			func(w http.ResponseWriter, r *http.Request) {
+				Cumprimenta(w, "WEB")
+			}))
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
 }
