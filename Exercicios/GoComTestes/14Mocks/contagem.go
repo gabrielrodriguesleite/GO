@@ -30,6 +30,7 @@ contornar este problema.
 
 // Parece que está tudo correto porém o teste ainda não confirma que
 // as chamadas da função sleeper ocorrem na ordem correta com as impressões.
+// De fora intercalada atrazo, impressão.
 
 const ultimaPalavra = "Vai!"
 const inicioContagem = 3
