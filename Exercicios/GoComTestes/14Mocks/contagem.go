@@ -11,11 +11,14 @@ Escrever um programa que conta regressivamente a partir de 3 e então
 imprime "Vai!" (sem imprimir o zero)
 */
 
+const ultimaPalavra = "Vai!"
+const inicioContagem = 3
+
 func Contagem(saida io.Writer) {
-	for i := 3; i > 0; i-- {
+	for i := inicioContagem; i > 0; i-- {
 		fmt.Fprintln(saida, i)
 	}
-	fmt.Fprint(saida, "Vai!")
+	fmt.Fprint(saida, ultimaPalavra)
 }
 
 func main() {
