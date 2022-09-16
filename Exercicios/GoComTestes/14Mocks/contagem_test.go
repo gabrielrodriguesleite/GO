@@ -74,7 +74,7 @@ Vai!`
 		}
 
 		if !reflect.DeepEqual(esperado, spyImpressoraSleep.Chamadas) {
-			t.Errorf("esperado %v chamadas, resultado %v", esperado, spyImpressoraSleep.Chamadas)
+			t.Errorf("esperado '%v' chamadas, resultado '%v'", esperado, spyImpressoraSleep.Chamadas)
 		}
 	})
 }
