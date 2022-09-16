@@ -55,7 +55,7 @@ Vai!`
 		}
 
 		if sleeperSpy.Chamadas != 4 {
-			t.Errorf("não houve chamadas suficientes de sleep, esperando 4, resultado %d", sleeperSpy.Chamadas)
+			t.Errorf("não houve chamadas suficientes de sleep, esperando 4, resultado '%d'", sleeperSpy.Chamadas)
 		}
 	})
 
