@@ -16,8 +16,8 @@ func VerificadorWebsites(vw VerificadorWebsite, urls []string) map[string]bool {
 		}(url) // cada goroutine recebe o seu valor de url para trabalhar
 	}
 
-	for i := 0; i < len(urls); i++ {
-		resultado := <-canalResultado
+	for i := 0; i < len(urls); i++ { // i respostas serão aguardadas
+		resultado := <-canalResultado // aguarda até receber a inésima resposta da goroutine
 		resultados[resultado.string] = resultado.bool
 	}
 	return resultados
