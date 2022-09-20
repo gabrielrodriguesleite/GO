@@ -41,6 +41,7 @@ func slowStubVerificadorWebsite(_ string) bool {
 }
 
 // go test -bench="."
+// sem concorrência 2017804909 ns/op B800 @1.5Ghz
 func BenchmarkVerificaWebsites(b *testing.B) {
 	urls := make([]string, 100)
 	for i := 0; i < len(urls); i++ {
