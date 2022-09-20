@@ -13,7 +13,7 @@ func VerificadorWebsites(vw VerificadorWebsite, urls []string) map[string]bool {
 		}()
 	}
 
-	time.Sleep(2 * time.Second)
+	time.Sleep(2 * time.Second) // sleep para aguardar o resultado da goroutine
 	return resultados
 }
 
