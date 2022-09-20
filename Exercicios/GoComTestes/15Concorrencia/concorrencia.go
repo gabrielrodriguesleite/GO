@@ -8,9 +8,9 @@ func VerificadorWebsites(vw VerificadorWebsite, urls []string) map[string]bool {
 	resultados := make(map[string]bool)
 
 	for _, url := range urls {
-		go func() { // usando goroutine para executar em paralelo
-			resultados[url] = vw(url)
-		}()
+		go func(u string) { // usando goroutine para executar em paralelo
+			resultados[u] = vw(u)
+		}(url)
 	}
 
 	time.Sleep(2 * time.Second) // sleep para aguardar o resultado da goroutine
