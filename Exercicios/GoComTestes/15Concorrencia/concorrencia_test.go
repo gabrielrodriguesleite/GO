@@ -3,6 +3,7 @@ package concorrencia
 import (
 	"reflect"
 	"testing"
+	"time"
 )
 
 // Usando a injeção de dependência é possível testar uma função sem fazer chamadas
@@ -33,3 +34,20 @@ func TestVerificaWebsites(t *testing.T) {
 }
 
 // Como melhorar a velocidade do teste para poder verificar centenas de websites em menos tempo?
+
+func slowStubVerificadorWebsite(_ string) bool {
+	time.Sleep(20 * time.Millisecond)
+	return true
+}
+
+func BenchmarkVerificaWebsites(b *testing.B) {
+	urls := make([]string, 100)
+	for i := 0; i < len(urls); i++ {
+		urls[i] = "uma url"
+	}
+
+	for i := 0; i < b.N; i++ {
+		VerificadorWebsites(slowStubVerificadorWebsite, urls)
+	}
+
+}
