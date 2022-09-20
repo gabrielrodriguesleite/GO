@@ -40,6 +40,7 @@ func slowStubVerificadorWebsite(_ string) bool {
 	return true
 }
 
+// go test -bench="."
 func BenchmarkVerificaWebsites(b *testing.B) {
 	urls := make([]string, 100)
 	for i := 0; i < len(urls); i++ {
