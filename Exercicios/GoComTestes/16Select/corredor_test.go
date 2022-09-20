@@ -19,10 +19,24 @@ func TestCorredor(t *testing.T) {
 		URLRapida := servidorRapido.URL
 
 		esperado := URLRapida
-		resultado := Corredor(URLLenta, URLRapida)
+		resultado, _ := Corredor(URLLenta, URLRapida)
 
 		if resultado != esperado {
 			t.Errorf("resultado '%s', esperado '%s'", resultado, esperado)
+		}
+	})
+
+	t.Run("retorna um erro se o servidor não responder dentro de 10s", func(t *testing.T) {
+		servidorA := criaServidorComAtraso(11 * time.Second)
+		servidorB := criaServidorComAtraso(12 * time.Second)
+
+		defer servidorA.Close()
+		defer servidorB.Close()
+
+		_, err := Corredor(servidorA.URL, servidorB.URL)
+
+		if err == nil {
+			t.Error("esperava um erro, mas não obtive um")
 		}
 	})
 }
