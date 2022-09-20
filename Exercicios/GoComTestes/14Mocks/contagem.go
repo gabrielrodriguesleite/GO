@@ -34,7 +34,11 @@ contornar este problema.
 
 type SleeperConfiguravel struct {
 	duracao time.Duration
-	Pausa   func(time.Duration)
+	pausa   func(time.Duration)
+}
+
+func (s *SleeperConfiguravel) Pausa() {
+	s.pausa(s.duracao)
 }
 
 const ultimaPalavra = "Vai!"
