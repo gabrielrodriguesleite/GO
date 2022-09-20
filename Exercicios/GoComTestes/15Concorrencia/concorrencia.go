@@ -13,9 +13,14 @@ func VerificadorWebsites(vw VerificadorWebsite, urls []string) map[string]bool {
 		}(url) // cada goroutine recebe o seu valor de url para trabalhar
 	}
 
-	time.Sleep(2 * time.Second) // sleep para aguardar o resultado da goroutine
+	time.Sleep(3 * time.Second) // sleep para aguardar o resultado da goroutine
 	return resultados
 }
+
+// é possível executar com sucesso ou obter uma condição de corrida
+// detectado pelo detector de corrida nativo: quando mais de uma goroutine tenta
+// escrever um recurso ao mesmo tempo:
+// WARNING: DATA RACE
 
 // Retorna um map de cada URL verificado com um valor boleano verdadeiro para
 // uma resposta boa e falsa para uma resposta ruim.
