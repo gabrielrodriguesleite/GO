@@ -15,3 +15,7 @@ package main
 + select - sincronia de processos
 
 */
+
+func Corredor(URLLenta, URLRapida string) (err string) {
+	return
+}
