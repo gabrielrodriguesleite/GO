@@ -11,12 +11,6 @@ type Sleeper interface {
 	Pausa()
 }
 
-type SleeperPadrao struct{}
-
-func (d *SleeperPadrao) Pausa() {
-	time.Sleep(1 * time.Second)
-}
-
 /* DEFINIÇÃO DO PROBLEMA:
 Escrever um programa que conta regressivamente a partir de 3 e então
 imprime "Vai!" (sem imprimir o zero)
@@ -55,6 +49,6 @@ func Contagem(saida io.Writer, sleeper Sleeper) {
 }
 
 func main() {
-	sleeper := &SleeperConfiguravel{duracao: 1 * time.Second}
+	sleeper := &SleeperConfiguravel{1 * time.Second, time.Sleep}
 	Contagem(os.Stdout, sleeper)
 }
