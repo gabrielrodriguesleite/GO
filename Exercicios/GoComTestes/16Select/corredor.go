@@ -22,16 +22,17 @@ import (
 */
 
 func Corredor(a, b string) (vencedor string) {
-	inicioA := time.Now()
-	http.Get(a)
-	ducacaoA := time.Since(inicioA)
-
-	inicioB := time.Now()
-	http.Get(b)
-	ducacaoB := time.Since(inicioB)
+	ducacaoA := medirTempoDeResposta(a)
+	ducacaoB := medirTempoDeResposta(b)
 
 	if ducacaoA < ducacaoB {
 		return a
 	}
 	return b
+}
+
+func medirTempoDeResposta(URL string) time.Duration {
+	inicio := time.Now()
+	http.Get(URL)
+	return time.Since(inicio)
 }
