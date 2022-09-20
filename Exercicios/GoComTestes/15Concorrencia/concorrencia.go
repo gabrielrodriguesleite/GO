@@ -1,5 +1,7 @@
 package concorrencia
 
+import "time"
+
 type VerificadorWebsite func(string) bool
 
 func VerificadorWebsites(vw VerificadorWebsite, urls []string) map[string]bool {
@@ -11,6 +13,7 @@ func VerificadorWebsites(vw VerificadorWebsite, urls []string) map[string]bool {
 		}()
 	}
 
+	time.Sleep(2 * time.Second)
 	return resultados
 }
 
