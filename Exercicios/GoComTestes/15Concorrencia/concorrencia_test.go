@@ -42,6 +42,8 @@ func slowStubVerificadorWebsite(_ string) bool {
 
 // go test -bench="."
 // sem concorrência 2017804909 ns/op B800 @1.5Ghz
+// com paralelismo  	20608179 ns/op B800 @1.5Ghz
+// umas 100x mais rápido.
 func BenchmarkVerificaWebsites(b *testing.B) {
 	urls := make([]string, 100)
 	for i := 0; i < len(urls); i++ {
