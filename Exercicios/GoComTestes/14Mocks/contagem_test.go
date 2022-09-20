@@ -81,3 +81,15 @@ Vai!`
 		}
 	})
 }
+
+func TestSleeprerConfiguravel(t *testing.T) {
+	tempoPausa := 5 * time.Second
+	tempoSpy := TempoSpy{}
+	sleeper := SleeperConfiguravel{tempoPausa, tempoSpy.Pausa}
+	sleeper.Pausa()
+
+	if tempoSpy.ducacaoPausa != tempoPausa {
+		t.Errorf("deveria ter pausado %v, mas pausou por %v", tempoPausa, tempoSpy.ducacaoPausa)
+	}
+
+}
