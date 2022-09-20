@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
+	"time"
 )
 
 // Problemática:
@@ -26,6 +28,8 @@ func Corredor(a, b string) (vencedor string, erro error) {
 		return a, nil
 	case <-ping(b):
 		return b, nil
+	case <-time.After(10 * time.Second):
+		return "", fmt.Errorf("tempo limite de espera excedido para %s e %s", a, b)
 	}
 }
 
