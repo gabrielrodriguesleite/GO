@@ -6,7 +6,7 @@ func VerificadorWebsites(vw VerificadorWebsite, urls []string) map[string]bool {
 	resultados := make(map[string]bool)
 
 	for _, url := range urls {
-		go func() {
+		go func() { // usando goroutine para executar em paralelo
 			resultados[url] = vw(url)
 		}()
 	}
