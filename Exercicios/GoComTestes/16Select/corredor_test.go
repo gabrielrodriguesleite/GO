@@ -8,22 +8,23 @@ import (
 )
 
 func TestCorredor(t *testing.T) {
-	servidorLento := criaServidorComAtraso(20 * time.Millisecond)
-	servidorRapido := criaServidorComAtraso(0 * time.Millisecond)
+	t.Run("testa se retorna a url mais rápida", func(t *testing.T) {
+		servidorLento := criaServidorComAtraso(20 * time.Millisecond)
+		servidorRapido := criaServidorComAtraso(0 * time.Millisecond)
 
-	defer servidorLento.Close()
-	defer servidorRapido.Close()
+		defer servidorLento.Close()
+		defer servidorRapido.Close()
 
-	URLLenta := servidorLento.URL
-	URLRapida := servidorRapido.URL
+		URLLenta := servidorLento.URL
+		URLRapida := servidorRapido.URL
 
-	esperado := URLRapida
-	resultado := Corredor(URLLenta, URLRapida)
+		esperado := URLRapida
+		resultado := Corredor(URLLenta, URLRapida)
 
-	if resultado != esperado {
-		t.Errorf("resultado '%s', esperado '%s'", resultado, esperado)
-	}
-
+		if resultado != esperado {
+			t.Errorf("resultado '%s', esperado '%s'", resultado, esperado)
+		}
+	})
 }
 
 func criaServidorComAtraso(atraso time.Duration) *httptest.Server {
