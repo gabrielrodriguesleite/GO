@@ -2,7 +2,6 @@ package main
 
 import (
 	"net/http"
-	"time"
 )
 
 // Problemática:
@@ -22,17 +21,19 @@ import (
 */
 
 func Corredor(a, b string) (vencedor string) {
-	ducacaoA := medirTempoDeResposta(a)
-	ducacaoB := medirTempoDeResposta(b)
-
-	if ducacaoA < ducacaoB {
+	select {
+	case <-ping(a):
 		return a
+	case <-ping(b):
+		return b
 	}
-	return b
 }
 
-func medirTempoDeResposta(URL string) time.Duration {
-	inicio := time.Now()
-	http.Get(URL)
-	return time.Since(inicio)
+func ping(URL string) chan bool {
+	ch := make(chan bool)
+	go func() {
+		http.Get(URL)
+		ch <- true
+	}()
+	return ch
 }
