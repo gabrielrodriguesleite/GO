@@ -22,13 +22,13 @@ import (
 
 */
 
-func Corredor(a, b string) (vencedor string, erro error) {
+func Corredor(a, b string, tempoLimite time.Duration) (vencedor string, erro error) {
 	select {
 	case <-ping(a):
 		return a, nil
 	case <-ping(b):
 		return b, nil
-	case <-time.After(10 * time.Second):
+	case <-time.After(tempoLimite):
 		return "", fmt.Errorf("tempo limite de espera excedido para %s e %s", a, b)
 	}
 }
