@@ -3,6 +3,10 @@ package concorrencia
 import "time"
 
 type VerificadorWebsite func(string) bool
+type resultado struct {
+	string
+	bool
+}
 
 func VerificadorWebsites(vw VerificadorWebsite, urls []string) map[string]bool {
 	resultados := make(map[string]bool)
