@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"reflect"
 	"testing"
+	"time"
 )
 
 //spy sleeper
@@ -14,6 +15,14 @@ type SleeperSpy struct {
 
 func (s *SleeperSpy) Sleep() {
 	s.Chamadas++
+}
+
+type TempoSpy struct {
+	ducacaoPausa time.Duration
+}
+
+func (t *TempoSpy) Pausa(duracao time.Duration) {
+	t.ducacaoPausa = duracao
 }
 
 // Spies são um tipo de mock no qual podemos gravar informações como por
@@ -40,7 +49,7 @@ func Test(t *testing.T) {
 	t.Run("teste simples", func(t *testing.T) {
 
 		buffer := &bytes.Buffer{}
-		sleeperSpy := &SleeperSpy{}
+		sleeperSpy := &TempoSpy{}
 
 		Contagem(buffer, sleeperSpy)
 

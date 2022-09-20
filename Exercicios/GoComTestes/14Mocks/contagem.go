@@ -8,12 +8,12 @@ import (
 )
 
 type Sleeper interface {
-	Sleep()
+	Pausa()
 }
 
 type SleeperPadrao struct{}
 
-func (d *SleeperPadrao) Sleep() {
+func (d *SleeperPadrao) Pausa() {
 	time.Sleep(1 * time.Second)
 }
 
@@ -34,10 +34,7 @@ contornar este problema.
 
 type SleeperConfiguravel struct {
 	duracao time.Duration
-}
-
-func (s *SleeperConfiguravel) Sleep() {
-	time.Sleep(s.duracao)
+	Pausa   func(time.Duration)
 }
 
 const ultimaPalavra = "Vai!"
@@ -45,11 +42,11 @@ const inicioContagem = 3
 
 func Contagem(saida io.Writer, sleeper Sleeper) {
 	for i := inicioContagem; i > 0; i-- {
-		sleeper.Sleep()
+		sleeper.Pausa()
 		fmt.Fprintln(saida, i)
 	}
 
-	sleeper.Sleep()
+	sleeper.Pausa()
 	fmt.Fprint(saida, ultimaPalavra)
 }
 
