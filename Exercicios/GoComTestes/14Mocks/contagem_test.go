@@ -19,11 +19,10 @@ func (s *SleeperSpy) Sleep() {
 
 type TempoSpy struct {
 	ducacaoPausa time.Duration
-	pausa        func(time.Duration)
 }
 
-func (t *TempoSpy) Pausa() {
-	t.pausa(t.ducacaoPausa)
+func (t *TempoSpy) Pausa(duracao time.Duration) {
+	t.ducacaoPausa = duracao
 }
 
 // Spies são um tipo de mock no qual podemos gravar informações como por
@@ -37,7 +36,7 @@ type SpyContagemOperacoes struct {
 	Chamadas []string
 }
 
-func (s *SpyContagemOperacoes) Sleep() {
+func (s *SpyContagemOperacoes) Pausa() {
 	s.Chamadas = append(s.Chamadas, pausa)
 }
 
