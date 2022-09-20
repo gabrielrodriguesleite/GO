@@ -1,7 +1,5 @@
 package concorrencia
 
-import "time"
-
 type VerificadorWebsite func(string) bool
 type resultado struct {
 	string
@@ -10,14 +8,18 @@ type resultado struct {
 
 func VerificadorWebsites(vw VerificadorWebsite, urls []string) map[string]bool {
 	resultados := make(map[string]bool)
+	canalResultado := make(chan resultado)
 
 	for _, url := range urls {
 		go func(u string) { // usando goroutine para executar em paralelo
-			resultados[u] = vw(u)
+			canalResultado <- resultado{u, vw(u)}
 		}(url) // cada goroutine recebe o seu valor de url para trabalhar
 	}
 
-	time.Sleep(3 * time.Second) // sleep para aguardar o resultado da goroutine
+	for i := 0; i < len(urls); i++ {
+		resultado := <-canalResultado
+		resultados[resultado.string] = resultado.bool
+	}
 	return resultados
 }
 
