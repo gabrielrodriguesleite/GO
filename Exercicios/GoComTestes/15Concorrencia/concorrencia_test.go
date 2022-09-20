@@ -5,6 +5,9 @@ import (
 	"testing"
 )
 
+// Usando a injeção de dependência é possível testar uma função sem fazer chamadas
+// HTTP de verdade, tornando o teste seguro e rápido.
+
 func mockVerificadorWebsite(url string) bool {
 	return url != "waat://furhurterwe.geds"
 }
@@ -28,3 +31,5 @@ func TestVerificaWebsites(t *testing.T) {
 		t.Fatalf("esperado %v, resultado %v", esperado, resultado)
 	}
 }
+
+// Como melhorar a velocidade do teste para poder verificar centenas de websites em menos tempo?
