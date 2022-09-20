@@ -6,7 +6,9 @@ func VerificadorWebsites(vw VerificadorWebsite, urls []string) map[string]bool {
 	resultados := make(map[string]bool)
 
 	for _, url := range urls {
-		resultados[url] = vw(url)
+		go func() {
+			resultados[url] = vw(url)
+		}()
 	}
 
 	return resultados
