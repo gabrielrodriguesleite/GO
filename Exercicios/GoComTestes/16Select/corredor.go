@@ -20,12 +20,12 @@ import (
 
 */
 
-func Corredor(a, b string) (vencedor string) {
+func Corredor(a, b string) (vencedor string, erro error) {
 	select {
 	case <-ping(a):
-		return a
+		return a, nil
 	case <-ping(b):
-		return b
+		return b, nil
 	}
 }
 
