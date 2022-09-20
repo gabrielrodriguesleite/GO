@@ -19,7 +19,11 @@ func TestCorredor(t *testing.T) {
 		URLRapida := servidorRapido.URL
 
 		esperado := URLRapida
-		resultado, _ := Corredor(URLLenta, URLRapida)
+		resultado, err := Corredor(URLLenta, URLRapida)
+
+		if err != nil {
+			t.Fatalf("não esperava um erro, mas obteve um %v", err)
+		}
 
 		if resultado != esperado {
 			t.Errorf("resultado '%s', esperado '%s'", resultado, esperado)
