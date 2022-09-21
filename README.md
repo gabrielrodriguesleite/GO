@@ -240,7 +240,11 @@ https://gobyexample.com/
 
 ## Aprendendo Go com testes
 
-Próximo conteúdo a ser estudado. (em breve)
+Exercício de teste onde a linguagem é explicada por meio de testes estão na pasta:
+
+```sh
+Exercicios/GoComTestes
+```
 
 ###### Referências
 
