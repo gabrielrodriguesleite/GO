@@ -32,7 +32,7 @@ func Configuravel(a, b string, tempoLimite time.Duration) (vencedor string, erro
 	select {
 	case <-ping(a): // o primeiro canal (go routine) que enviar pelo canal primeiro é retornado
 		return a, nil
-	case <-ping(b):
+	case <-ping(b): // time.After retorna um canal que recebe a mensagem quando o tempo é atingido
 		return b, nil
 	case <-time.After(tempoLimite): // caso para que a função não fique bloqueado para sempre
 		return "", fmt.Errorf("tempo limite de espera excedido para %s e %s", a, b)
