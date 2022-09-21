@@ -30,7 +30,7 @@ func Corredor(a, b string) (vencedor string, erro error) {
 
 func Configuravel(a, b string, tempoLimite time.Duration) (vencedor string, erro error) {
 	select {
-	case <-ping(a):
+	case <-ping(a): // o primeiro canal (go routine) que enviar pelo canal primeiro é retornado
 		return a, nil
 	case <-ping(b):
 		return b, nil
