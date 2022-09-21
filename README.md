@@ -204,7 +204,7 @@ Nomes de funções começados com letras minusculas são visiveis apenas dentro 
 
 O mesmo se aplica para os atributos de uma _struct_.
 
-./03-Escopo/pacote.go
+./04-Escopo/pacote/pacote.go
 ```go
 package pacote
 
@@ -213,11 +213,12 @@ func Imprimir() {
 }
 ```
 
-./03-Escopo/main.go
+./04-Escopo/main.go
 ```go
 package main
 
 import "pacote"
+
 func main() {
   pacote.Imprimir()
 }
