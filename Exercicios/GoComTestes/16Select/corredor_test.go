@@ -31,13 +31,11 @@ func TestCorredor(t *testing.T) {
 	})
 
 	t.Run("retorna um erro se o servidor não responder dentro de 10s", func(t *testing.T) {
-		servidorA := criaServidorComAtraso(11 * time.Second)
-		servidorB := criaServidorComAtraso(12 * time.Second)
+		servidor := criaServidorComAtraso(25 * time.Second)
 
-		defer servidorA.Close()
-		defer servidorB.Close()
+		defer servidor.Close()
 
-		_, err := Corredor(servidorA.URL, servidorB.URL)
+		_, err := Configuravel(servidor.URL, servidor.URL, 20*time.Second)
 
 		if err == nil {
 			t.Error("esperava um erro, mas não obtive um")
