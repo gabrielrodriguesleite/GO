@@ -18,7 +18,7 @@ import (
 + net/http - chamadas http
 + net/http/httptest - testes http
 + goroutines - paralelismo
-+ select - sincronia de processos
++ select - sincronia de processos ("escuta vários canais")
 
 */
 
