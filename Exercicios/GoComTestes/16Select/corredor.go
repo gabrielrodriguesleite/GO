@@ -34,7 +34,7 @@ func Configuravel(a, b string, tempoLimite time.Duration) (vencedor string, erro
 		return a, nil
 	case <-ping(b):
 		return b, nil
-	case <-time.After(tempoLimite):
+	case <-time.After(tempoLimite): // caso para que a função não fique bloqueado para sempre
 		return "", fmt.Errorf("tempo limite de espera excedido para %s e %s", a, b)
 	}
 }
