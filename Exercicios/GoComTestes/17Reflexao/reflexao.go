@@ -15,5 +15,5 @@ package main
 // em The Go Blog: Reflection -- The Laws of Reflection
 
 func percorre(x interface{}, fn func(entrada string)) {
-
+	fn("Com essa chamada da função o teste deve funcionar")
 }
