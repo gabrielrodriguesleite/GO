@@ -70,16 +70,7 @@ func TestPercorre(t *testing.T) {
 		},
 		{
 			"Campos aninhados",
-			struct {
-				Nome   string
-				Perfil struct {
-					Idade  int
-					Cidade string
-				}
-			}{"Leite", struct {
-				Idade  int
-				Cidade string
-			}{32, "Nova Hartz"}},
+			Pessoa{"Leite", Perfil{32, "Nova Hartz"}},
 			[]string{"Leite", "Nova Hartz"},
 		},
 	}
@@ -96,4 +87,14 @@ func TestPercorre(t *testing.T) {
 			}
 		})
 	}
+}
+
+type Pessoa struct {
+	Nome   string
+	Perfil Perfil
+}
+
+type Perfil struct {
+	Idade  int
+	Cidade string
 }
