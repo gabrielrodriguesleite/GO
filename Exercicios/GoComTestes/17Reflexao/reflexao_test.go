@@ -1,29 +1,32 @@
 package main
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
-func TestPercorre(t *testing.T) {
+// func TestPercorre(t *testing.T) {
 
-	esperado := "Leite"
+// 	esperado := "Leite"
 
-	var resultado []string
+// 	var resultado []string
 
-	x := struct {
-		Nome string
-	}{esperado}
+// 	x := struct {
+// 		Nome string
+// 	}{esperado}
 
-	percorre(x, func(entrada string) {
-		resultado = append(resultado, entrada)
-	})
+// 	percorre(x, func(entrada string) {
+// 		resultado = append(resultado, entrada)
+// 	})
 
-	if len(resultado) != 1 {
-		t.Errorf("número incorreto de chamadas da função: resultado: %d, esperado %d", len(resultado), 1)
-	}
+// 	if len(resultado) != 1 {
+// 		t.Errorf("número incorreto de chamadas da função: resultado: %d, esperado %d", len(resultado), 1)
+// 	}
 
-	if resultado[0] != esperado {
-		t.Errorf("resultado '%s', esperado '%s'", resultado[0], esperado)
-	}
-}
+// 	if resultado[0] != esperado {
+// 		t.Errorf("resultado '%s', esperado '%s'", resultado[0], esperado)
+// 	}
+// }
 
 // Este teste tem o objetivo de garantir que:
 
@@ -37,3 +40,27 @@ func TestPercorre(t *testing.T) {
 
 // + Então é chamada percorre com x e o espião e por enquanto só é verificado o tamanho do resultado.
 // As verificações serão mais precisas quando se possui algo simples funcionando.
+
+func TestPercorre(t *testing.T) {
+	casos := []struct {
+		Nome              string
+		Entrada           interface{}
+		ChamadasEsperadas []string
+	}{
+		{"Struct com um campo string",
+			struct{ Nome string }{"Leite"}, []string{"Leite"}},
+	}
+
+	for _, teste := range casos {
+		t.Run(teste.Nome, func(t *testing.T) {
+			var resultado []string
+			percorre(teste.Entrada, func(entrada string) {
+				resultado = append(resultado, entrada)
+			})
+
+			if !reflect.DeepEqual(resultado, teste.ChamadasEsperadas) {
+				t.Errorf("resultado %v, esperado %v", resultado, teste.ChamadasEsperadas)
+			}
+		})
+	}
+}
