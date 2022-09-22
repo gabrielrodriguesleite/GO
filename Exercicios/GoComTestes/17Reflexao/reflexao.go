@@ -23,11 +23,10 @@ func percorre(x interface{}, fn func(entrada string)) {
 	for i := 0; i < valor.NumField(); i++ { // NumField
 		campo := valor.Field(i) // Campo
 
-		if campo.Kind() == reflect.String { // Kind
+		switch campo.Kind() {
+		case reflect.String:
 			fn(campo.String())
-		}
-
-		if campo.Kind() == reflect.Struct {
+		case reflect.Struct:
 			percorre(campo.Interface(), fn)
 		}
 	}
