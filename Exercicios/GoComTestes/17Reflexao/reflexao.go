@@ -20,22 +20,17 @@ func percorre(x interface{}, fn func(entrada string)) {
 	// fn("Com essa chamada da função o teste deve funcionar")
 	valor := obterValor(x) // Kind Ponteiro
 
-	if valor.Kind() == reflect.Slice { // Kind Slice
+	switch valor.Kind() {
+	case reflect.Struct:
+		for i := 0; i < valor.NumField(); i++ {
+			percorre(valor.Field(i).Interface(), fn)
+		}
+	case reflect.Slice:
 		for i := 0; i < valor.Len(); i++ {
 			percorre(valor.Index(i).Interface(), fn)
 		}
-		return
-	}
-
-	for i := 0; i < valor.NumField(); i++ { // NumField
-		campo := valor.Field(i) // Campo
-
-		switch campo.Kind() {
-		case reflect.String: // Kind String
-			fn(campo.String())
-		case reflect.Struct: // Kind Struct
-			percorre(campo.Interface(), fn)
-		}
+	case reflect.String:
+		fn(valor.String())
 	}
 }
 
