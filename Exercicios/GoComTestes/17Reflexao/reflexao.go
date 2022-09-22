@@ -11,6 +11,9 @@ package main
 // metaprogramação. Também é uma ótima fonte de confusão. -- The Go Blog: Reflection
 // fonte: https://blog.golang.org/laws-of-reflection
 
+// Nota: Este conteúdo deve ser pré introdução de Generics em Go. Vide parágrafo inicial
+// em The Go Blog: Reflection -- The Laws of Reflection
+
 func percorre(x interface{}, fn func(entrada string)) {
 
 }
