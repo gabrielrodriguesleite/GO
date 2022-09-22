@@ -21,23 +21,23 @@ func percorre(x interface{}, fn func(entrada string)) {
 	valor := obterValor(x) // Kind Ponteiro
 
 	switch valor.Kind() {
-	case reflect.Struct:
+	case reflect.Struct: // Kind Struct
 		for i := 0; i < valor.NumField(); i++ {
 			percorre(valor.Field(i).Interface(), fn)
 		}
-	case reflect.Slice:
+	case reflect.Slice: // Kind Slice
 		for i := 0; i < valor.Len(); i++ {
 			percorre(valor.Index(i).Interface(), fn)
 		}
-	case reflect.String:
+	case reflect.String: // Kind String
 		fn(valor.String())
 	}
 }
 
 func obterValor(x interface{}) reflect.Value {
-	valor := reflect.ValueOf(x)
+	valor := reflect.ValueOf(x) // valor inteiro?
 
-	if valor.Kind() == reflect.Ptr {
+	if valor.Kind() == reflect.Ptr { // Kind ponteiro
 		valor = valor.Elem()
 	}
 
