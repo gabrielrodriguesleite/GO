@@ -18,7 +18,14 @@ import "reflect"
 
 func percorre(x interface{}, fn func(entrada string)) {
 	// fn("Com essa chamada da função o teste deve funcionar")
-	valor := obterValor(x) // ValorDe
+	valor := obterValor(x) // Kind Ponteiro
+
+	if valor.Kind() == reflect.Slice { // Kind Slice
+		for i := 0; i < valor.Len(); i++ {
+			percorre(valor.Index(i).Interface(), fn)
+		}
+		return
+	}
 
 	for i := 0; i < valor.NumField(); i++ { // NumField
 		campo := valor.Field(i) // Campo
