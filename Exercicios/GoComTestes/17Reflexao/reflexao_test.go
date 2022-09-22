@@ -20,3 +20,10 @@ func TestPercorre(t *testing.T) {
 		t.Errorf("número incorreto de chamadas da função: resultado: %d, esperado %d", len(resultado), 1)
 	}
 }
+
+// Este teste tem o objetivo de garantir que:
+
+// + É possível armazenar um slice de strings(resultado) que armazena quais strings foram passadas
+// dentro de fn pelo percorre. Algumas vezes, nos exemplos anteriores foram criados tipos dedicados
+// para isso para espionar chamadas de função/método, mas nesse casso será apenas passádo em uma
+// função anônima para fn que acaba em resultado.
