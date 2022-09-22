@@ -27,3 +27,6 @@ func TestPercorre(t *testing.T) {
 // dentro de fn pelo percorre. Algumas vezes, nos exemplos anteriores foram criados tipos dedicados
 // para isso para espionar chamadas de função/método, mas nesse casso será apenas passádo em uma
 // função anônima para fn que acaba em resultado.
+
+// + É usado uma struct anônima com um campo Nome do tipo string para partir para o caminho "feliz"
+// e mais simples.
