@@ -39,3 +39,8 @@ func percorre(x interface{}, fn func(entrada string)) {
 
 // + Em seguida é possível chamar String() que retorna o valor subjacente como string,
 // mas retornará um erro se o campo for de outro tipo.
+
+// ==========
+
+// "valor" também possui um método chamado NumField que retorna a quantidade de campos no
+// valor. Isso permite iterar sobre os campos e chamar fn, fazendo passar o teste.
