@@ -25,3 +25,6 @@ func percorre(x interface{}, fn func(entrada string)) {
 
 // Neste momento o código está frágil e pouco segura mas o importante nesse momento do TDD
 // é apenas fazê-lo passar. Daí então refatorar para remover as lacunas.
+
+// O pacote reflect possui uma função ValueOf que retorna um Value de uma variável. Isso
+// permite inspecionar um valor inclusive seus campos usados nas próximas linhas.
