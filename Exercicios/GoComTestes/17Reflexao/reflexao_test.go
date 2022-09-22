@@ -30,3 +30,6 @@ func TestPercorre(t *testing.T) {
 
 // + É usado uma struct anônima com um campo Nome do tipo string para partir para o caminho "feliz"
 // e mais simples.
+
+// + Então é chamada percorre com x e o espião e por enquanto só é verificado o tamanho do resultado.
+// As verificações serão mais precisas quando se possui algo simples funcionando.
