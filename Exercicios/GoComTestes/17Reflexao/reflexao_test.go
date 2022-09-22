@@ -68,6 +68,20 @@ func TestPercorre(t *testing.T) {
 			}{"Leite", 32},
 			[]string{"Leite"},
 		},
+		{
+			"Campos aninhados",
+			struct {
+				Nome   string
+				Perfil struct {
+					Idade  int
+					Cidade string
+				}
+			}{"Leite", struct {
+				Idade  int
+				Cidade string
+			}{32, "Nova Hartz"}},
+			[]string{"Leite", "Nova Hartz"},
+		},
 	}
 
 	for _, teste := range casos {
