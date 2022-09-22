@@ -58,3 +58,7 @@ func percorre(x interface{}, fn func(entrada string)) {
 // ===========
 
 // E se o valor não fosse uma struct única? O que aconteceria se a struct tivesse campos aninhados?
+
+// ===========
+
+// Caso de uso com ponteiros.
