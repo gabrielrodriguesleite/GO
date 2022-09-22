@@ -47,8 +47,19 @@ func TestPercorre(t *testing.T) {
 		Entrada           interface{}
 		ChamadasEsperadas []string
 	}{
-		{"Struct com um campo string",
-			struct{ Nome string }{"Leite"}, []string{"Leite"}},
+		{
+			"Struct com um campo string",
+			struct{ Nome string }{"Leite"},
+			[]string{"Leite"},
+		},
+		{
+			"Struct com dois campos tipo string",
+			struct {
+				Nome   string
+				Cidade string
+			}{"Leite", "Nova Hartz"},
+			[]string{"Leite", "Nova Hartz"},
+		},
 	}
 
 	for _, teste := range casos {
