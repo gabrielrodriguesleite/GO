@@ -20,9 +20,12 @@ func percorre(x interface{}, fn func(entrada string)) {
 	// fn("Com essa chamada da função o teste deve funcionar")
 	valor := reflect.ValueOf(x) // ValorDe
 
-	for i := 0; i < valor.NumField(); i++ {
+	for i := 0; i < valor.NumField(); i++ { // NumField
 		campo := valor.Field(i) // Campo
-		fn(campo.String())
+
+		if campo.Kind() == reflect.String { // Kind
+			fn(campo.String())
+		}
 	}
 }
 
