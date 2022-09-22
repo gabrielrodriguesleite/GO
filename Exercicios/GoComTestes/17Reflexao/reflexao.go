@@ -51,3 +51,7 @@ func percorre(x interface{}, fn func(entrada string)) {
 // A próxima falha desse código é presumir o tipo string. O teste irá verificar isso.
 
 // + é Possível saber o tipo do valor com o método "Kind"
+
+// ===========
+
+// E se o valor não fosse uma struct única? O que aconteceria se a struct tivesse campos aninhados?
