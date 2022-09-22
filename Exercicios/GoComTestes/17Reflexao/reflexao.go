@@ -18,11 +18,7 @@ import "reflect"
 
 func percorre(x interface{}, fn func(entrada string)) {
 	// fn("Com essa chamada da função o teste deve funcionar")
-	valor := reflect.ValueOf(x) // ValorDe
-
-	if valor.Kind() == reflect.Ptr {
-		valor = valor.Elem()
-	}
+	valor := obterValor(x) // ValorDe
 
 	for i := 0; i < valor.NumField(); i++ { // NumField
 		campo := valor.Field(i) // Campo
@@ -34,6 +30,16 @@ func percorre(x interface{}, fn func(entrada string)) {
 			percorre(campo.Interface(), fn)
 		}
 	}
+}
+
+func obterValor(x interface{}) reflect.Value {
+	valor := reflect.ValueOf(x)
+
+	if valor.Kind() == reflect.Ptr {
+		valor = valor.Elem()
+	}
+
+	return valor
 }
 
 // Neste momento o código está frágil e pouco segura mas o importante nesse momento do TDD
