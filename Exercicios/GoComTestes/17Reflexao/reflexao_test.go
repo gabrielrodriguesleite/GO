@@ -60,6 +60,14 @@ func TestPercorre(t *testing.T) {
 			}{"Leite", "Nova Hartz"},
 			[]string{"Leite", "Nova Hartz"},
 		},
+		{
+			"Struct sem campo tipo string",
+			struct {
+				Nome  string
+				Idade int
+			}{"Leite", 32},
+			[]string{"Leite"},
+		},
 	}
 
 	for _, teste := range casos {
