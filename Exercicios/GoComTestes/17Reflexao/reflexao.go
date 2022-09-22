@@ -28,3 +28,11 @@ func percorre(x interface{}, fn func(entrada string)) {
 
 // O pacote reflect possui uma função ValueOf que retorna um Value de uma variável. Isso
 // permite inspecionar um valor inclusive seus campos usados nas próximas linhas.
+
+// Pode-se presumir sobre o valor passado:
+
+// + É possível procurar pelo primeiro e único campo, porém pode não haver nenhum campo
+// o que causaria um pânico.
+
+// + Em seguida é possível chamar String() que retorna o valor subjacente como string,
+// mas retornará um erro se o campo for de outro tipo.
