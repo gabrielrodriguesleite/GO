@@ -81,6 +81,14 @@ func TestPercorre(t *testing.T) {
 			},
 			[]string{"Leite", "Nova Hartz"},
 		},
+		{
+			"Slices",
+			[]Perfil{
+				{32, "Nova Hartz"},
+				{35, "Primavera"},
+			},
+			[]string{"Nova Hartz", "Primavera"},
+		},
 	}
 
 	for _, teste := range casos {
