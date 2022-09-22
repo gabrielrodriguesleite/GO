@@ -1,5 +1,7 @@
 package main
 
+import "reflect"
+
 // Desafio: escrever uma função percorre(x interface{}, fn func(entrada string))
 // que recebe uma struct x e chama fn para todos os campos string encontrados
 // dentro dela.
@@ -15,7 +17,10 @@ package main
 // em The Go Blog: Reflection -- The Laws of Reflection
 
 func percorre(x interface{}, fn func(entrada string)) {
-	fn("Com essa chamada da função o teste deve funcionar")
+	// fn("Com essa chamada da função o teste deve funcionar")
+	valor := reflect.ValueOf(x) // ValorDe
+	campo := valor.Field(0)     // Campo
+	fn(campo.String())
 }
 
 // Nesse momento é importante partir para uma verificação do que está sendo chamado
