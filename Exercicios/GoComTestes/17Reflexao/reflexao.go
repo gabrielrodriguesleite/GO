@@ -17,3 +17,6 @@ package main
 func percorre(x interface{}, fn func(entrada string)) {
 	fn("Com essa chamada da função o teste deve funcionar")
 }
+
+// Nesse momento é importante partir para uma verificação do que está sendo chamado
+// dentro da função fn.
