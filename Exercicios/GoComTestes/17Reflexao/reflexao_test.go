@@ -19,6 +19,10 @@ func TestPercorre(t *testing.T) {
 	if len(resultado) != 1 {
 		t.Errorf("número incorreto de chamadas da função: resultado: %d, esperado %d", len(resultado), 1)
 	}
+
+	if resultado[0] != esperado {
+		t.Errorf("resultado '%s', esperado '%s'", resultado[0], esperado)
+	}
 }
 
 // Este teste tem o objetivo de garantir que:
