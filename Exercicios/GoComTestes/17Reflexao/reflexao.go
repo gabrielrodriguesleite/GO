@@ -23,5 +23,5 @@ func percorre(x interface{}, fn func(entrada string)) {
 	fn(campo.String())
 }
 
-// Nesse momento é importante partir para uma verificação do que está sendo chamado
-// dentro da função fn.
+// Neste momento o código está frágil e pouco segura mas o importante nesse momento do TDD
+// é apenas fazê-lo passar. Daí então refatorar para remover as lacunas.
