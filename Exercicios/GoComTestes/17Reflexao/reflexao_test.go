@@ -97,14 +97,6 @@ func TestPercorre(t *testing.T) {
 			},
 			[]string{"Nova Hartz", "Primavera"},
 		},
-		{
-			"Maps",
-			map[string]string{
-				"Foo": "Bar",
-				"Baz": "Boz",
-			},
-			[]string{"Bar", "Boz"},
-		},
 	}
 
 	for _, teste := range casos {
@@ -119,6 +111,21 @@ func TestPercorre(t *testing.T) {
 			}
 		})
 	}
+
+	t.Run("com maps", func(t *testing.T) {
+		mapA := map[string]string{
+			"Foo": "Bar",
+			"Baz": "Boz",
+		}
+
+		var resultado []string
+		percorre(mapA, func(entrada string) {
+			resultado = append(resultado, entrada)
+		})
+
+		verificaSeContem(t, resultado, "Bar")
+		verificaSeContem(t, resultado, "Boz")
+	})
 }
 
 type Pessoa struct {
@@ -129,4 +136,16 @@ type Pessoa struct {
 type Perfil struct {
 	Idade  int
 	Cidade string
+}
+
+func verificaSeContem(t *testing.T, palheiro []string, agulha string) {
+	contem := false
+	for _, x := range palheiro {
+		if x == agulha {
+			contem = true
+		}
+	}
+	if !contem {
+		t.Errorf("esperava-se que %+v contivesse '%s', mas não continha", palheiro, agulha)
+	}
 }
