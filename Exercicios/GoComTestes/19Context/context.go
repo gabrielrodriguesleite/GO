@@ -21,3 +21,7 @@ func Server(store Store) http.HandlerFunc {
 		fmt.Fprint(w, store.Fetch())
 	}
 }
+
+type Store interface {
+	Fetch() string
+}
