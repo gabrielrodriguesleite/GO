@@ -21,3 +21,19 @@ func (c *Contador) Valor() (retorno int) {
 /* + Mutex é uma trava de exclusão mútua. O valor zero de um Mutex é um
 Mutex destravado.
 */
+
+/* UM EXEMPLO ERRADO SERIA:
+type Contador struct {
+    sync.Mutex
+    valor int
+}
+
+func (c *Contador) Incrementa() {
+    c.Lock()
+    defer c.Unlock()
+    c.valor++
+}
+
+Dessa forma o tipo embutido se torna parte da inteface pública
+já que os métodos Lock e Unlock ficarão expostos.
+*/
