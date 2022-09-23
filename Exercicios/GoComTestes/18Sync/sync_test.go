@@ -17,7 +17,7 @@ func TestContador(t *testing.T) {
 		contador.Incrementa()
 		contador.Incrementa()
 
-		verificaContador(t, contador, 3)
+		verificaContador(t, &contador, 3)
 	})
 
 	t.Run("roda concorrentemente em seguranca", func(t *testing.T) {
@@ -34,11 +34,11 @@ func TestContador(t *testing.T) {
 			}(&wg)
 		}
 		wg.Wait()
-		verificaContador(t, contador, contagemEsperada)
+		verificaContador(t, &contador, contagemEsperada)
 	})
 }
 
-func verificaContador(t *testing.T, resultado Contador, esperado int) {
+func verificaContador(t *testing.T, resultado *Contador, esperado int) {
 	t.Helper()
 	if resultado.Valor() != esperado {
 		t.Errorf("resultado %d, esperado %d", resultado.Valor(), esperado)
