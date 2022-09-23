@@ -17,6 +17,10 @@ func (c *Contador) Valor() (retorno int) {
 	return c.valor
 }
 
+func NovoContador() *Contador {
+	return &Contador{}
+}
+
 // Mutex cria uma trava no nosso contador.
 /* + Mutex é uma trava de exclusão mútua. O valor zero de um Mutex é um
 Mutex destravado.
@@ -37,3 +41,5 @@ func (c *Contador) Incrementa() {
 Dessa forma o tipo embutido se torna parte da inteface pública
 já que os métodos Lock e Unlock ficarão expostos.
 */
+
+// go vet - analisa o código.
