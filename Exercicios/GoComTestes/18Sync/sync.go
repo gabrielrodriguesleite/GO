@@ -16,3 +16,8 @@ func (c *Contador) Incrementa() {
 func (c *Contador) Valor() (retorno int) {
 	return c.valor
 }
+
+// Mutex cria uma trava no nosso contador.
+/* + Mutex é uma trava de exclusão mútua. O valor zero de um Mutex é um
+Mutex destravado.
+*/
