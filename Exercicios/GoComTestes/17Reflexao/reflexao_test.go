@@ -112,6 +112,8 @@ func TestPercorre(t *testing.T) {
 		})
 	}
 
+	// O caso do map precisa ser separado já que não é possível garantir a ordem
+	// dos elementos dentro do map. Para o teste anterior a ordem é importante.
 	t.Run("com maps", func(t *testing.T) {
 		mapA := map[string]string{
 			"Foo": "Bar",
