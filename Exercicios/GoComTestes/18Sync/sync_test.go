@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"sync"
+	"testing"
+)
 
 // PROBLEMÁTICA: O objetivo é criar um contador seguro para concorrência.
 // Primeiramente será desenvolvido um contador não seguro para verificar
@@ -16,11 +19,28 @@ func TestContador(t *testing.T) {
 
 		verificaContador(t, contador, 3)
 	})
+
+	t.Run("roda concorrentemente em seguranca", func(t *testing.T) {
+		contagemEsperada := 1000
+		contador := Contador{}
+
+		var wg sync.WaitGroup
+		wg.Add(contagemEsperada)
+
+		for i := 0; i < contagemEsperada; i++ {
+			go func(w *sync.WaitGroup) {
+				contador.Incrementa()
+				w.Done()
+			}(&wg)
+		}
+		wg.Wait()
+		verificaContador(t, contador, contagemEsperada)
+	})
 }
 
 func verificaContador(t *testing.T, resultado Contador, esperado int) {
 	t.Helper()
 	if resultado.Valor() != esperado {
-		t.Errorf("resultado %d, esperado %d", resultado.Valor(), 3)
+		t.Errorf("resultado %d, esperado %d", resultado.Valor(), esperado)
 	}
 }
