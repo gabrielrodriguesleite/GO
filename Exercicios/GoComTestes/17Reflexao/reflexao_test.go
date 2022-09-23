@@ -151,3 +151,5 @@ func verificaSeContem(t *testing.T, palheiro []string, agulha string) {
 		t.Errorf("esperava-se que %+v contivesse '%s', mas não continha", palheiro, agulha)
 	}
 }
+
+// Veja mais sobre "reflexão" em: https://blog.golang.org/laws-of-reflection
