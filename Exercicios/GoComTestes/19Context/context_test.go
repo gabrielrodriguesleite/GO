@@ -22,15 +22,18 @@ func (s *SpyStore) Cancel() {
 }
 
 func TestHandler(t *testing.T) {
-	data := "Opa! Tchê"
-	svr := Server(&SpyStore{data, false})
+	t.Run("caso sucesso", func(t *testing.T) {
 
-	request := httptest.NewRequest(http.MethodGet, "/", nil)
-	response := httptest.NewRecorder()
+		data := "Opa! Tchê"
+		svr := Server(&SpyStore{data, false})
 
-	svr.ServeHTTP(response, request)
+		request := httptest.NewRequest(http.MethodGet, "/", nil)
+		response := httptest.NewRecorder()
 
-	if response.Body.String() != data {
-		t.Errorf(`resultado "%s", esperado "%s"`, response.Body.String(), data)
-	}
+		svr.ServeHTTP(response, request)
+
+		if response.Body.String() != data {
+			t.Errorf(`resultado "%s", esperado "%s"`, response.Body.String(), data)
+		}
+	})
 }
