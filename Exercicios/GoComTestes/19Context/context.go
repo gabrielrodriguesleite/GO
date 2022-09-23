@@ -24,4 +24,5 @@ func Server(store Store) http.HandlerFunc {
 
 type Store interface {
 	Fetch() string
+	Cancel()
 }
