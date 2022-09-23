@@ -52,3 +52,6 @@ serão esperadas. Então, cada uma das goroutines é executada e chama "Done" qu
 termina a execução. Ao mesmo tempo, "Wait" pode ser usado para bloquear a execução
 até que todas as goroutines tenham terminado.
 */
+
+// Com a implementação atual o teste falha as vezes já que pode acontecer de mais
+// de uma goroutine tentar alterar o valor do contador ao mesmo tempo.
