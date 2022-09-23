@@ -32,6 +32,10 @@ func percorre(x interface{}, fn func(entrada string)) {
 	case reflect.Slice, reflect.Array: // Kind Slice, King Array
 		quantidadeDeValores = valor.Len()
 		obterCampo = valor.Index
+	case reflect.Map:
+		for _, chave := range valor.MapKeys() {
+			percorre(valor.MapIndex(chave).Interface(), fn)
+		}
 	}
 
 	for i := 0; i < quantidadeDeValores; i++ {
