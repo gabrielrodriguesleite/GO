@@ -44,3 +44,11 @@ func verificaContador(t *testing.T, resultado Contador, esperado int) {
 		t.Errorf("resultado %d, esperado %d", resultado.Valor(), esperado)
 	}
 }
+
+//  + sync.WaitGroup é uma maneira simples de sincronizar processos concorrentes
+/* Um "WaitGroup" aguarda por uma coleção de goroutines terminar seu processamento.
+A goroutine principal faz a chamada para o "Add" definir o número de goroutines que
+serão esperadas. Então, cada uma das goroutines é executada e chama "Done" quando
+termina a execução. Ao mesmo tempo, "Wait" pode ser usado para bloquear a execução
+até que todas as goroutines tenham terminado.
+*/
