@@ -40,6 +40,9 @@ func (c *Contador) Incrementa() {
 
 Dessa forma o tipo embutido se torna parte da inteface pública
 já que os métodos Lock e Unlock ficarão expostos.
+
+Quando devemos usar Mutex e quando devemos usar Channel?
+MAIS SOBRE: https://github.com/golang/go/wiki/MutexOrChannel
 */
 
 // go vet - analisa o código.
