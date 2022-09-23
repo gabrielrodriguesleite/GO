@@ -43,3 +43,4 @@ já que os métodos Lock e Unlock ficarão expostos.
 */
 
 // go vet - analisa o código.
+// Para ser usado em roteiros de construção na busca de problemas no código.
