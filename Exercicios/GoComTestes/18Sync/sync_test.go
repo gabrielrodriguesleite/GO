@@ -12,17 +12,17 @@ import (
 // consertar.
 func TestContador(t *testing.T) {
 	t.Run("incrementar o contador 3 vezes resulta no valor 3", func(t *testing.T) {
-		contador := Contador{}
+		contador := NovoContador()
 		contador.Incrementa()
 		contador.Incrementa()
 		contador.Incrementa()
 
-		verificaContador(t, &contador, 3)
+		verificaContador(t, contador, 3)
 	})
 
 	t.Run("roda concorrentemente em seguranca", func(t *testing.T) {
 		contagemEsperada := 1000
-		contador := Contador{}
+		contador := NovoContador()
 
 		var wg sync.WaitGroup
 		wg.Add(contagemEsperada)
@@ -34,7 +34,7 @@ func TestContador(t *testing.T) {
 			}(&wg)
 		}
 		wg.Wait()
-		verificaContador(t, &contador, contagemEsperada)
+		verificaContador(t, contador, contagemEsperada)
 	})
 }
 
