@@ -8,7 +8,14 @@ import "testing"
 // Então serão utilizados várias go routines para expor a falha e então
 // consertar.
 func TestContador(t *testing.T) {
-	t.Run("", func(t *testing.T) {
+	t.Run("incrementar o contador 3 vezes resulta no valor 3", func(t *testing.T) {
+		contador := Contador{}
+		contador.Incrementa()
+		contador.Incrementa()
+		contador.Incrementa()
 
+		if contador.Valor() != 3 {
+			t.Errorf("resultado %d, esperado %d", contador.Valor(), 3)
+		}
 	})
 }
