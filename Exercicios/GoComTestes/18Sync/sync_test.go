@@ -55,3 +55,5 @@ até que todas as goroutines tenham terminado.
 
 // Com a implementação atual o teste falha as vezes já que pode acontecer de mais
 // de uma goroutine tentar alterar o valor do contador ao mesmo tempo.
+
+// SOBRE A SOLUÇÃO COM MUTEX VIDE a struct Contador em sync.go
