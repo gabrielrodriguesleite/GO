@@ -36,3 +36,7 @@ func Server(store Store) http.HandlerFunc {
 type Store interface {
 	Fetch(ctx context.Context) (string, error)
 }
+
+// Dessa forma o servidor ficou simplificado pois não é mais responsavel
+// pelo cancelamento. Ele simplesmente passa o context e confia nas
+// funções em cascata, respeitando qualquer cancelamento que possa ocorrer.
