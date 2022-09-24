@@ -24,7 +24,11 @@ func Server(store Store) http.HandlerFunc {
 		// O handler será responsável em emitir o contexto à
 		// Store em cascata e tratar o erro que virá da Store
 		// quando essa for cancelada.
-		data, _ := store.Fetch(r.Context())
+		data, err := store.Fetch(r.Context())
+
+		if err != nil {
+			return
+		}
 		fmt.Fprint(w, data)
 	}
 }
