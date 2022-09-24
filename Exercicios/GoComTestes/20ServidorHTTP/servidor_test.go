@@ -1,5 +1,11 @@
 package main
 
+import (
+	"net/http"
+	"net/http/httptest"
+	"testing"
+)
+
 // Desafio: Criar um servidor web para que os usuários
 // possam acompanhar quantas partidas os jogadores venceram.
 
@@ -47,3 +53,19 @@ package main
 // Para ter um código funcionando rapidamente, o ideal é fazer uma
 // implementação simples da interface necessária(armazenamento) para só
 // depois criar uma implementação que dá suporte ao mecanismo preferido.
+
+func TestObterJogadores(t *testing.T) {
+	t.Run("retornar resultado de Leite", func(t *testing.T) {
+		requisicao, _ := http.NewRequest(http.MethodGet, "/jogadores/Leite", nil)
+		resposta := httptest.NewRecorder()
+
+		ServidorJogador(resposta, requisicao)
+
+		recebido := resposta.Body.String()
+		esperado := "20"
+
+		if recebido != esperado {
+			t.Errorf("recebido '%s', esperado '%s'", recebido, esperado)
+		}
+	})
+}
