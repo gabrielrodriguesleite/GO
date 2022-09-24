@@ -43,3 +43,4 @@ type Store interface {
 
 // E lembre-se: passar valores pelo context.Value não é uma boa prática.
 // Pois ele não garante tipagem, e pode tornar difícil rastrear um erro.
+// Mais em: https://faiface.github.io/post/context-should-go-away-go2/
