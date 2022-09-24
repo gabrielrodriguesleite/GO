@@ -18,3 +18,13 @@ package main
 // - Escopo de problema pequeno em todos os momentos.
 // - Poucos detalhes ajudam a manter o foco.
 // - Possibilidade de voltar o código em caso de bloqueio do desenvolvimento.
+
+// ==================================================================
+
+// --- PASSOS DO TDD ---
+// 1. Escrever um teste
+// 2. Ver o teste falhar
+// 3. Escrever a menor quantidade de código para fazer o teste passar, mesmo
+//    que usando código errado. (Isto é importante pois expõe testes falhos.
+// 		[falsos positivos])
+// 4. Reescrita do teste. (Refatoração)
