@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 )
 
@@ -23,6 +24,8 @@ func Server(store Store) http.HandlerFunc {
 		// O handler será responsável em emitir o contexto à
 		// Store em cascata e tratar o erro que virá da Store
 		// quando essa for cancelada.
+		data, _ := store.Fetch(r.Context())
+		fmt.Fprint(w, data)
 	}
 }
 
