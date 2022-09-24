@@ -9,18 +9,12 @@ import (
 )
 
 type SpyStore struct {
-	response  string
-	cancelled bool
-	t         *testing.T
+	response string
+	t        *testing.T
 }
 
-func (s *SpyStore) Fetch() string {
-	time.Sleep(100 * time.Millisecond)
-	return s.response
-}
+func (s *SpyStore) Fetch(ctx context.Context) string {
 
-func (s *SpyStore) Cancel() {
-	s.cancelled = true
 }
 
 func (s *SpyStore) assertWasCancelled() {
