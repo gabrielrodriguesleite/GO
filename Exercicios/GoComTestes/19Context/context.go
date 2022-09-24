@@ -40,3 +40,6 @@ type Store interface {
 // Dessa forma o servidor ficou simplificado pois não é mais responsavel
 // pelo cancelamento. Ele simplesmente passa o context e confia nas
 // funções em cascata, respeitando qualquer cancelamento que possa ocorrer.
+
+// E lembre-se: passar valores pelo context.Value não é uma boa prática.
+// Pois ele não garante tipagem, e pode tornar difícil rastrear um erro.
