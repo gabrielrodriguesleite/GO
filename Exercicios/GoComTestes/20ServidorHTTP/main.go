@@ -7,6 +7,7 @@ import (
 
 func main() {
 	tratador := http.HandlerFunc(ServidorJogador)
+	log.Println("Escutando na porta 5000")
 	if err := http.ListenAndServe(":5000", tratador); err != nil {
 		log.Fatalf("não foi possível escutar na porta 5000 %v", err)
 	}
