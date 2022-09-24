@@ -1,7 +1,10 @@
 package main
 
-import "net/http"
+import (
+	"fmt"
+	"net/http"
+)
 
-func ServidorJogador(resposta http.ResponseWriter, requisicao *http.Request) {
-
+func ServidorJogador(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "20")
 }
