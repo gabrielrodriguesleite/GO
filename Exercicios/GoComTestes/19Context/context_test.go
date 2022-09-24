@@ -26,8 +26,8 @@ func TestHandler(t *testing.T) {
 	data := "Opa! Tchê"
 
 	t.Run("caso sucesso", func(t *testing.T) {
-
-		svr := Server(&SpyStore{data, false})
+		store := SpyStore{response: data}
+		svr := Server(&store)
 
 		request := httptest.NewRequest(http.MethodGet, "/", nil)
 		response := httptest.NewRecorder()
