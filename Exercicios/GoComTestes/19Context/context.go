@@ -21,14 +21,14 @@ func Server(store Store) http.HandlerFunc {
 		ctx := r.Context()
 		data := make(chan string, 1)
 
-		go func() {
-			data <- store.Fetch()
-		}()
+		go func() { // fetch é executado e envia o resultado pelo canal
+			data <- store.Fetch() // com 1 buffer ou seja se chegar antes
+		}() // do ctx.Done é enviado se não apenas é cancelado.
 
-		select {
-		case d := <-data:
+		select { // toma ação com o que chegar primeiro, o dado do fetch
+		case d := <-data: // ou o cancelamento do contexto.
 			fmt.Fprint(w, d)
-		case <-ctx.Done():
+		case <-ctx.Done(): // sinal chamado quando o contexto finaliza.
 			store.Cancel()
 		}
 	}
