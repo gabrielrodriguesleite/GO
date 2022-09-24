@@ -44,19 +44,19 @@ func (s *SpyStore) Fetch(ctx context.Context) (string, error) {
 	}
 }
 
-func (s *SpyStore) assertWasCancelled() {
-	s.t.Helper()
-	if !s.cancelled {
-		s.t.Errorf("store não foi avisada para cancelar")
-	}
-}
+// func (s *SpyStore) assertWasCancelled() {
+// 	s.t.Helper()
+// 	if !s.cancelled {
+// 		s.t.Errorf("store não foi avisada para cancelar")
+// 	}
+// }
 
-func (s *SpyStore) assertWasNotCancelled() {
-	s.t.Helper()
-	if s.cancelled {
-		s.t.Errorf("store foi avisada para cancelar")
-	}
-}
+// func (s *SpyStore) assertWasNotCancelled() {
+// 	s.t.Helper()
+// 	if s.cancelled {
+// 		s.t.Errorf("store foi avisada para cancelar")
+// 	}
+// }
 
 func TestHandler(t *testing.T) {
 	data := "Opa! Tchê"
@@ -70,23 +70,27 @@ func TestHandler(t *testing.T) {
 
 		svr.ServeHTTP(response, request)
 
-		store.assertWasNotCancelled()
+		if response.Body.String() != data {
+			t.Errorf(`resultado "%s", esperado "%s"`, response.Body.String(), data)
+		}
+
+		// store.assertWasNotCancelled()
 	})
 
-	t.Run("avisa a store para cancelar o trabalho se a requisição for cancelada", func(t *testing.T) {
-		store := &SpyStore{response: data, t: t}
-		svr := Server(store)
+	// t.Run("avisa a store para cancelar o trabalho se a requisição for cancelada", func(t *testing.T) {
+	// 	store := &SpyStore{response: data, t: t}
+	// 	svr := Server(store)
 
-		request := httptest.NewRequest(http.MethodGet, "/", nil)
+	// 	request := httptest.NewRequest(http.MethodGet, "/", nil)
 
-		cancellingCtx, cancel := context.WithCancel(request.Context())
-		time.AfterFunc(5*time.Millisecond, cancel)
-		request = request.WithContext(cancellingCtx)
+	// 	cancellingCtx, cancel := context.WithCancel(request.Context())
+	// 	time.AfterFunc(5*time.Millisecond, cancel)
+	// 	request = request.WithContext(cancellingCtx)
 
-		response := httptest.NewRecorder()
+	// 	response := httptest.NewRecorder()
 
-		svr.ServeHTTP(response, request)
+	// 	svr.ServeHTTP(response, request)
 
-		store.assertWasCancelled()
-	})
+	// 	store.assertWasCancelled()
+	// })
 }
