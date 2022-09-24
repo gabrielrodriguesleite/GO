@@ -63,7 +63,7 @@ type SpyResponseWriter struct {
 	written bool
 }
 
-func (s *SpyResponseWriter) Header() http.Handler {
+func (s *SpyResponseWriter) Header() http.Header {
 	s.written = true
 	return nil
 }
@@ -96,20 +96,24 @@ func TestHandler(t *testing.T) {
 		// store.assertWasNotCancelled()
 	})
 
-	// t.Run("avisa a store para cancelar o trabalho se a requisição for cancelada", func(t *testing.T) {
-	// 	store := &SpyStore{response: data, t: t}
-	// 	svr := Server(store)
+	t.Run("avisa a store para cancelar o trabalho se a requisição for cancelada", func(t *testing.T) {
+		store := &SpyStore{response: data, t: t}
+		svr := Server(store)
 
-	// 	request := httptest.NewRequest(http.MethodGet, "/", nil)
+		request := httptest.NewRequest(http.MethodGet, "/", nil)
 
-	// 	cancellingCtx, cancel := context.WithCancel(request.Context())
-	// 	time.AfterFunc(5*time.Millisecond, cancel)
-	// 	request = request.WithContext(cancellingCtx)
+		cancellingCtx, cancel := context.WithCancel(request.Context())
+		time.AfterFunc(5*time.Millisecond, cancel)
+		request = request.WithContext(cancellingCtx)
 
-	// 	response := httptest.NewRecorder()
+		response := &SpyResponseWriter{}
 
-	// 	svr.ServeHTTP(response, request)
+		svr.ServeHTTP(response, request)
 
-	// 	store.assertWasCancelled()
-	// })
+		if response.written {
+			t.Errorf("uma resposta não deveria ter sido escrita")
+		}
+
+		// 	store.assertWasCancelled()
+	})
 }
