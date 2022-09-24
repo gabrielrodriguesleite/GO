@@ -8,15 +8,17 @@ import (
 func ServidorJogador(w http.ResponseWriter, r *http.Request) {
 	jogador := r.URL.Path[len("/jogadores/"):] // não é recomendável
 	// mas serve por enquanto, para pegar o caminho da requisição.
+	fmt.Fprint(w, ObterPontuacaoJogador(jogador))
+}
 
-	if jogador == "Leite" {
-		fmt.Fprint(w, "20")
-		return
+func ObterPontuacaoJogador(nome string) string {
+	if nome == "Leite" {
+		return "20"
 	}
 
-	if jogador == "Marcela" {
-		fmt.Fprint(w, "25")
-		return
+	if nome == "Marcela" {
+		return "25"
 	}
 
+	return ""
 }
