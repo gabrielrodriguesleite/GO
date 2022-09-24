@@ -37,6 +37,10 @@ func TestHandler(t *testing.T) {
 		if response.Body.String() != data {
 			t.Errorf(`resultado "%s", esperado "%s"`, response.Body.String(), data)
 		}
+
+		if store.cancelled {
+			t.Errorf("não deveria ter cancelado a store")
+		}
 	})
 
 	t.Run("avisa a store para cancelar o trabalho se a requisição for cancelada", func(t *testing.T) {
