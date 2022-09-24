@@ -14,6 +14,11 @@ type SpyStore struct {
 }
 
 func (s *SpyStore) Fetch(ctx context.Context) (string, error) {
+	/* SpyStore vai simular a construção lenta da resposta, caractere
+	a caractere a cada 10 milisegundos.
+	Por fim um select no qual nossas goroutines irão competir para ver
+	quem responde primeiro.
+	*/
 	data := make(chan string, 1)
 
 	go func() {
