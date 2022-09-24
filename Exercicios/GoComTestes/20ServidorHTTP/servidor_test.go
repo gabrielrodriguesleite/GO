@@ -28,3 +28,22 @@ package main
 //    que usando código errado. (Isto é importante pois expõe testes falhos.
 // 		[falsos positivos])
 // 4. Reescrita do teste. (Refatoração)
+
+// ==================================================================
+
+// Mas como desenvolver pequenas partes desse projeto que necessita do
+// post pra incluir dados para que possam ser recuperados com get?
+// A resposta é INTERFACES que vão ser úteis quando precisarmos
+// mockar (enganar) nossa função para fazer os testes no ambiente simulado.
+
+// - GET precisa de um armazenamento para obter as informações. Isso deve
+// ser uma interface para que ao executar os teste seja possível criar um
+// código simples sem precisar criar um código final complexo de armazenamento.
+
+// - POST, é preciso inspecionar as chamadas feitas ao armazenamento para ter
+// certeza que os dados foram enviados corretamente. A implementação de
+// gravação não ficará vinculada à busca dos dados.
+
+// Para ter um código funcionando rapidamente, o ideal é fazer uma
+// implementação simples da interface necessária(armazenamento) para só
+// depois criar uma implementação que dá suporte ao mecanismo preferido.
