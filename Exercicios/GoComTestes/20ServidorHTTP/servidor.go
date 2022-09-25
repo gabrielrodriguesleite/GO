@@ -11,17 +11,17 @@ import (
 // 	fmt.Fprint(w, ObterPontuacaoJogador(jogador))
 // }
 
-func ObterPontuacaoJogador(nome string) string {
-	if nome == "Leite" {
-		return "20"
-	}
+// func ObterPontuacaoJogador(nome string) string {
+// 	if nome == "Leite" {
+// 		return "20"
+// 	}
 
-	if nome == "Marcela" {
-		return "25"
-	}
+// 	if nome == "Marcela" {
+// 		return "25"
+// 	}
 
-	return ""
-}
+// 	return ""
+// }
 
 type ArmazenamentoJogador interface {
 	ObterPontuacaoJogador(nome string) int
