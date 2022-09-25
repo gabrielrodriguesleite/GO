@@ -56,11 +56,12 @@ import (
 // depois criar uma implementação que dá suporte ao mecanismo preferido.
 
 func TestObterJogadores(t *testing.T) {
+	servidor := &ServidorJogador{}
 	t.Run("retornar resultado de Leite", func(t *testing.T) {
 		requisicao := novaRequisicaoObterPontuacao("Leite")
 		resposta := httptest.NewRecorder()
 
-		ServidorJogador(resposta, requisicao)
+		servidor.ServeHTTP(resposta, requisicao)
 
 		verificaCorpoRequisicao(t, resposta.Body.String(), "20")
 	})
@@ -69,7 +70,7 @@ func TestObterJogadores(t *testing.T) {
 		requisicao := novaRequisicaoObterPontuacao("Marcela")
 		resposta := httptest.NewRecorder()
 
-		ServidorJogador(resposta, requisicao)
+		servidor.ServeHTTP(resposta, requisicao)
 
 		verificaCorpoRequisicao(t, resposta.Body.String(), "25")
 
