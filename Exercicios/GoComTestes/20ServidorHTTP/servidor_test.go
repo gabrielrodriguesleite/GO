@@ -56,7 +56,13 @@ import (
 // depois criar uma implementação que dá suporte ao mecanismo preferido.
 
 func TestObterJogadores(t *testing.T) {
-	servidor := &ServidorJogador{}
+	armazenamento := EsbocoArmazenamentoJogador{
+		map[string]int{
+			"Leite":   20,
+			"Marcela": 25,
+		},
+	}
+	servidor := &ServidorJogador{&armazenamento}
 	t.Run("retornar resultado de Leite", func(t *testing.T) {
 		requisicao := novaRequisicaoObterPontuacao("Leite")
 		resposta := httptest.NewRecorder()
@@ -87,4 +93,13 @@ func verificaCorpoRequisicao(t *testing.T, recebido, esperado string) {
 	if recebido != esperado {
 		t.Errorf("corpo da requisição é inválido, obtive '%s', esperava '%s'", recebido, esperado)
 	}
+}
+
+type EsbocoArmazenamentoJogador struct {
+	pontuacoes map[string]int
+}
+
+func (e *EsbocoArmazenamentoJogador) ObterPontuacaoJogador(nome string) int {
+	pontuacao := e.pontuacoes[nome]
+	return pontuacao
 }
