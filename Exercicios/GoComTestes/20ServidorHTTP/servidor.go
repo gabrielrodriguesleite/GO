@@ -22,3 +22,7 @@ func ObterPontuacaoJogador(nome string) string {
 
 	return ""
 }
+
+type ArmazenamentoJogador interface {
+	ObterPontuacaoJogador(nome string) int
+}
