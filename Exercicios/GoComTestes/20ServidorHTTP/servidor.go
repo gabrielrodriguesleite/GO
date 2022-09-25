@@ -5,11 +5,11 @@ import (
 	"net/http"
 )
 
-func ServidorJogador(w http.ResponseWriter, r *http.Request) {
-	jogador := r.URL.Path[len("/jogadores/"):] // não é recomendável
-	// mas serve por enquanto, para pegar o caminho da requisição.
-	fmt.Fprint(w, ObterPontuacaoJogador(jogador))
-}
+// func ServidorJogador(w http.ResponseWriter, r *http.Request) {
+// 	jogador := r.URL.Path[len("/jogadores/"):] // não é recomendável
+// 	// mas serve por enquanto, para pegar o caminho da requisição.
+// 	fmt.Fprint(w, ObterPontuacaoJogador(jogador))
+// }
 
 func ObterPontuacaoJogador(nome string) string {
 	if nome == "Leite" {
@@ -25,4 +25,13 @@ func ObterPontuacaoJogador(nome string) string {
 
 type ArmazenamentoJogador interface {
 	ObterPontuacaoJogador(nome string) int
+}
+
+type ServidorJogador struct {
+	armazenamento ArmazenamentoJogador
+}
+
+func (s *ServidorJogador) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	jogador := r.URL.Path[len("/jogadores/"):]
+	fmt.Fprint(w, s.armazenamento.ObterPontuacaoJogador(jogador))
 }
