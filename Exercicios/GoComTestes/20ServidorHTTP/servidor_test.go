@@ -69,6 +69,7 @@ func TestObterJogadores(t *testing.T) {
 
 		servidor.ServeHTTP(resposta, requisicao)
 
+		verificaRespostaCodigoStatus(t, resposta.Code, http.StatusOK)
 		verificaCorpoRequisicao(t, resposta.Body.String(), "20")
 	})
 
@@ -78,6 +79,7 @@ func TestObterJogadores(t *testing.T) {
 
 		servidor.ServeHTTP(resposta, requisicao)
 
+		verificaRespostaCodigoStatus(t, resposta.Code, http.StatusOK)
 		verificaCorpoRequisicao(t, resposta.Body.String(), "25")
 	})
 
@@ -108,7 +110,7 @@ func verificaCorpoRequisicao(t *testing.T, recebido, esperado string) {
 	}
 }
 
-func verificaREspostaCodigoStatus(t *testing.T, recebido, esperado int) {
+func verificaRespostaCodigoStatus(t *testing.T, recebido, esperado int) {
 	t.Helper()
 	if recebido != esperado {
 		t.Errorf("não recebeu código de status HTTP esperado, recebido %d, esperado %d", recebido, esperado)
