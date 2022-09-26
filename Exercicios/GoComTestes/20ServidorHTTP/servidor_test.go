@@ -79,7 +79,20 @@ func TestObterJogadores(t *testing.T) {
 		servidor.ServeHTTP(resposta, requisicao)
 
 		verificaCorpoRequisicao(t, resposta.Body.String(), "25")
+	})
 
+	t.Run("retorna 404 para jogador não encontrado", func(t *testing.T) {
+		requisicao := novaRequisicaoObterPontuacao("Jorge")
+		resposta := httptest.NewRecorder()
+
+		servidor.ServeHTTP(resposta, requisicao)
+
+		recebido := resposta.Code
+		esperdado := http.StatusNotFound
+
+		if recebido != esperdado {
+			t.Errorf("recebido status %d esperado %d", recebido, esperdado)
+		}
 	})
 }
 
