@@ -34,10 +34,15 @@ type ServidorJogador struct {
 func (s *ServidorJogador) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	jogador := r.URL.Path[len("/jogadores/"):]
 
-	w.WriteHeader(http.StatusNotFound) // implementar o mínimo para ot teste passar vai
+	pontuacao := s.armazenamento.ObterPontuacaoJogador(jogador)
+	if pontuacao == 0 {
+		w.WriteHeader(http.StatusNotFound)
+	}
+
+	// w.WriteHeader(http.StatusNotFound) // implementar o mínimo para ot teste passar vai
 	// evidenciar as lacunas no teste.
 	// Mostrará que não estamos validado se é retornado um status ok caso o jogador seja
 	// encontrado.
 
-	fmt.Fprint(w, s.armazenamento.ObterPontuacaoJogador(jogador))
+	fmt.Fprint(w, pontuacao)
 }
