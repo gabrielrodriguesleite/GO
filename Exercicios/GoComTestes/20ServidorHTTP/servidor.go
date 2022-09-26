@@ -33,5 +33,8 @@ type ServidorJogador struct {
 
 func (s *ServidorJogador) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	jogador := r.URL.Path[len("/jogadores/"):]
+
+	w.WriteHeader(http.StatusNotFound)
+
 	fmt.Fprint(w, s.armazenamento.ObterPontuacaoJogador(jogador))
 }
