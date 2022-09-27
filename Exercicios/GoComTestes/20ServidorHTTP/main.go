@@ -21,3 +21,5 @@ type ArmazenamentoJogadorEmMemoria struct{}
 func (a *ArmazenamentoJogadorEmMemoria) ObterPontuacaoJogador(nome string) int {
 	return 123
 }
+
+func (a *ArmazenamentoJogadorEmMemoria) RegistrarVitoria(nome string) {}
