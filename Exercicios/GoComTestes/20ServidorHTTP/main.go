@@ -31,3 +31,8 @@ func (a *ArmazenamentoJogadorEmMemoria) ObterPontuacaoJogador(nome string) int {
 func (a *ArmazenamentoJogadorEmMemoria) RegistrarVitoria(nome string) {
 	a.armazenamento[nome]++
 }
+
+// Utilizando curl para comprovar o funcionamento:
+// curl -X POST http://localhost:5000/jogadores/Leite
+// curl http://localhost:5000/jogadores/Leite
+// deve retornar 1
