@@ -128,6 +128,23 @@ func TestArmazenamentoVitorias(t *testing.T) {
 	})
 }
 
+// ==================== TESTE integração ====================
+func TestRegistrarVitoriasEBuscarEstasVitorias(t *testing.T) {
+	armazenamento := NovoArmazenamentoJogadorEmMemoria()
+	servidor := ServidorJogador{armazenamento}
+	jogador := "Leite"
+
+	servidor.ServeHTTP(httptest.NewRecorder(), novaRequisicaoRegistrarVitoriaPost(jogador))
+	servidor.ServeHTTP(httptest.NewRecorder(), novaRequisicaoRegistrarVitoriaPost(jogador))
+	servidor.ServeHTTP(httptest.NewRecorder(), novaRequisicaoRegistrarVitoriaPost(jogador))
+
+	resposta := httptest.NewRecorder()
+	servidor.ServeHTTP(resposta, novaRequisicaoObterPontuacao(jogador))
+	verificaRespostaCodigoStatus(t, resposta.Code, http.StatusOK)
+
+	verificaCorpoRequisicao(t, resposta.Body.String(), "3")
+}
+
 // ==================== FUNÇÕES AUXILIARES ====================
 
 func novaRequisicaoObterPontuacao(nome string) *http.Request {
