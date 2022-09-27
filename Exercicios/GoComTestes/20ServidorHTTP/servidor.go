@@ -25,6 +25,7 @@ import (
 
 type ArmazenamentoJogador interface {
 	ObterPontuacaoJogador(nome string) int
+	RegistrarVitoria(nome string)
 }
 
 type ServidorJogador struct {
@@ -55,5 +56,6 @@ func (s *ServidorJogador) mostrarPontuacao(w http.ResponseWriter, r *http.Reques
 }
 
 func (s *ServidorJogador) registrarVitoria(w http.ResponseWriter) {
+	s.armazenamento.RegistrarVitoria("Pedro")
 	w.WriteHeader(http.StatusAccepted)
 }
