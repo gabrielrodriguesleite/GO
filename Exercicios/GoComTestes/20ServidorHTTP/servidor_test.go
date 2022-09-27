@@ -55,6 +55,7 @@ import (
 // implementação simples da interface necessária(armazenamento) para só
 // depois criar uma implementação que dá suporte ao mecanismo preferido.
 
+// ==================== TESTE requisições ====================
 func TestObterJogadores(t *testing.T) {
 	armazenamento := EsbocoArmazenamentoJogador{
 		map[string]int{
@@ -99,6 +100,7 @@ func TestObterJogadores(t *testing.T) {
 	})
 }
 
+// ==================== TESTE armazenamento ====================
 func TestArmazenamentoVitorias(t *testing.T) {
 	armazenamento := EsbocoArmazenamentoJogador{
 		map[string]int{},
@@ -125,6 +127,8 @@ func TestArmazenamentoVitorias(t *testing.T) {
 		}
 	})
 }
+
+// ==================== FUNÇÕES AUXILIARES ====================
 
 func novaRequisicaoObterPontuacao(nome string) *http.Request {
 	requisicao, _ := http.NewRequest(http.MethodGet, fmt.Sprintf("/jogadores/%s", nome), nil)
