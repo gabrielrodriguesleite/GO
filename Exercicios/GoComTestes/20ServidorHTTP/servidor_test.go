@@ -125,3 +125,19 @@ func (e *EsbocoArmazenamentoJogador) ObterPontuacaoJogador(nome string) int {
 	pontuacao := e.pontuacoes[nome]
 	return pontuacao
 }
+
+func TestArmazenamentoVitorias(t *testing.T) {
+	armazenamento := EsbocoArmazenamentoJogador{
+		map[string]int{},
+	}
+	servidor := &ServidorJogador{&armazenamento}
+
+	t.Run("retorna status 'aceito' para chamadas ao método POST", func(t *testing.T) {
+		requisicao, _ := http.NewRequest(http.MethodPost, "/jogadores/Leite", nil)
+		resposta := httptest.NewRecorder()
+
+		servidor.ServeHTTP(resposta, requisicao)
+
+		verificaRespostaCodigoStatus(t, resposta.Code, http.StatusAccepted)
+	})
+}
