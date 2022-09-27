@@ -61,6 +61,7 @@ func TestObterJogadores(t *testing.T) {
 			"Leite":   20,
 			"Marcela": 25,
 		},
+		[]string{},
 	}
 	servidor := &ServidorJogador{&armazenamento}
 	t.Run("retornar resultado de Leite", func(t *testing.T) {
@@ -118,7 +119,8 @@ func verificaRespostaCodigoStatus(t *testing.T, recebido, esperado int) {
 }
 
 type EsbocoArmazenamentoJogador struct {
-	pontuacoes map[string]int
+	pontuacoes        map[string]int
+	registrosVitorias []string
 }
 
 func (e *EsbocoArmazenamentoJogador) ObterPontuacaoJogador(nome string) int {
@@ -126,9 +128,14 @@ func (e *EsbocoArmazenamentoJogador) ObterPontuacaoJogador(nome string) int {
 	return pontuacao
 }
 
+func (e *EsbocoArmazenamentoJogador) RegistrarVitoria(nome string) {
+	e.registrosVitorias = append(e.registrosVitorias, nome)
+}
+
 func TestArmazenamentoVitorias(t *testing.T) {
 	armazenamento := EsbocoArmazenamentoJogador{
 		map[string]int{},
+		[]string{},
 	}
 	servidor := &ServidorJogador{&armazenamento}
 
