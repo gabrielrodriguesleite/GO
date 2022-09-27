@@ -12,21 +12,19 @@ type ArmazenamentoJogador interface {
 
 type ServidorJogador struct {
 	armazenamento ArmazenamentoJogador
-	roteador      *http.ServeMux
+	http.Handler
 }
 
 func NovoServidorJogador(armazenamento ArmazenamentoJogador) *ServidorJogador {
-	s := &ServidorJogador{
-		armazenamento,
-		http.NewServeMux(),
-	}
-	s.roteador.Handle("/liga", http.HandlerFunc(s.manipulaLiga))
-	s.roteador.Handle("/jogadores", http.HandlerFunc(s.manipulaJogadores))
-	return s
-}
+	s := new(ServidorJogador)
+	s.armazenamento = armazenamento
 
-func (s *ServidorJogador) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	s.roteador.ServeHTTP(w, r)
+	roteador := http.NewServeMux()
+	roteador.Handle("/liga", http.HandlerFunc(s.manipulaLiga))
+	roteador.Handle("/jogadores", http.HandlerFunc(s.manipulaJogadores))
+
+	s.Handler = roteador
+	return s
 }
 
 func (s *ServidorJogador) manipulaLiga(w http.ResponseWriter, r *http.Request) {
