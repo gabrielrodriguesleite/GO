@@ -12,7 +12,8 @@ type ArmazenamentoJogador interface {
 
 type ServidorJogador struct {
 	armazenamento ArmazenamentoJogador
-	http.Handler
+	http.Handler  // incorporação do Handler dentro do ServidorJogador para acesso
+	// direto das funções.
 }
 
 func NovoServidorJogador(armazenamento ArmazenamentoJogador) *ServidorJogador {
