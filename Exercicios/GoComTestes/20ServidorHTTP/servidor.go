@@ -32,6 +32,12 @@ type ServidorJogador struct {
 }
 
 func (s *ServidorJogador) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+
+	if r.Method == http.MethodPost {
+		w.WriteHeader(http.StatusAccepted)
+		return
+	}
+
 	jogador := r.URL.Path[len("/jogadores/"):]
 
 	pontuacao := s.armazenamento.ObterPontuacaoJogador(jogador)
