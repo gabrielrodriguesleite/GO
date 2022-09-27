@@ -42,6 +42,7 @@ func (s *ServidorJogador) manipulaJogadores(w http.ResponseWriter, r *http.Reque
 	case http.MethodGet:
 		s.mostrarPontuacao(w, jogador)
 	}
+
 }
 
 func (s *ServidorJogador) mostrarPontuacao(w http.ResponseWriter, jogador string) {
