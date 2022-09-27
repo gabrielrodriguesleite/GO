@@ -62,7 +62,7 @@ import (
 
 func TestLiga(t *testing.T) {
 	armazenamento := EsbocoArmazenamentoJogador{}
-	servidor := &ServidorJogador{&armazenamento}
+	servidor := NovoServidorJogador(&armazenamento)
 
 	t.Run("retorna 200 em /liga", func(t *testing.T) {
 		requisicao, _ := http.NewRequest(http.MethodGet, "/liga", nil)
@@ -85,7 +85,7 @@ func TestObterJogadores(t *testing.T) {
 		},
 		[]string{},
 	}
-	servidor := &ServidorJogador{&armazenamento}
+	servidor := NovoServidorJogador(&armazenamento)
 	t.Run("retornar resultado de Leite", func(t *testing.T) {
 		requisicao := novaRequisicaoObterPontuacao("Leite")
 		resposta := httptest.NewRecorder()
@@ -127,7 +127,7 @@ func TestArmazenamentoVitorias(t *testing.T) {
 		map[string]int{},
 		[]string{},
 	}
-	servidor := &ServidorJogador{&armazenamento}
+	servidor := NovoServidorJogador(&armazenamento)
 
 	t.Run("registra vitorias na chamada ao método HTTP POST", func(t *testing.T) {
 		jogador := "Marcela"
@@ -152,7 +152,7 @@ func TestArmazenamentoVitorias(t *testing.T) {
 // ==================== TESTE integração ====================
 func TestRegistrarVitoriasEBuscarEstasVitorias(t *testing.T) {
 	armazenamento := NovoArmazenamentoJogadorEmMemoria()
-	servidor := ServidorJogador{armazenamento}
+	servidor := NovoServidorJogador(armazenamento)
 	jogador := "Leite"
 
 	servidor.ServeHTTP(httptest.NewRecorder(), novaRequisicaoRegistrarVitoriaPost(jogador))
