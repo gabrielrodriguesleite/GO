@@ -58,7 +58,23 @@ import (
 
 // Para ter um código funcionando rapidamente, o ideal é fazer uma
 // implementação simples da interface necessária(armazenamento) para só
-// depois criar uma implementação que dá suporte ao mecanismo preferido.
+// depois criar uma implementação que dá suporte ao mecanismo preferido.]
+
+func TestLiga(t *testing.T) {
+	armazenamento := EsbocoArmazenamentoJogador{}
+	servidor := &ServidorJogador{&armazenamento}
+
+	t.Run("retorna 200 em /liga", func(t *testing.T) {
+		requisicao, _ := http.NewRequest(http.MethodGet, "/liga", nil)
+		responsta := httptest.NewRecorder()
+
+		servidor.ServeHTTP(responsta, requisicao)
+
+		verificaRespostaCodigoStatus(t, responsta.Code, http.StatusOK)
+	})
+}
+
+// ==================== TESTES PARTE 1 ====================
 
 // ==================== TESTE requisições ====================
 func TestObterJogadores(t *testing.T) {
