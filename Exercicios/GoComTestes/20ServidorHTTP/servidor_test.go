@@ -139,19 +139,6 @@ func TestArmazenamentoVitorias(t *testing.T) {
 	}
 	servidor := &ServidorJogador{&armazenamento}
 
-	// t.Run("retorna status 'aceito' para chamadas ao método POST", func(t *testing.T) {
-	// 	requisicao := novaRequisicaoRegistrarVitoriaPost("Leite")
-	// 	resposta := httptest.NewRecorder()
-
-	// 	servidor.ServeHTTP(resposta, requisicao)
-
-	// 	verificaRespostaCodigoStatus(t, resposta.Code, http.StatusAccepted)
-
-	// 	if len(armazenamento.registrosVitorias) != 1 {
-	// 		t.Errorf("verifiquei %d chamadas a RegistrarVitoria, esperava %d", len(armazenamento.registrosVitorias), 1)
-	// 	}
-	// })
-
 	t.Run("registra vitorias na chamada ao método HTTP POST", func(t *testing.T) {
 		jogador := "Marcela"
 
