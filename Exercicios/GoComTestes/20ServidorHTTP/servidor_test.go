@@ -148,3 +148,8 @@ func TestArmazenamentoVitorias(t *testing.T) {
 		verificaRespostaCodigoStatus(t, resposta.Code, http.StatusAccepted)
 	})
 }
+
+func novaRequisicaoRegistrarVitoriaPost(nome string) *http.Request {
+	requisicao, _ := http.NewRequest(http.MethodPost, fmt.Sprintf("/jogadores/%s", nome), nil)
+	return requisicao
+}
