@@ -10,6 +10,11 @@ type ArmazenamentoJogador interface {
 	GravarVitoria(nome string)
 }
 
+type Jogador struct {
+	Nome     string
+	Vitorias int
+}
+
 type ServidorJogador struct {
 	armazenamento ArmazenamentoJogador
 	http.Handler  // incorporação do Handler dentro do ServidorJogador para acesso
