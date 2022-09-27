@@ -36,7 +36,7 @@ func (s *ServidorJogador) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	switch r.Method {
 	case http.MethodPost:
-		s.registrarVitoria(w)
+		s.registrarVitoria(w, r)
 	case http.MethodGet:
 		s.mostrarPontuacao(w, r)
 
@@ -55,7 +55,9 @@ func (s *ServidorJogador) mostrarPontuacao(w http.ResponseWriter, r *http.Reques
 	fmt.Fprint(w, pontuacao)
 }
 
-func (s *ServidorJogador) registrarVitoria(w http.ResponseWriter) {
-	s.armazenamento.RegistrarVitoria("Pedro")
+func (s *ServidorJogador) registrarVitoria(w http.ResponseWriter, r *http.Request) {
+	jogador := r.URL.Path[len("/jogadores/"):]
+
+	s.armazenamento.RegistrarVitoria(jogador)
 	w.WriteHeader(http.StatusAccepted)
 }
