@@ -14,6 +14,7 @@ type ServidorJogador struct {
 	armazenamento ArmazenamentoJogador
 	http.Handler  // incorporação do Handler dentro do ServidorJogador para acesso
 	// direto das funções.
+	// Mais em: https://golang.org/doc/effective_go.html#embedding
 }
 
 func NovoServidorJogador(armazenamento ArmazenamentoJogador) *ServidorJogador {
