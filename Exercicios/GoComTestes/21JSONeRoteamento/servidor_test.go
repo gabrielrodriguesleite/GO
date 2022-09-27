@@ -83,11 +83,6 @@ func TestLiga(t *testing.T) {
 	})
 }
 
-type Jogador struct {
-	Nome     string
-	Vitorias int
-}
-
 // ==================== TESTES PARTE 1 ====================
 
 // ==================== TESTE requisições ====================
