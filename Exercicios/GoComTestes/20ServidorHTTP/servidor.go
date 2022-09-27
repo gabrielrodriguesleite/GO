@@ -33,22 +33,27 @@ type ServidorJogador struct {
 
 func (s *ServidorJogador) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
-	if r.Method == http.MethodPost {
-		w.WriteHeader(http.StatusAccepted)
-		return
-	}
+	switch r.Method {
+	case http.MethodPost:
+		s.registrarVitoria(w)
+	case http.MethodGet:
+		s.mostrarPontuacao(w, r)
 
+	}
+}
+
+func (s *ServidorJogador) mostrarPontuacao(w http.ResponseWriter, r *http.Request) {
 	jogador := r.URL.Path[len("/jogadores/"):]
 
 	pontuacao := s.armazenamento.ObterPontuacaoJogador(jogador)
+
 	if pontuacao == 0 {
 		w.WriteHeader(http.StatusNotFound)
 	}
 
-	// w.WriteHeader(http.StatusNotFound) // implementar o mínimo para ot teste passar vai
-	// evidenciar as lacunas no teste.
-	// Mostrará que não estamos validado se é retornado um status ok caso o jogador seja
-	// encontrado.
-
 	fmt.Fprint(w, pontuacao)
+}
+
+func (s *ServidorJogador) registrarVitoria(w http.ResponseWriter) {
+	w.WriteHeader(http.StatusAccepted)
 }
