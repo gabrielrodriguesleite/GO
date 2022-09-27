@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -70,8 +71,21 @@ func TestLiga(t *testing.T) {
 
 		servidor.ServeHTTP(responsta, requisicao)
 
+		var obtido []Jogador
+
+		err := json.NewDecoder(responsta.Body).Decode(&obtido)
+
+		if err != nil {
+			t.Fatalf("Não foi possível fazer parse da resposta do servidor '%s' no slice de Jogador, '%v'", responsta.Body, err)
+		}
+
 		verificaRespostaCodigoStatus(t, responsta.Code, http.StatusOK)
 	})
+}
+
+type Jogador struct {
+	Nome     string
+	Vitorias int
 }
 
 // ==================== TESTES PARTE 1 ====================
