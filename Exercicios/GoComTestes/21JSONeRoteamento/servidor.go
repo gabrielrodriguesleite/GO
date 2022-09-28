@@ -37,7 +37,7 @@ func NovoServidorJogador(armazenamento ArmazenamentoJogador) *ServidorJogador {
 }
 
 func (s *ServidorJogador) manipulaLiga(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode(s.obterTabelaDaLiga())
+	json.NewEncoder(w).Encode(s.armazenamento.ObterLiga())
 	w.WriteHeader(http.StatusOK)
 }
 
