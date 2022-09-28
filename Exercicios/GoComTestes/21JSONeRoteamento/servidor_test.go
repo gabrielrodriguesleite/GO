@@ -259,3 +259,10 @@ func obterLigaDaResposta(t *testing.T, body io.Reader) (liga []Jogador) {
 	}
 	return
 }
+
+func verificaLiga(t *testing.T, obtido, esperado []Jogador) {
+	t.Helper()
+	if !reflect.DeepEqual(obtido, esperado) {
+		t.Errorf("obtido %v esperado % v", obtido, esperado)
+	}
+}
