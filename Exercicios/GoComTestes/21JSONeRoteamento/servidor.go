@@ -36,11 +36,12 @@ func NovoServidorJogador(armazenamento ArmazenamentoJogador) *ServidorJogador {
 }
 
 func (s *ServidorJogador) manipulaLiga(w http.ResponseWriter, r *http.Request) {
-	tabelaDaLiga := []Jogador{
-		{"Leite", 20},
-	}
-	json.NewEncoder(w).Encode(tabelaDaLiga)
+	json.NewEncoder(w).Encode(s.obterTabelaDaLiga())
 	w.WriteHeader(http.StatusOK)
+}
+
+func (s *ServidorJogador) obterTabelaDaLiga() []Jogador {
+	return []Jogador{{"Leite", 20}}
 }
 
 func (s *ServidorJogador) manipulaJogadores(w http.ResponseWriter, r *http.Request) {
