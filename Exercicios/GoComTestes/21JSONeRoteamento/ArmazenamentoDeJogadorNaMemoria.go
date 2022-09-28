@@ -15,3 +15,7 @@ func (a *ArmazenamentoJogadorEmMemoria) ObterPontuacaoJogador(nome string) int {
 func (a *ArmazenamentoJogadorEmMemoria) GravarVitoria(nome string) {
 	a.armazenamento[nome]++
 }
+
+func (a *ArmazenamentoJogadorEmMemoria) ObterLiga() []Jogador {
+	return nil
+}
