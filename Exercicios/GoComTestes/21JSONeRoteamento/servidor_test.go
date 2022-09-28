@@ -199,6 +199,7 @@ func verificaRespostaCodigoStatus(t *testing.T, recebido, esperado int) {
 type EsbocoArmazenamentoJogador struct {
 	pontuacoes        map[string]int
 	registrosVitorias []string
+	liga              []Jogador
 }
 
 func (e *EsbocoArmazenamentoJogador) ObterPontuacaoJogador(nome string) int {
