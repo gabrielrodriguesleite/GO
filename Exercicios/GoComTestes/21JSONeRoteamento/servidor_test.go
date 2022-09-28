@@ -74,24 +74,14 @@ func TestLiga(t *testing.T) {
 		armazenamento := EsbocoArmazenamentoJogador{nil, nil, ligaEsperada}
 		servidor := NovoServidorJogador(&armazenamento)
 
-		requisicao, _ := http.NewRequest(http.MethodGet, "/liga", nil)
+		requisicao := novaRequisicaoDeLiga()
 		resposta := httptest.NewRecorder()
 
 		servidor.ServeHTTP(resposta, requisicao)
 
-		var obtido []Jogador
-
-		err := json.NewDecoder(resposta.Body).Decode(&obtido)
-
-		if err != nil {
-			t.Fatalf("Não foi possível fazer parse da resposta do servidor '%s' no slice de Jogador, '%v'", resposta.Body, err)
-		}
-
+		obtido := obterLigaDaResposta(t, resposta.Body)
 		verificaRespostaCodigoStatus(t, resposta.Code, http.StatusOK)
-
-		if !reflect.DeepEqual(obtido, ligaEsperada) {
-			t.Errorf("obtido %v esperado %v", obtido, ligaEsperada)
-		}
+		verificaLiga(t, obtido, ligaEsperada)
 	})
 
 	t.Run("retorna 200 em /liga", func(t *testing.T) {
