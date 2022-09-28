@@ -92,7 +92,7 @@ func TestObterJogadores(t *testing.T) {
 			"Leite":   20,
 			"Marcela": 25,
 		},
-		nil,
+		nil, nil,
 	}
 	servidor := NovoServidorJogador(&armazenamento)
 	t.Run("retornar resultado de Leite", func(t *testing.T) {
@@ -134,7 +134,7 @@ func TestObterJogadores(t *testing.T) {
 func TestArmazenamentoVitorias(t *testing.T) {
 	armazenamento := EsbocoArmazenamentoJogador{
 		map[string]int{},
-		nil,
+		nil, nil,
 	}
 	servidor := NovoServidorJogador(&armazenamento)
 
