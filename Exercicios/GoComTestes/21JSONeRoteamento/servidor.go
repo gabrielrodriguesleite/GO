@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 )
@@ -28,13 +29,17 @@ func NovoServidorJogador(armazenamento ArmazenamentoJogador) *ServidorJogador {
 
 	roteador := http.NewServeMux()
 	roteador.Handle("/liga", http.HandlerFunc(s.manipulaLiga))
-	roteador.Handle("/jogadores", http.HandlerFunc(s.manipulaJogadores))
+	roteador.Handle("/jogadores/", http.HandlerFunc(s.manipulaJogadores))
 
 	s.Handler = roteador
 	return s
 }
 
 func (s *ServidorJogador) manipulaLiga(w http.ResponseWriter, r *http.Request) {
+	tabelaDaLiga := []Jogador{
+		{"Leite", 20},
+	}
+	json.NewEncoder(w).Encode(tabelaDaLiga)
 	w.WriteHeader(http.StatusOK)
 }
 
