@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"reflect"
@@ -248,4 +249,13 @@ func (e *EsbocoArmazenamentoJogador) ObterLiga() []Jogador {
 func novaRequisicaoRegistrarVitoriaPost(nome string) *http.Request {
 	requisicao, _ := http.NewRequest(http.MethodPost, fmt.Sprintf("/jogadores/%s", nome), nil)
 	return requisicao
+}
+
+func obterLigaDaResposta(t *testing.T, body io.Reader) (liga []Jogador) {
+	t.Helper()
+	err := json.NewDecoder(body).Decode(&liga)
+	if err != nil {
+		t.Fatalf("Não foi possível fazer parse da resposta do servidor '%s' no slice de Jogador, '%v'", body, err)
+	}
+	return
 }
