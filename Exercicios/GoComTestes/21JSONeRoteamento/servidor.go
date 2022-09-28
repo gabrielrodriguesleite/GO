@@ -9,6 +9,7 @@ import (
 type ArmazenamentoJogador interface {
 	ObterPontuacaoJogador(nome string) int
 	GravarVitoria(nome string)
+	ObterLiga() []Jogador
 }
 
 type Jogador struct {
