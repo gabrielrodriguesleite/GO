@@ -16,7 +16,7 @@ Descompactar o arquivo baixado em `/usr/local`
 Não descompactar o arquivo dentro de uma instalação existente!
 
 Incluir /usr/local/go/bin no ambiente PATH (apenas 1 opção)
-1. Para uma instalação por usuário incluir no arquivo $HOME/.profile:
+1. Para uma instalação por usuário incluir no arquivo* $HOME/.profile:
 2. Para uma instalação no sistema incluir no arquivo /etc/profile
 
 `export PATH=$PATH:/usr/local/go/bin`
@@ -24,6 +24,8 @@ Incluir /usr/local/go/bin no ambiente PATH (apenas 1 opção)
 **Essa mudança só será aplicada depois do login ou por rodar o comando**
 
 `source $HOME/.profile`
+
+> *(Nota) Se estiver utilizando zsh o arquivo $HOME/.zshrc também precisa receber o comando `export PATH=$PATH:/usr/local/go/bin`
 
 Para verificar a instalação:
 
