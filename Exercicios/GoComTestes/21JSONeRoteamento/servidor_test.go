@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/http/httptest"
+	"reflect"
 	"testing"
 )
 
@@ -62,10 +63,39 @@ import (
 // depois criar uma implementação que dá suporte ao mecanismo preferido.]
 
 func TestLiga(t *testing.T) {
-	armazenamento := EsbocoArmazenamentoJogador{}
-	servidor := NovoServidorJogador(&armazenamento)
+
+	t.Run("retorna a tabela da Liga como JSON", func(t *testing.T) {
+		ligaEsperada := []Jogador{
+			{"Leite", 32},
+			{"Marcela", 35},
+			{"Pedro", 10},
+		}
+		armazenamento := EsbocoArmazenamentoJogador{nil, nil, ligaEsperada}
+		servidor := NovoServidorJogador(&armazenamento)
+
+		requisicao, _ := http.NewRequest(http.MethodGet, "/liga", nil)
+		resposta := httptest.NewRecorder()
+
+		servidor.ServeHTTP(resposta, requisicao)
+
+		var obtido []Jogador
+
+		err := json.NewDecoder(resposta.Body).Decode(&obtido)
+
+		if err != nil {
+			t.Fatalf("Não foi possível fazer parse da resposta do servidor '%s' no slice de Jogador, '%v'", resposta.Body, err)
+		}
+
+		verificaRespostaCodigoStatus(t, resposta.Code, http.StatusOK)
+
+		if !reflect.DeepEqual(obtido, ligaEsperada) {
+			t.Errorf("obtido %v esperado %v", obtido, ligaEsperada)
+		}
+	})
 
 	t.Run("retorna 200 em /liga", func(t *testing.T) {
+		armazenamento := EsbocoArmazenamentoJogador{}
+		servidor := NovoServidorJogador(&armazenamento)
 		requisicao, _ := http.NewRequest(http.MethodGet, "/liga", nil)
 		responsta := httptest.NewRecorder()
 
