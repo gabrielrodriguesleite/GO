@@ -266,3 +266,8 @@ func verificaLiga(t *testing.T, obtido, esperado []Jogador) {
 		t.Errorf("obtido %v esperado % v", obtido, esperado)
 	}
 }
+
+func novaRequisicaoDeLiga() *http.Request {
+	req, _ := http.NewRequest(http.MethodGet, "/liga", nil)
+	return req
+}
