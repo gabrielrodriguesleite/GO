@@ -241,6 +241,10 @@ func (e *EsbocoArmazenamentoJogador) GravarVitoria(nome string) {
 	e.registrosVitorias = append(e.registrosVitorias, nome)
 }
 
+func (e *EsbocoArmazenamentoJogador) ObterLiga() []Jogador {
+	return e.liga
+}
+
 func novaRequisicaoRegistrarVitoriaPost(nome string) *http.Request {
 	requisicao, _ := http.NewRequest(http.MethodPost, fmt.Sprintf("/jogadores/%s", nome), nil)
 	return requisicao
