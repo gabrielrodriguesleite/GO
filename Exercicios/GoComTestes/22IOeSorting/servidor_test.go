@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"reflect"
-	"strings"
 	"testing"
 )
 
@@ -69,25 +68,6 @@ import (
 // Para ter um código funcionando rapidamente, o ideal é fazer uma
 // implementação simples da interface necessária(armazenamento) para só
 // depois criar uma implementação que dá suporte ao mecanismo preferido.]
-
-func TestSistemaDeArquivoDeArmazenamentoDoJogador(t *testing.T) {
-	t.Run("/liga de um leitor", func(t *testing.T) {
-
-		bancoDeDados := strings.NewReader(`[
-			{"Nome": "Leite", "Vitorias": 20},
-			{"Nome": "Marcela", "Vitorias" : 25}
-		]`)
-
-		armazenamento := SistemaDeArquivoDeArmazenamentoDoJogador{bancoDeDados}
-		recebido := armazenamento.PegaLiga()
-		esperado := []Jogador{
-			{"Leite", 20},
-			{"Marcela", 25},
-		}
-
-		defineLiga(t, recebido, esperado)
-	})
-}
 
 // ==================== TESTES PARTE 2 ====================
 func TestGravaVitoriasEAsRetorna(t *testing.T) {
