@@ -82,9 +82,7 @@ func TestLiga(t *testing.T) {
 		obtido := obterLigaDaResposta(t, resposta.Body)
 		verificaRespostaCodigoStatus(t, resposta.Code, http.StatusOK)
 		verificaLiga(t, obtido, ligaEsperada)
-		if resposta.Result().Header.Get("content-type") != "application/json" {
-			t.Errorf("resposta não tinha o tipo de conteúdo de application/json, obtido %v", resposta.Result().Header)
-		}
+		verificaTipoDoConteudo(t, resposta, tipoDoConteudoJSON)
 	})
 
 	t.Run("retorna 200 em /liga", func(t *testing.T) {
@@ -263,4 +261,13 @@ func verificaLiga(t *testing.T, obtido, esperado []Jogador) {
 func novaRequisicaoDeLiga() *http.Request {
 	req, _ := http.NewRequest(http.MethodGet, "/liga", nil)
 	return req
+}
+
+const tipoDoConteudoJSON = "application/json"
+
+func verificaTipoDoConteudo(t *testing.T, resposta *httptest.ResponseRecorder, esperado string) {
+	t.Helper()
+	if resposta.Result().Header.Get("content-type") != esperado {
+		t.Errorf("resposta não tinha o tipo de conteúdo de application/json, obtido %v", resposta.Result().Header)
+	}
 }
