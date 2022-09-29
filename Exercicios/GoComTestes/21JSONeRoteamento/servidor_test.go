@@ -78,6 +78,16 @@ func TestGravaVitoriasEAsRetorna(t *testing.T) {
 		verificaRespostaCodigoStatus(t, resposta.Code, http.StatusOK)
 		verificaCorpoRequisicao(t, resposta.Body.String(), "3")
 	})
+
+	t.Run("obter liga", func(t *testing.T) {
+		respota := httptest.NewRecorder()
+		servidor.ServeHTTP(respota, novaRequisicaoDeLiga())
+		verificaRespostaCodigoStatus(t, respota.Code, http.StatusOK)
+
+		obtido := obterLigaDaResposta(t, respota.Body)
+		esperado := []Jogador{{"Leite", 3}}
+		verificaLiga(t, obtido, esperado)
+	})
 }
 
 func TestLiga(t *testing.T) {
