@@ -20,6 +20,6 @@ func TestSistemaDeArquivoDeArmazenamentoDoJogador(t *testing.T) {
 			{"Marcela", 25},
 		}
 
-		defineLiga(t, recebido, esperado)
+		verificaLiga(t, recebido, esperado)
 	})
 }
