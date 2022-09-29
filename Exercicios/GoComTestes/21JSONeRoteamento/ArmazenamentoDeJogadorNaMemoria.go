@@ -17,5 +17,9 @@ func (a *ArmazenamentoJogadorEmMemoria) GravarVitoria(nome string) {
 }
 
 func (a *ArmazenamentoJogadorEmMemoria) ObterLiga() []Jogador {
-	return nil
+	var liga []Jogador
+	for nome, vitorias := range a.armazenamento {
+		liga = append(liga, Jogador{nome, vitorias})
+	}
+	return liga
 }
