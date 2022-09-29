@@ -296,8 +296,6 @@ func novaRequisicaoDeLiga() *http.Request {
 	return req
 }
 
-const tipoDoConteudoJSON = "application/json"
-
 func verificaTipoDoConteudo(t *testing.T, resposta *httptest.ResponseRecorder, esperado string) {
 	t.Helper()
 	if resposta.Result().Header.Get("content-type") != esperado {
