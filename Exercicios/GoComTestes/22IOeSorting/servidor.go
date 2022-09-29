@@ -32,7 +32,7 @@ func NovoServidorJogador(armazenamento ArmazenamentoJogador) *ServidorJogador {
 
 	roteador := http.NewServeMux()
 	roteador.Handle("/liga", http.HandlerFunc(s.ManipulaLiga))
-	roteador.Handle("/jogadores/", http.HandlerFunc(s.manipulaJogadores))
+	roteador.Handle("/jogadores/", http.HandlerFunc(s.ManipulaJogadores))
 
 	s.Handler = roteador
 	return s
@@ -44,7 +44,7 @@ func (s *ServidorJogador) ManipulaLiga(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 }
 
-func (s *ServidorJogador) manipulaJogadores(w http.ResponseWriter, r *http.Request) {
+func (s *ServidorJogador) ManipulaJogadores(w http.ResponseWriter, r *http.Request) {
 	jogador := r.URL.Path[len("/jogadores/"):]
 
 	switch r.Method {
