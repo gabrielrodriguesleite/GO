@@ -31,16 +31,17 @@ func NovoServidorJogador(armazenamento ArmazenamentoJogador) *ServidorJogador {
 	s.armazenamento = armazenamento
 
 	roteador := http.NewServeMux()
-	roteador.Handle("/liga", http.HandlerFunc(s.manipulaLiga))
+	roteador.Handle("/liga", http.HandlerFunc(s.ManipulaLiga))
 	roteador.Handle("/jogadores/", http.HandlerFunc(s.manipulaJogadores))
 
 	s.Handler = roteador
 	return s
 }
 
-func (s *ServidorJogador) manipulaLiga(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("content-type", "application/json")
+func (s *ServidorJogador) ManipulaLiga(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(s.armazenamento.ObterLiga())
+	w.Header().Set("content-type", "application/json")
+	w.WriteHeader(http.StatusOK)
 }
 
 func (s *ServidorJogador) manipulaJogadores(w http.ResponseWriter, r *http.Request) {
