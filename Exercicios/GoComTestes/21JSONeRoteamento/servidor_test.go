@@ -63,6 +63,23 @@ import (
 // implementação simples da interface necessária(armazenamento) para só
 // depois criar uma implementação que dá suporte ao mecanismo preferido.]
 
+func TestGravaVitoriasEAsRetorna(t *testing.T) {
+	armazenamento := NovoArmazenamentoJogadorEmMemoria()
+	servidor := NovoServidorJogador(armazenamento)
+	jogador := "Leite"
+
+	servidor.ServeHTTP(httptest.NewRecorder(), novaRequisicaoRegistrarVitoriaPost(jogador))
+	servidor.ServeHTTP(httptest.NewRecorder(), novaRequisicaoRegistrarVitoriaPost(jogador))
+	servidor.ServeHTTP(httptest.NewRecorder(), novaRequisicaoRegistrarVitoriaPost(jogador))
+
+	t.Run("obter pontuação", func(t *testing.T) {
+		resposta := httptest.NewRecorder()
+		servidor.ServeHTTP(resposta, novaRequisicaoObterPontuacao(jogador))
+		verificaRespostaCodigoStatus(t, resposta.Code, http.StatusOK)
+		verificaCorpoRequisicao(t, resposta.Body.String(), "3")
+	})
+}
+
 func TestLiga(t *testing.T) {
 
 	t.Run("retorna a tabela da Liga como JSON", func(t *testing.T) {
