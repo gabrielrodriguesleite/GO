@@ -41,10 +41,6 @@ func (s *ServidorJogador) manipulaLiga(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(s.armazenamento.ObterLiga())
 }
 
-func (s *ServidorJogador) obterTabelaDaLiga() []Jogador {
-	return []Jogador{{"Leite", 20}}
-}
-
 func (s *ServidorJogador) manipulaJogadores(w http.ResponseWriter, r *http.Request) {
 	jogador := r.URL.Path[len("/jogadores/"):]
 
