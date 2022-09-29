@@ -10,6 +10,12 @@ import (
 	"testing"
 )
 
+// Desafio parte 3
+// armazenar os dados em arquivo JSON
+// retorno ordenado da api no endpoint liga
+
+// ==================================================================
+
 // Desafio parte 2
 // criar um novo endpoint chamado /liga que retorne uma lista contendo
 // todos os jogadores armazenados como um JSON.
