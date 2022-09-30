@@ -39,8 +39,8 @@ func NovoServidorJogador(armazenamento ArmazenamentoJogador) *ServidorJogador {
 }
 
 func (s *ServidorJogador) ManipulaLiga(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode(s.armazenamento.ObterLiga())
-	w.Header().Set("content-type", "application/json")
+	w.Header().Set("content-type", tipoDoConteudoJSON)     // Essa ordem
+	json.NewEncoder(w).Encode(s.armazenamento.ObterLiga()) // importa
 	w.WriteHeader(http.StatusOK)
 }
 
