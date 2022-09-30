@@ -13,3 +13,7 @@ func (s *SistemaDeArquivoDeArmazenamentoDoJogador) PegaLiga() []Jogador {
 	liga, _ := NovaLiga(s.bancoDeDados)
 	return liga
 }
+
+func (s *SistemaDeArquivoDeArmazenamentoDoJogador) (nome string) int {
+	return 0
+}
