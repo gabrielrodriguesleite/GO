@@ -22,4 +22,20 @@ func TestSistemaDeArquivoDeArmazenamentoDoJogador(t *testing.T) {
 
 		verificaLiga(t, recebido, esperado)
 	})
+
+	t.Run("pegar a pontuação do jogador", func(t *testing.T) {
+
+		bancoDeDados := strings.NewReader(`[
+			{"Nome": "Leite", "Vitorias": 20},
+			{"Nome": "Marcela", "Vitorias" : 25}
+		]`)
+
+		armazenamento := SistemaDeArquivoDeArmazenamentoDoJogador{bancoDeDados}
+		recebido := armazenamento.("Marcela")
+		esperado := 25
+
+		if recebido != esperado {
+			t.Errorf("recebido %d esperado %d", recebido, esperado)
+		}
+	})
 }
