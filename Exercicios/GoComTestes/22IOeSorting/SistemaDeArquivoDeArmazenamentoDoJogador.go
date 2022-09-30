@@ -5,7 +5,7 @@ import (
 )
 
 type SistemaDeArquivoDeArmazenamentoDoJogador struct {
-	bancoDeDados io.ReadSeeker
+	bancoDeDados io.ReadSeeker // https://golang.org/pkg/io/#ReadSeeker
 }
 
 func (s *SistemaDeArquivoDeArmazenamentoDoJogador) PegaLiga() []Jogador {
