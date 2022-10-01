@@ -31,7 +31,7 @@ func TestSistemaDeArquivoDeArmazenamentoDoJogador(t *testing.T) {
 		]`)
 
 		armazenamento := SistemaDeArquivoDeArmazenamentoDoJogador{bancoDeDados}
-		recebido := armazenamento.("Marcela")
+		recebido := armazenamento.PegaPontuacaoDoJogador("Marcela")
 		esperado := 25
 
 		if recebido != esperado {
