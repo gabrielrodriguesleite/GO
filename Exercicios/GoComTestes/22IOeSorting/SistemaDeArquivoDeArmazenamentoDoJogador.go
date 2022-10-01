@@ -14,6 +14,6 @@ func (s *SistemaDeArquivoDeArmazenamentoDoJogador) PegaLiga() []Jogador {
 	return liga
 }
 
-func (s *SistemaDeArquivoDeArmazenamentoDoJogador) (nome string) int {
+func (s *SistemaDeArquivoDeArmazenamentoDoJogador) PegaPontuacaoDoJogador(nome string) int {
 	return 0
 }
