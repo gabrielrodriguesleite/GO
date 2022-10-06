@@ -34,8 +34,13 @@ func TestSistemaDeArquivoDeArmazenamentoDoJogador(t *testing.T) {
 		recebido := armazenamento.PegaPontuacaoDoJogador("Marcela")
 		esperado := 25
 
-		if recebido != esperado {
-			t.Errorf("recebido %d esperado %d", recebido, esperado)
-		}
+		definePontuacaoIgual(t, recebido, esperado)
 	})
+}
+
+func definePontuacaoIgual(t *testing.T, recebido, esperado int) {
+	t.Helper()
+	if recebido != esperado {
+		t.Errorf("recebido %d esperado %d", recebido, esperado)
+	}
 }
