@@ -71,12 +71,14 @@ import (
 // implementação simples da interface necessária(armazenamento) para só
 // depois criar uma implementação que dá suporte ao mecanismo preferido.]
 
+// ==================== TESTES PARTE 3 ====================
+
 func TestArmazenamentoDeSistemaDeArquivos(t *testing.T) {
 	t.Run("liga de um leitor", func(t *testing.T) {
 		bancoDeDados, limpaBancoDeDados := criaArquivoTemporario(t, `[
-						{"Nome": "Leite", "Vitorias": 20},
-					{"Nome": "Marcela", "Vitorias" : 25}
-				]`)
+				{"Nome": "Leite", "Vitorias": 20},
+				{"Nome": "Marcela", "Vitorias" : 25}
+			]`)
 		defer limpaBancoDeDados()
 
 		armazenamento := SistemaDeArquivoDeArmazenamentoDoJogador{bancoDeDados: bancoDeDados}
@@ -91,6 +93,19 @@ func TestArmazenamentoDeSistemaDeArquivos(t *testing.T) {
 		// ler novamente
 		recebido = armazenamento.PegaLiga()
 		verificaLiga(t, recebido, esperado)
+	})
+
+	t.Run("retorna pontuação do jogador", func(t *testing.T) {
+		bancoDeDados, limpaBancoDeDados := criaArquivoTemporario(t, `[
+				{"Nome": "Leite", "Vitorias": 20},
+				{"Nome": "Marcela", "Vitorias" : 25}
+			]`)
+		defer limpaBancoDeDados()
+
+		armazenamento := SistemaDeArquivoDeArmazenamentoDoJogador{bancoDeDados: bancoDeDados}
+		recebido := armazenamento.PegaPontuacaoDoJogador("Leite")
+		esperado := 20
+		definePontuacaoIgual(t, recebido, esperado)
 	})
 }
 
