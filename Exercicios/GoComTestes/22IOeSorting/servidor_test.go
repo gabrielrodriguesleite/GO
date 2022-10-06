@@ -4,8 +4,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"reflect"
 	"testing"
 )
@@ -68,6 +70,29 @@ import (
 // Para ter um código funcionando rapidamente, o ideal é fazer uma
 // implementação simples da interface necessária(armazenamento) para só
 // depois criar uma implementação que dá suporte ao mecanismo preferido.]
+
+func TestArmazenamentoDeSistemaDeArquivos(t *testing.T) {
+	t.Run("liga de um leitor", func(t *testing.T) {
+		bancoDeDados, limpaBancoDeDados := criaArquivoTemporario(t, `[
+						{"Nome": "Leite", "Vitorias": 20},
+					{"Nome": "Marcela", "Vitorias" : 25}
+				]`)
+		defer limpaBancoDeDados()
+
+		armazenamento := SistemaDeArquivoDeArmazenamentoDoJogador{bancoDeDados: bancoDeDados}
+		recebido := armazenamento.PegaLiga()
+
+		esperado := []Jogador{
+			{"Leite", 20},
+			{"Marcela", 25},
+		}
+		verificaLiga(t, recebido, esperado)
+
+		// ler novamente
+		recebido = armazenamento.PegaLiga()
+		verificaLiga(t, recebido, esperado)
+	})
+}
 
 // ==================== TESTES PARTE 2 ====================
 func TestGravaVitoriasEAsRetorna(t *testing.T) {
@@ -302,4 +327,21 @@ func verificaTipoDoConteudo(t *testing.T, resposta *httptest.ResponseRecorder, e
 	if resposta.Result().Header.Get("content-type") != esperado {
 		t.Errorf("resposta não tinha o tipo de conteúdo de application/json, obtido %v", resposta.Result().Header)
 	}
+}
+
+func criaArquivoTemporario(t *testing.T, dadoInicial string) (io.ReadWriteSeeker, func()) {
+	t.Helper()
+	arquivotmp, err := ioutil.TempFile("", "db")
+	if err != nil {
+		t.Fatalf("não foi possível escrever o arquivo temporário %v", err)
+	}
+
+	arquivotmp.Write([]byte(dadoInicial))
+
+	removeArquivo := func() {
+		arquivotmp.Close()
+		os.Remove(arquivotmp.Name())
+	}
+
+	return arquivotmp, removeArquivo
 }
