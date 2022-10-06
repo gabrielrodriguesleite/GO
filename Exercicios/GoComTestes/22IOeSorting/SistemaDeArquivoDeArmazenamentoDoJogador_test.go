@@ -1,6 +1,8 @@
 package main
 
 import (
+	"io"
+	"io/ioutil"
 	"strings"
 	"testing"
 )
@@ -43,4 +45,21 @@ func definePontuacaoIgual(t *testing.T, recebido, esperado int) {
 	if recebido != esperado {
 		t.Errorf("recebido %d esperado %d", recebido, esperado)
 	}
+}
+
+func criaArquivoTemporario(t *testing.T, dadoInicial string) (io.ReadWriteSeeker, func()) {
+	t.Helper()
+	arquivotmp, err := ioutil.TempFile("", "db")
+	if err != nil {
+		t.Fatalf("não foi possível escrever o arquivo temporário %v", err)
+	}
+
+	arquivotmp.Write([]byte(dadoInicial))
+
+	removeArquivo := func() {
+		arquivotmp.Close()
+		os.remove(arquivotmp.Name())
+	}
+
+	return arquivotmp, removeArquivo
 }
