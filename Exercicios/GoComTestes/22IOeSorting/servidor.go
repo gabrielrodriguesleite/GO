@@ -11,7 +11,7 @@ const tipoDoConteudoJSON = "application/json"
 type ArmazenamentoJogador interface {
 	ObterPontuacaoJogador(nome string) int
 	GravarVitoria(nome string)
-	ObterLiga() []Jogador
+	ObterLiga() Liga
 }
 
 type Jogador struct {
