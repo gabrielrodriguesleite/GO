@@ -107,6 +107,22 @@ func TestArmazenamentoDeSistemaDeArquivos(t *testing.T) {
 		esperado := 20
 		definePontuacaoIgual(t, recebido, esperado)
 	})
+
+	t.Run("armazena vitórias de um jogador existente", func(t *testing.T) {
+		bancoDeDados, limpaBancoDeDados := criaArquivoTemporario(t, `[
+			{"Nome": "Leite", "Vitorias": 20},
+			{"Nome": "Marcela", "Vitorias" : 25}
+		]`)
+		defer limpaBancoDeDados()
+
+		armazenamento := SistemaDeArquivoDeArmazenamentoDoJogador{bancoDeDados}
+
+		armazenamento.SalvaVitoria("Leite")
+
+		recebido := armazenamento.PegaPontuacaoDoJogador("Leite")
+		esperado := 21
+		definePontuacaoIgual(t, recebido, esperado)
+	})
 }
 
 // ==================== TESTES PARTE 2 ====================
