@@ -10,7 +10,7 @@ type SistemaDeArquivoDeArmazenamentoDoJogador struct {
 	bancoDeDados io.ReadWriteSeeker
 }
 
-func (s *SistemaDeArquivoDeArmazenamentoDoJogador) PegaLiga() []Jogador {
+func (s *SistemaDeArquivoDeArmazenamentoDoJogador) PegaLiga() Liga {
 	s.bancoDeDados.Seek(0, 0)
 	liga, _ := NovaLiga(s.bancoDeDados)
 	return liga
