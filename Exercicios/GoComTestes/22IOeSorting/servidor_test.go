@@ -311,7 +311,7 @@ func verificaRespostaCodigoStatus(t *testing.T, recebido, esperado int) {
 type EsbocoArmazenamentoJogador struct {
 	pontuacoes        map[string]int
 	registrosVitorias []string
-	liga              []Jogador
+	liga              Liga
 }
 
 func (e *EsbocoArmazenamentoJogador) ObterPontuacaoJogador(nome string) int {
@@ -323,7 +323,7 @@ func (e *EsbocoArmazenamentoJogador) GravarVitoria(nome string) {
 	e.registrosVitorias = append(e.registrosVitorias, nome)
 }
 
-func (e *EsbocoArmazenamentoJogador) ObterLiga() []Jogador {
+func (e *EsbocoArmazenamentoJogador) ObterLiga() Liga {
 	return e.liga
 }
 
