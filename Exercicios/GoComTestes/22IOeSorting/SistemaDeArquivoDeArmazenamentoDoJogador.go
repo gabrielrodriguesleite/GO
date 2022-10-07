@@ -32,7 +32,7 @@ func (s *SistemaDeArquivoDeArmazenamentoDoJogador) SalvaVitoria(nome string) {
 
 	for i, jogador := range liga {
 		if jogador.Nome == nome {
-			liga[i].Vitorias++
+			liga[i].Vitorias++ // pegar o valor por referência (e não pela cópia do elemento "jogador")
 		}
 	}
 	s.bancoDeDados.Seek(0, 0)
