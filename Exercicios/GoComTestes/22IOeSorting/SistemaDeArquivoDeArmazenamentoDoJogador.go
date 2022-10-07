@@ -17,14 +17,11 @@ func (s *SistemaDeArquivoDeArmazenamentoDoJogador) PegaLiga() []Jogador {
 }
 
 func (s *SistemaDeArquivoDeArmazenamentoDoJogador) PegaPontuacaoDoJogador(nome string) int {
-	var vitorias int
-	for _, jogador := range s.PegaLiga() {
-		if jogador.Nome == nome {
-			vitorias = jogador.Vitorias
-			break
-		}
+	jogador := s.PegaLiga().Buscar(nome)
+	if jogador != nil {
+		return jogador.Vitorias
 	}
-	return vitorias
+	return 0
 }
 
 func (s *SistemaDeArquivoDeArmazenamentoDoJogador) SalvaVitoria(nome string) {
