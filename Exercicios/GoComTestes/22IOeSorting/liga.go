@@ -6,6 +6,8 @@ import (
 	"io"
 )
 
+type Liga []Jogador
+
 func NovaLiga(rdr io.Reader) ([]Jogador, error) {
 	var liga []Jogador
 	err := json.NewDecoder(rdr).Decode(&liga)
