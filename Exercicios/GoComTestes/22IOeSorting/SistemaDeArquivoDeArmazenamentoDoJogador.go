@@ -25,3 +25,7 @@ func (s *SistemaDeArquivoDeArmazenamentoDoJogador) PegaPontuacaoDoJogador(nome s
 	}
 	return vitorias
 }
+
+func (f *SistemaDeArquivoDeArmazenamentoDoJogador) SalvaVitoria(nome string) {
+
+}
