@@ -26,11 +26,10 @@ func (s *SistemaDeArquivoDeArmazenamentoDoJogador) PegaPontuacaoDoJogador(nome s
 
 func (s *SistemaDeArquivoDeArmazenamentoDoJogador) SalvaVitoria(nome string) {
 	liga := s.PegaLiga()
+	jogador := liga.Buscar(nome)
 
-	for i, jogador := range liga {
-		if jogador.Nome == nome {
-			liga[i].Vitorias++ // pegar o valor por referência (e não pela cópia do elemento "jogador")
-		}
+	if jogador != nil {
+		jogador.Vitorias++
 	}
 	s.bancoDeDados.Seek(0, 0)
 	json.NewEncoder(s.bancoDeDados).Encode(liga)
