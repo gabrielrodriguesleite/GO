@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"io"
 )
 
@@ -26,6 +27,14 @@ func (s *SistemaDeArquivoDeArmazenamentoDoJogador) PegaPontuacaoDoJogador(nome s
 	return vitorias
 }
 
-func (f *SistemaDeArquivoDeArmazenamentoDoJogador) SalvaVitoria(nome string) {
+func (s *SistemaDeArquivoDeArmazenamentoDoJogador) SalvaVitoria(nome string) {
+	liga := s.PegaLiga()
 
+	for i, jogador := range liga {
+		if jogador.Nome == nome {
+			liga[i].Vitorias++
+		}
+	}
+	s.bancoDeDados.Seek(0, 0)
+	json.NewEncoder(s.bancoDeDados).Encode(liga)
 }
