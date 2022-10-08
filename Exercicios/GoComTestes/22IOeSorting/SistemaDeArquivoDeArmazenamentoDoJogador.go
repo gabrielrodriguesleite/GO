@@ -30,6 +30,8 @@ func (s *SistemaDeArquivoDeArmazenamentoDoJogador) SalvaVitoria(nome string) {
 
 	if jogador != nil {
 		jogador.Vitorias++
+	} else {
+		liga = append(liga, Jogador{nome, 1})
 	}
 	s.bancoDeDados.Seek(0, 0)
 	json.NewEncoder(s.bancoDeDados).Encode(liga)
