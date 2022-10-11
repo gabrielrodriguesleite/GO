@@ -8,7 +8,7 @@ type ArmazenamentoJogadorEmMemoria struct {
 	armazenamento map[string]int
 }
 
-func (a *ArmazenamentoJogadorEmMemoria) ObterPontuacaoJogador(nome string) int {
+func (a *ArmazenamentoJogadorEmMemoria) ObterPontuacaoDoJogador(nome string) int {
 	return a.armazenamento[nome]
 }
 
