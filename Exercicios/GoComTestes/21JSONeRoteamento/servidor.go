@@ -7,7 +7,7 @@ import (
 )
 
 type ArmazenamentoJogador interface {
-	ObterPontuacaoJogador(nome string) int
+	ObterPontuacaoDoJogador(nome string) int
 	GravarVitoria(nome string)
 	ObterLiga() []Jogador
 }
@@ -54,7 +54,7 @@ func (s *ServidorJogador) manipulaJogadores(w http.ResponseWriter, r *http.Reque
 }
 
 func (s *ServidorJogador) mostrarPontuacao(w http.ResponseWriter, jogador string) {
-	pontuacao := s.armazenamento.ObterPontuacaoJogador(jogador)
+	pontuacao := s.armazenamento.ObterPontuacaoDoJogador(jogador)
 
 	if pontuacao == 0 {
 		w.WriteHeader(http.StatusNotFound)
