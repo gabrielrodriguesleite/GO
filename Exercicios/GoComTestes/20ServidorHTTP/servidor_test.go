@@ -171,7 +171,7 @@ type EsbocoArmazenamentoJogador struct {
 	registrosVitorias []string
 }
 
-func (e *EsbocoArmazenamentoJogador) ObterPontuacaoJogador(nome string) int {
+func (e *EsbocoArmazenamentoJogador) ObterPontuacaoDoJogador(nome string) int {
 	pontuacao := e.pontuacoes[nome]
 	return pontuacao
 }
