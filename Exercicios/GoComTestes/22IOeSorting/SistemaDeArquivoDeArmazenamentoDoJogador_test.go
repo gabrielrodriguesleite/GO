@@ -13,7 +13,7 @@ import (
 // 		]`)
 
 // 		armazenamento := SistemaDeArquivoDeArmazenamentoDoJogador{bancoDeDados}
-// 		recebido := armazenamento.PegaLiga()
+// 		recebido := armazenamento.ObterLiga()
 // 		esperado := []Jogador{
 // 			{"Leite", 20},
 // 			{"Marcela", 25},
@@ -30,7 +30,7 @@ import (
 // 		]`)
 
 // 		armazenamento := SistemaDeArquivoDeArmazenamentoDoJogador{bancoDeDados}
-// 		recebido := armazenamento.PegaPontuacaoDoJogador("Marcela")
+// 		recebido := armazenamento.ObterPontuacaoDoJogador("Marcela")
 // 		esperado := 25
 
 // 		definePontuacaoIgual(t, recebido, esperado)
