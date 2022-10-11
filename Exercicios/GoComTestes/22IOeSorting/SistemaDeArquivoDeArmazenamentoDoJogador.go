@@ -8,6 +8,7 @@ import (
 type SistemaDeArquivoDeArmazenamentoDoJogador struct {
 	// bancoDeDados io.ReadSeeker // https://golang.org/pkg/io/#ReadSeeker
 	bancoDeDados io.ReadWriteSeeker
+	liga         Liga
 }
 
 func (s *SistemaDeArquivoDeArmazenamentoDoJogador) ObterLiga() Liga {
@@ -35,4 +36,13 @@ func (s *SistemaDeArquivoDeArmazenamentoDoJogador) GravarVitoria(nome string) {
 	}
 	s.bancoDeDados.Seek(0, 0)
 	json.NewEncoder(s.bancoDeDados).Encode(liga)
+}
+
+func NovoSistemaDeArquivoDeArmazenamentoDoJogador(bancoDeDados io.ReadWriteSeeker) *SistemaDeArquivoDeArmazenamentoDoJogador {
+	bancoDeDados.Seek(0, 0)
+	liga, _ := NovaLiga(bancoDeDados)
+	return &SistemaDeArquivoDeArmazenamentoDoJogador{
+		bancoDeDados: bancoDeDados,
+		liga:         liga,
+	}
 }
