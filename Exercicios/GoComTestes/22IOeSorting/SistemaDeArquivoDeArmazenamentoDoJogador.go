@@ -10,22 +10,22 @@ type SistemaDeArquivoDeArmazenamentoDoJogador struct {
 	bancoDeDados io.ReadWriteSeeker
 }
 
-func (s *SistemaDeArquivoDeArmazenamentoDoJogador) PegaLiga() Liga {
+func (s *SistemaDeArquivoDeArmazenamentoDoJogador) ObterLiga() Liga {
 	s.bancoDeDados.Seek(0, 0)
 	liga, _ := NovaLiga(s.bancoDeDados)
 	return liga
 }
 
-func (s *SistemaDeArquivoDeArmazenamentoDoJogador) PegaPontuacaoDoJogador(nome string) int {
-	jogador := s.PegaLiga().Buscar(nome)
+func (s *SistemaDeArquivoDeArmazenamentoDoJogador) ObterPontuacaoDoJogador(nome string) int {
+	jogador := s.ObterLiga().Buscar(nome)
 	if jogador != nil {
 		return jogador.Vitorias
 	}
 	return 0
 }
 
-func (s *SistemaDeArquivoDeArmazenamentoDoJogador) SalvaVitoria(nome string) {
-	liga := s.PegaLiga()
+func (s *SistemaDeArquivoDeArmazenamentoDoJogador) GravarVitoria(nome string) {
+	liga := s.ObterLiga()
 	jogador := liga.Buscar(nome)
 
 	if jogador != nil {
