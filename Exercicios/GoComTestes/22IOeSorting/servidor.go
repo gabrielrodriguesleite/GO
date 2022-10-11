@@ -9,7 +9,7 @@ import (
 const tipoDoConteudoJSON = "application/json"
 
 type ArmazenamentoJogador interface {
-	ObterPontuacaoJogador(nome string) int
+	ObterPontuacaoDoJogador(nome string) int
 	GravarVitoria(nome string)
 	ObterLiga() Liga
 }
@@ -57,7 +57,7 @@ func (s *ServidorJogador) ManipulaJogadores(w http.ResponseWriter, r *http.Reque
 }
 
 func (s *ServidorJogador) mostrarPontuacao(w http.ResponseWriter, jogador string) {
-	pontuacao := s.armazenamento.ObterPontuacaoJogador(jogador)
+	pontuacao := s.armazenamento.ObterPontuacaoDoJogador(jogador)
 
 	if pontuacao == 0 {
 		w.WriteHeader(http.StatusNotFound)
