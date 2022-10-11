@@ -8,10 +8,10 @@ import (
 // func ServidorJogador(w http.ResponseWriter, r *http.Request) {
 // 	jogador := r.URL.Path[len("/jogadores/"):] // não é recomendável
 // 	// mas serve por enquanto, para pegar o caminho da requisição.
-// 	fmt.Fprint(w, ObterPontuacaoJogador(jogador))
+// 	fmt.Fprint(w, ObterPontuacaoDoJogador(jogador))
 // }
 
-// func ObterPontuacaoJogador(nome string) string {
+// func ObterPontuacaoDoJogador(nome string) string {
 // 	if nome == "Leite" {
 // 		return "20"
 // 	}
@@ -24,7 +24,7 @@ import (
 // }
 
 type ArmazenamentoJogador interface {
-	ObterPontuacaoJogador(nome string) int
+	ObterPontuacaoDoJogador(nome string) int
 	RegistrarVitoria(nome string)
 }
 
@@ -45,7 +45,7 @@ func (s *ServidorJogador) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *ServidorJogador) mostrarPontuacao(w http.ResponseWriter, jogador string) {
-	pontuacao := s.armazenamento.ObterPontuacaoJogador(jogador)
+	pontuacao := s.armazenamento.ObterPontuacaoDoJogador(jogador)
 
 	if pontuacao == 0 {
 		w.WriteHeader(http.StatusNotFound)
