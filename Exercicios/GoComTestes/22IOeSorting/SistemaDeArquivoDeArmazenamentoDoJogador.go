@@ -12,13 +12,11 @@ type SistemaDeArquivoDeArmazenamentoDoJogador struct {
 }
 
 func (s *SistemaDeArquivoDeArmazenamentoDoJogador) ObterLiga() Liga {
-	s.bancoDeDados.Seek(0, 0)
-	liga, _ := NovaLiga(s.bancoDeDados)
-	return liga
+	return s.liga
 }
 
 func (s *SistemaDeArquivoDeArmazenamentoDoJogador) ObterPontuacaoDoJogador(nome string) int {
-	jogador := s.ObterLiga().Buscar(nome)
+	jogador := s.liga.Buscar(nome)
 	if jogador != nil {
 		return jogador.Vitorias
 	}
@@ -26,16 +24,15 @@ func (s *SistemaDeArquivoDeArmazenamentoDoJogador) ObterPontuacaoDoJogador(nome 
 }
 
 func (s *SistemaDeArquivoDeArmazenamentoDoJogador) GravarVitoria(nome string) {
-	liga := s.ObterLiga()
-	jogador := liga.Buscar(nome)
+	jogador := s.liga.Buscar(nome)
 
 	if jogador != nil {
 		jogador.Vitorias++
 	} else {
-		liga = append(liga, Jogador{nome, 1})
+		s.liga = append(s.liga, Jogador{nome, 1})
 	}
 	s.bancoDeDados.Seek(0, 0)
-	json.NewEncoder(s.bancoDeDados).Encode(liga)
+	json.NewEncoder(s.bancoDeDados).Encode(s.liga)
 }
 
 func NovoSistemaDeArquivoDeArmazenamentoDoJogador(bancoDeDados io.ReadWriteSeeker) *SistemaDeArquivoDeArmazenamentoDoJogador {
