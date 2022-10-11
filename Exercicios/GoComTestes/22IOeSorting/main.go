@@ -17,7 +17,7 @@ func main() {
 		log.Fatalf("problema abrindo %s %v", dbFileName, err)
 	}
 
-	armazenamento := &SistemaDeArquivoDeArmazenamentoDoJogador{db}
+	armazenamento := NovoSistemaDeArquivoDeArmazenamentoDoJogador(db)
 	log.Println("Escutando na porta 5000")
 	servidor := NovoServidorJogador(armazenamento)
 
@@ -31,4 +31,4 @@ func main() {
 // curl http://localhost:5000/jogadores/Leite
 // deve retornar 1
 
-// https://larien.gitbook.io/aprenda-go-com-testes/criando-uma-aplicacao/io#refatore
+// https://larien.gitbook.io/aprenda-go-com-testes/criando-uma-aplicacao/io#escreva-codigo-suficiente-para-fazer-passar-1
