@@ -82,7 +82,7 @@ func TestArmazenamentoDeSistemaDeArquivos(t *testing.T) {
 		defer limpaBancoDeDados()
 
 		armazenamento := SistemaDeArquivoDeArmazenamentoDoJogador{bancoDeDados: bancoDeDados}
-		recebido := armazenamento.PegaLiga()
+		recebido := armazenamento.ObterLiga()
 
 		esperado := []Jogador{
 			{"Leite", 20},
@@ -91,7 +91,7 @@ func TestArmazenamentoDeSistemaDeArquivos(t *testing.T) {
 		verificaLiga(t, recebido, esperado)
 
 		// ler novamente
-		recebido = armazenamento.PegaLiga()
+		recebido = armazenamento.ObterLiga()
 		verificaLiga(t, recebido, esperado)
 	})
 
@@ -103,7 +103,7 @@ func TestArmazenamentoDeSistemaDeArquivos(t *testing.T) {
 		defer limpaBancoDeDados()
 
 		armazenamento := SistemaDeArquivoDeArmazenamentoDoJogador{bancoDeDados: bancoDeDados}
-		recebido := armazenamento.PegaPontuacaoDoJogador("Leite")
+		recebido := armazenamento.ObterPontuacaoDoJogador("Leite")
 		esperado := 20
 		definePontuacaoIgual(t, recebido, esperado)
 	})
@@ -117,9 +117,9 @@ func TestArmazenamentoDeSistemaDeArquivos(t *testing.T) {
 
 		armazenamento := SistemaDeArquivoDeArmazenamentoDoJogador{bancoDeDados}
 
-		armazenamento.SalvaVitoria("Leite")
+		armazenamento.GravarVitoria("Leite")
 
-		recebido := armazenamento.PegaPontuacaoDoJogador("Leite")
+		recebido := armazenamento.ObterPontuacaoDoJogador("Leite")
 		esperado := 21
 		definePontuacaoIgual(t, recebido, esperado)
 	})
@@ -133,8 +133,8 @@ func TestArmazenamentoDeSistemaDeArquivos(t *testing.T) {
 
 		armazenamento := SistemaDeArquivoDeArmazenamentoDoJogador{bancoDeDados}
 
-		armazenamento.SalvaVitoria("Pedro")
-		recebido := armazenamento.PegaPontuacaoDoJogador("Pedro")
+		armazenamento.GravarVitoria("Pedro")
+		recebido := armazenamento.ObterPontuacaoDoJogador("Pedro")
 		esperado := 1
 		definePontuacaoIgual(t, recebido, esperado)
 	})
@@ -329,7 +329,7 @@ type EsbocoArmazenamentoJogador struct {
 	liga              Liga
 }
 
-func (e *EsbocoArmazenamentoJogador) ObterPontuacaoJogador(nome string) int {
+func (e *EsbocoArmazenamentoJogador) ObterPontuacaoDoJogador(nome string) int {
 	pontuacao := e.pontuacoes[nome]
 	return pontuacao
 }
