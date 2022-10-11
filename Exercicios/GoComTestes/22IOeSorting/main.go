@@ -10,6 +10,9 @@ const dbFileName = "game.db.json"
 
 func main() {
 	db, err := os.OpenFile(dbFileName, os.O_RDWR|os.O_CREATE, 0666)
+	// o_RDWR = abrir para leitura
+	// o_CREATE = criar se não existir
+	// 0666 permissões do arquivo vide: https://superuser.com/questions/295591/what-is-the-meaning-of-chmod-666
 	if err != nil {
 		log.Fatalf("problema abrindo %s %v", dbFileName, err)
 	}
