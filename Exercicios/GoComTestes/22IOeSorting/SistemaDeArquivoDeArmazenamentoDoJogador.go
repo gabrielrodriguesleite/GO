@@ -7,7 +7,7 @@ import (
 
 type SistemaDeArquivoDeArmazenamentoDoJogador struct {
 	// bancoDeDados io.ReadSeeker // https://golang.org/pkg/io/#ReadSeeker
-	bancoDeDados io.Writer
+	bancoDeDados *json.Encoder
 	liga         Liga
 }
 
