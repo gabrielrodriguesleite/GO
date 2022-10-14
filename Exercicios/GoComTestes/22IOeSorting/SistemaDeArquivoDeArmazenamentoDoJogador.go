@@ -32,7 +32,7 @@ func (s *SistemaDeArquivoDeArmazenamentoDoJogador) GravarVitoria(nome string) {
 		s.liga = append(s.liga, Jogador{nome, 1})
 	}
 	// s.bancoDeDados.Seek(0, 0)
-	json.NewEncoder(s.bancoDeDados).Encode(s.liga)
+	s.bancoDeDados.Encode(s.liga)
 }
 
 func NovoSistemaDeArquivoDeArmazenamentoDoJogador(arquivo *os.File) *SistemaDeArquivoDeArmazenamentoDoJogador {
