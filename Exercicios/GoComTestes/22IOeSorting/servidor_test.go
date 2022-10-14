@@ -73,6 +73,25 @@ import (
 
 // ==================== TESTES PARTE 3 ====================
 
+func TestFita_Escrita(t *testing.T) {
+	arquivo, limpa := criaArquivoTemporario(t, "12345")
+	defer limpa()
+
+	fita := &fita{arquivo}
+	fita.Write([]byte("abc"))
+
+	arquivo.Seek(0, 0)
+	novoConteudoDoArquivo, _ := ioutil.ReadAll(arquivo)
+
+	recebido := string(novoConteudoDoArquivo)
+	esperado := "abc"
+
+	if recebido != esperado {
+		t.Errorf("recebido '%s' esperado '%s'", recebido, esperado)
+	}
+
+}
+
 func TestArmazenamentoDeSistemaDeArquivos(t *testing.T) {
 	t.Run("liga de um leitor", func(t *testing.T) {
 		bancoDeDados, limpaBancoDeDados := criaArquivoTemporario(t, `[
