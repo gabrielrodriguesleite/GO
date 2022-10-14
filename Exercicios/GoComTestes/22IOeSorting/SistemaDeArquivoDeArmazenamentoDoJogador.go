@@ -2,7 +2,7 @@ package main
 
 import (
 	"encoding/json"
-	"io"
+	"os"
 )
 
 type SistemaDeArquivoDeArmazenamentoDoJogador struct {
@@ -35,11 +35,11 @@ func (s *SistemaDeArquivoDeArmazenamentoDoJogador) GravarVitoria(nome string) {
 	json.NewEncoder(s.bancoDeDados).Encode(s.liga)
 }
 
-func NovoSistemaDeArquivoDeArmazenamentoDoJogador(bancoDeDados io.ReadWriteSeeker) *SistemaDeArquivoDeArmazenamentoDoJogador {
-	bancoDeDados.Seek(0, 0)
-	liga, _ := NovaLiga(bancoDeDados)
+func NovoSistemaDeArquivoDeArmazenamentoDoJogador(arquivo *os.File) *SistemaDeArquivoDeArmazenamentoDoJogador {
+	arquivo.Seek(0, 0)
+	liga, _ := NovaLiga(arquivo)
 	return &SistemaDeArquivoDeArmazenamentoDoJogador{
-		bancoDeDados: &fita{bancoDeDados},
+		bancoDeDados: json.NewEncoder(&fita{arquivo}),
 		liga:         liga,
 	}
 }
