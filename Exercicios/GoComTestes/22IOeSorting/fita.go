@@ -1,8 +1,14 @@
 package main
 
 import (
+	"io"
 	"os"
 )
+
+type ReadWriteSeekTruncate interface {
+	io.ReadWriteSeeker
+	Truncate(size int64) error
+}
 
 type fita struct {
 	arquivo *os.File
