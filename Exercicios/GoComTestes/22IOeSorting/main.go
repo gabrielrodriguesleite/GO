@@ -17,7 +17,11 @@ func main() {
 		log.Fatalf("problema abrindo %s %v", dbFileName, err)
 	}
 
-	armazenamento := NovoSistemaDeArquivoDeArmazenamentoDoJogador(db)
+	armazenamento, err := NovoSistemaDeArquivoDeArmazenamentoDoJogador(db)
+	if err != nil {
+		log.Fatalf("problema criando o sistema de arquvio do armazenamento do jogador, %v ", err)
+	}
+
 	log.Println("Escutando na porta 5000")
 	servidor := NovoServidorJogador(armazenamento)
 
@@ -30,5 +34,3 @@ func main() {
 // curl -X POST http://localhost:5000/jogadores/Leite
 // curl http://localhost:5000/jogadores/Leite
 // deve retornar 1
-
-// https://larien.gitbook.io/aprenda-go-com-testes/criando-uma-aplicacao/io#escreva-codigo-suficiente-para-fazer-passar-1
