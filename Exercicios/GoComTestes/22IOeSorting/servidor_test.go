@@ -372,3 +372,10 @@ func verificaTipoDoConteudo(t *testing.T, resposta *httptest.ResponseRecorder, e
 		t.Errorf("resposta não tinha o tipo de conteúdo de application/json, obtido %v", resposta.Result().Header)
 	}
 }
+
+func defineSemErro(t *testing.T, err error) {
+	t.Helper()
+	if err != nil {
+		t.Fatalf("não esperava um erro mas obteve um: %v", err)
+	}
+}
