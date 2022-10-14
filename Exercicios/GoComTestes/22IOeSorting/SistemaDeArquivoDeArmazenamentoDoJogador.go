@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 )
 
@@ -35,11 +36,15 @@ func (s *SistemaDeArquivoDeArmazenamentoDoJogador) GravarVitoria(nome string) {
 	s.bancoDeDados.Encode(s.liga)
 }
 
-func NovoSistemaDeArquivoDeArmazenamentoDoJogador(arquivo *os.File) *SistemaDeArquivoDeArmazenamentoDoJogador {
+func NovoSistemaDeArquivoDeArmazenamentoDoJogador(arquivo *os.File) (*SistemaDeArquivoDeArmazenamentoDoJogador, error) {
 	arquivo.Seek(0, 0)
-	liga, _ := NovaLiga(arquivo)
+	liga, err := NovaLiga(arquivo)
+	if err != nil {
+		return nil, fmt.Errorf("problema carregando o armazenamento do jogador de arquivo %s, %v", arquivo.Name(), err)
+	}
+
 	return &SistemaDeArquivoDeArmazenamentoDoJogador{
 		bancoDeDados: json.NewEncoder(&fita{arquivo}),
 		liga:         liga,
-	}
+	}, nil
 }
