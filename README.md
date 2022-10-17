@@ -254,3 +254,9 @@ Exercicios/GoComTestes
 https://larien.gitbook.io/aprenda-go-com-testes/
 
 ---
+
+## Dicas úteis:
+Para quem está acostumado a desenvolver API com node utilizando nodemon para auxiliar nos carregamentos automatizados aí vai a dica:
+1. Instale nodemon no sistema (dependência: npm): `npm i -g nodemon`
+2. Rode a aplicação go utilizando nodemon com `nodemon --exec "go run main.go" --signal SIGTERM`
+3. Bônus: para facilitar é possível usar tanto _Makefile_ quanto _package.json script_ para o passo 2.
