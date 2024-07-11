@@ -79,7 +79,9 @@ func TestArmazenamentoDeSistemaDeArquivos(t *testing.T) {
 			]`)
 		defer limpaBancoDeDados()
 
-		armazenamento := NovoSistemaDeArquivoDeArmazenamentoDoJogador(bancoDeDados)
+		armazenamento, err := NovoSistemaDeArquivoDeArmazenamentoDoJogador(bancoDeDados)
+		defineSemErro(t, err)
+
 		recebido := armazenamento.ObterLiga()
 
 		esperado := []Jogador{
@@ -100,7 +102,9 @@ func TestArmazenamentoDeSistemaDeArquivos(t *testing.T) {
 			]`)
 		defer limpaBancoDeDados()
 
-		armazenamento := NovoSistemaDeArquivoDeArmazenamentoDoJogador(bancoDeDados)
+		armazenamento, err := NovoSistemaDeArquivoDeArmazenamentoDoJogador(bancoDeDados)
+		defineSemErro(t, err)
+
 		recebido := armazenamento.ObterPontuacaoDoJogador("Leite")
 		esperado := 20
 		definePontuacaoIgual(t, recebido, esperado)
@@ -113,7 +117,8 @@ func TestArmazenamentoDeSistemaDeArquivos(t *testing.T) {
 		]`)
 		defer limpaBancoDeDados()
 
-		armazenamento := NovoSistemaDeArquivoDeArmazenamentoDoJogador(bancoDeDados)
+		armazenamento, err := NovoSistemaDeArquivoDeArmazenamentoDoJogador(bancoDeDados)
+		defineSemErro(t, err)
 
 		armazenamento.GravarVitoria("Leite")
 
@@ -129,7 +134,8 @@ func TestArmazenamentoDeSistemaDeArquivos(t *testing.T) {
 		]`)
 		defer limpaBancoDeDados()
 
-		armazenamento := NovoSistemaDeArquivoDeArmazenamentoDoJogador(bancoDeDados)
+		armazenamento, err := NovoSistemaDeArquivoDeArmazenamentoDoJogador(bancoDeDados)
+		defineSemErro(t, err)
 
 		armazenamento.GravarVitoria("Pedro")
 		recebido := armazenamento.ObterPontuacaoDoJogador("Pedro")
