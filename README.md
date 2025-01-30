@@ -60,6 +60,42 @@ O comando `go run helloworld.go` irá executar o arquivo.
 
 Deve exibir `Hello World` na saída padrão.
 
+### 🎁 BÔNUS - web server rodando no docker
+
+`helloweb.go`
+```go
+package main
+
+import (
+  "fmt"
+  "net/http"
+  "time"
+)
+
+func greet(w http.ResponseWriter, r *http.Request) {
+  fmt.Fprintf(w, "Hello World! %s", time.Now())
+}
+
+func main() {
+  http.HandleFunc("/", greet)
+  http.ListenAndServe(":8080", nil)
+}
+```
+#### 🐋 Docker
+
+```sh
+docker run --volume $(pwd):/go -it --rm -p 8080:8080 --name golang-dev docker.io/golang:1.23
+
+go run helloweb.go
+```
+
+#### 🛜 Curl
+
+Em outro terminal.
+
+```sh
+curl http://localhost:8080
+```
 ---
 ## Compilando com build
 
