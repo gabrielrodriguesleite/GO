@@ -255,6 +255,20 @@ https://larien.gitbook.io/aprenda-go-com-testes/
 
 ---
 
+## Rodando testes em go
+
+```sh
+go test ./...                   # Executa todos os testes de forma recursiva (todos os subdiretórios)
+go test -count=1 ./...          # Desabilita o cache do teste e indica que rode 1 vez
+go test -v -count=10 ./...      # Roda 10 vezes de forma verbosa (mostra informações úteis)
+go test -v -count=1 -race ./... # Teste condições de "data race", opção também disponível ao executar a aplicação `go run race .`
+```
+
+###### Referências
+[Dicas rodando testes em Golang](https://www.youtube.com/watch?v=7pu7zXXYmCo)
+
+---
+
 ## Dicas úteis:
 Para quem está acostumado a desenvolver API com node utilizando nodemon para auxiliar nos carregamentos automatizados aí vai a dica:
 1. Instale nodemon no sistema (dependência: npm): `npm i -g nodemon`
