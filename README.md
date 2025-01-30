@@ -38,12 +38,15 @@ A versão instalada deve aparecer ex:
 O comando `go env` mostra as variaveis de ambiente definidas.
 
 ###### Referências
+
 https://go.dev/doc/install
 
 ---
+
 ## Hello World em Go
 
-~/helloworld.go
+`helloworld.go`
+
 ```go
 package main // define o escopo da aplicação ajudando na separação de responsabilidade
 import "fmt" // a biblioteca padrão que trás diversas facilidades
@@ -63,6 +66,7 @@ Deve exibir `Hello World` na saída padrão.
 ### 🎁 BÔNUS - web server rodando no docker
 
 `helloweb.go`
+
 ```go
 package main
 
@@ -80,7 +84,9 @@ func main() {
   http.HandleFunc("/", greet)
   http.ListenAndServe(":8080", nil)
 }
+
 ```
+
 #### 🐋 Docker
 
 ```sh
@@ -96,7 +102,9 @@ Em outro terminal.
 ```sh
 curl http://localhost:8080
 ```
+
 ---
+
 ## Compilando com build
 
 Para compilarmos o pacote utilizamos `go build helloworld.go`
